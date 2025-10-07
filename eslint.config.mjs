@@ -42,8 +42,8 @@ export default defineConfig([
       'unused-imports': unusedImports,
     },
     rules: {
-      'max-params': ['error', 3],
-      'max-lines-per-function': ['error', 70],
+      'max-params': ['error', 10],
+      'max-lines-per-function': 'off',
       'tailwindcss/classnames-order': [
         'warn',
         {
@@ -55,13 +55,8 @@ export default defineConfig([
       'react/no-inline-styles': 'off',
       'react/destructuring-assignment': 'off',
       'react/require-default-props': 'off',
-      'unicorn/filename-case': [
-        'error',
-        {
-          case: 'kebabCase',
-          ignore: ['/android', '/ios'],
-        },
-      ],
+      'unicorn/filename-case': 'off',
+
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
       'unused-imports/no-unused-imports': 'error',

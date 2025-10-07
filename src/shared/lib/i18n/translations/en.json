@@ -1,0 +1,286 @@
+{
+  "common": {
+    "days": "days",
+    "streak": "Streak",
+    "heart": "Heart",
+    "credit": "Credit",
+    "create": "Create",
+    "leaderboard": "Leaderboard",
+    "learning_path": "Learning Path",
+    "lb": "LB",
+    "best_position": "Best",
+    "mission": "Missions",
+    "star": "Star",
+    "complete": "Complete",
+    "level": "Level",
+    "lesson": "Lessons",
+    "exp": "XP",
+    "badge": "Badges",
+    "inprogress": "In Progress",
+    "locked": "Locked",
+    "comment": "Comment",
+    "submit": "Submit"
+  },
+  "sorted": {
+    "monthly": "Monthly",
+    "weekly": "Weekly",
+    "all": "All time"
+  },
+  "entity": {
+    "topic": "Topic"
+  },
+  "button": {
+    "save": "Save",
+    "learning": "Start Learning"
+  },
+  "form": {
+    "error": {
+      "too_small": "Title must be between 1 to 10 characters",
+      "required": "This field is required",
+      "date": "Invalid date format",
+      "email": "Invalid email format"
+    }
+  },
+  "onboarding": {
+    "message": "Welcome to obytes app site"
+  },
+  "search": {
+    "heading": {
+      "recent_search": "Recent Searches",
+      "recent_search_not_found": "Nothing here!"
+    },
+    "result": "No results found for"
+  },
+  "noti": {
+    "info": {
+      "title": "Reminder"
+    },
+    "success": {
+      "title": "Successfully updated",
+      "update": "Changes saved"
+    },
+    "error": {
+      "title": "Something went wrong",
+      "network": "Cannot connect to the server. Please check your network connection.",
+      "empty": "Sorry! No data found"
+    }
+  },
+  "post": {
+    "like": "Like",
+    "unlike": "Unlike",
+    "credit": "Give credit",
+    "uncredit": "Remove credit",
+    "comment": "Comment"
+  },
+  "comment": {
+    "posted": "Comment posted"
+  },
+  "profile": {
+    "title": "Profile",
+    "heading": {
+      "general": "General",
+      "account": "Account",
+      "link": "Links",
+      "utility": "Utilities",
+      "heatmap": "Heatmap {{year}}"
+    },
+    "menu": {
+      "setting": "Setting",
+      "profile": "Personal Info",
+      "performance": "Performance",
+      "help": "Help",
+      "logout": "Log out",
+      "language": "Language",
+      "term": "Terms",
+      "privacy": "Privacy",
+      "reset": "Clear Cache",
+      "rating": "App rating",
+      "theme": "Theme"
+    },
+    "form": {
+      "name": "Fullname",
+      "email": "Email",
+      "verified": "Verified",
+      "dob": "DOB"
+    },
+    "help": {
+      "title": "Help Center",
+      "stats": {
+        "general": "General",
+        "account": "Account",
+        "service": "Service"
+      },
+      "fqa": {
+        "title": "FAQ",
+        "Mahtutor": "What is Mahtutor?",
+        "start": "How can i start lession?",
+        "earn": "How can i earn start?",
+        "account": "How can i close a Mahtutor account"
+      },
+      "contact": {
+        "title": "Contact us",
+        "direct": "Customer service"
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Create Your Profile",
+      "hook": "Log in to personalize your learning and save your progress",
+      "terms": "By logging in, you agree to our <CustomLink href=\"https://example.com/terms\">Terms</CustomLink> and <CustomLink href=\"https://example.com/privacy\">Privacy Policy</CustomLink>"
+    }
+  },
+  "settings": {
+    "about": "About",
+    "app_name": "App Name",
+    "arabic": "Arabic",
+    "clear_cache": "Clear Cache",
+    "english": "English",
+    "generale": "General",
+    "github": "Github",
+    "language": "Language",
+    "links": "Links",
+    "logout": "Logout",
+    "more": "More",
+    "privacy": "Privacy Policy",
+    "rate": "Rate",
+    "share": "Share",
+    "support": "Support",
+    "support_us": "Support Us",
+    "terms": "Terms of Service",
+    "theme": {
+      "dark": "Dark",
+      "light": "Light",
+      "system": "System",
+      "title": "Theme"
+    },
+    "title": "Settings",
+    "version": "Version",
+    "vietnamese": "Vietnamese",
+    "website": "Website"
+  },
+  "badge": {
+    "title": "Badges"
+  },
+  "leaderboard": {
+    "title": "Leaderboard"
+  },
+  "community": {
+    "title": "Community",
+    "tab": {
+      "feed": "Feed",
+      "saved": "Saved",
+      "news": "News",
+      "reward": "Reward"
+    },
+    "action": {
+      "save": "Save"
+    },
+    "form": {
+      "title": "Title",
+      "title_placeholder": "Enter a clear, concise title",
+      "content": "Content",
+      "content_placeholder": "Write your post content..."
+    }
+  },
+  "mission": {
+    "title": "Missions",
+    "checkInReward": "Check in to get 5 stars",
+    "dailyMissions": "Daily Missions",
+    "updated": "Daily mission updates!",
+    "timeLeft": "Time left",
+    "collectStars": "Collect 30 stars",
+    "completeAccuracy": "Achieve 90% accuracy with 2 exercises",
+    "completeListening": "Complete 2 Listening exercises",
+    "reward": "+{{points}}KN",
+    "status": {
+      "complete": "Completed",
+      "available": "Available",
+      "inprogress": "In Progress",
+      "claimed": "Claimed",
+      "failed": "Failed"
+    },
+    "days": {
+      "Mon": "Mon",
+      "Tue": "Tue",
+      "Wed": "Wed",
+      "Thu": "Thu",
+      "Fri": "Fri",
+      "Sat": "Sat",
+      "Sun": "Sun"
+    }
+  },
+  "challenge": {
+    "title": "Challenge Events",
+    "heading": "Monthly Challenges",
+    "unlockThisMonth": "Unlock achievements this month",
+    "letterReceived": "get letter {{letter}}",
+    "completeTopic": "Complete topic {{topic}} to get letter {{letter}}"
+  },
+  "game": {
+    "title": {
+      "word_guess": "Pick the right word based on image and topic.",
+      "find_the_words": "Find the word in a letter grid.",
+      "word_slide": "Slide columns to form words across each row.",
+      "word_chain": "Select letters to form a valid English word."
+    },
+    "description": {
+      "word_guess": "Look at the image and choose the correct vocabulary word that matches it, based on a given topic.  A fun and easy way to learn new English words by recognizing pictures and matching them with the right word. Great for beginners and visual learners.",
+      "find_the_words": "Find the correct word hidden in a grid of letters. The letters may appear horizontally, vertically, or diagonally. Sharpen your attention and pattern recognition skills while practicing English vocabulary.",
+      "word_slide": " Slide columns of letters up or down to form valid English words across the horizontal rows. Think strategically and visualize letter arrangements to align words correctly. Challenging and fun for advanced learners.",
+      "word_chain": "Use the given letters to build a valid English word. All letters must be used, and you can't add extra ones. It’s a test of your spelling and vocabulary under time pressure."
+    }
+  },
+  "nav": {
+    "home": {
+      "label": "Home",
+      "description": "Overview and daily picks"
+    },
+    "discover": {
+      "label": "Discover",
+      "description": "New topics and playlists"
+    },
+    "mission": {
+      "label": "Mission",
+      "description": "Progress and milestones"
+    },
+    "games": {
+      "label": "Games",
+      "description": "Practice with fun challenges"
+    },
+    "community": {
+      "label": "Community",
+      "description": "Join peers and mentors"
+    },
+    "profile": {
+      "label": "Profile",
+      "description": "Settings and achievements"
+    }
+  },
+  "levels": {
+    "all": "All",
+    "beginner": "Beginner",
+    "elementary": "Elementary",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced"
+  },
+  "exercise": {
+    "finding_errors_quiz": {
+      "instruction_one_question": "Identify the error in the following sentence",
+      "instruction_many_question": "Identify the errors in the following sentences"
+    },
+    "finding_synonym_quiz": {
+      "instruction": "Choose the option that means"
+    },
+    "choose_to_fill_the_blanks_quiz": {
+      "instruction": "Choose the appropriate word from the list below to fill in the blanks"
+    }
+  },
+  "pathprogresmodal": {
+    "buttons": {
+      "performance": "Performance",
+      "review": "Review"
+    }
+  },
+  "welcome": "Welcome to Mahtutor app site"
+}
