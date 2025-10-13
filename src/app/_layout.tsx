@@ -22,9 +22,9 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { APIProvider } from '@/shared/api';
 import { VariableThemeProvider } from '@/shared/context/VariableThemeProvider';
-import { loadSelectedTheme } from '@/shared/lib';
-import { hydrateAuth } from '@/shared/lib/storage/auth/useAuthStore';
-import { subscriptionStores } from '@/shared/lib/storage/subscriptionStores';
+//import { loadSelectedTheme } from '@/shared/lib';
+//import { hydrateAuth } from '@/shared/lib/storage/auth/useAuthStore';
+//import { subscriptionStores } from '@/shared/lib/storage/subscriptionStores';
 import { useThemeConfig } from '@/shared/lib/use-theme-config';
 import { View } from '@/shared/ui';
 import RiveAnimation from '@/shared/ui/animations/RiveAnimation';
@@ -55,9 +55,9 @@ onlineManager.setEventListener((setOnline) => {
   });
 });
 
-hydrateAuth();
-loadSelectedTheme();
-subscriptionStores();
+//hydrateAuth();
+//loadSelectedTheme();
+//subscriptionStores();
 
 if (__DEV__) {
   require('../../devtools/ReactotronConfig');
@@ -149,13 +149,7 @@ export default function RootLayout() {
     return (
       <View className="flex-1 items-center justify-center bg-white" onLayout={onLayoutRootView}>
         <View className="size-full">
-          <RiveAnimation
-            source={
-              Platform.OS === 'web'
-                ? `https://static.saoladigital.com/public/mtt-mobile-app/animations/splash-screen-1.riv`
-                : require('@assets/animations/splash-screen-1.riv')
-            }
-          />
+          <RiveAnimation source={require('@assets/animations/mentora-splash.riv')} />
           {/* <LottieView
             resizeMode="cover"
             // ref={animationRef}
@@ -194,8 +188,8 @@ function RootLayoutNav() {
     <Providers>
       <Stack screenOptions={{}} initialRouteName="(tabs)">
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-        <Stack.Screen name="welcome" options={{ headerShown: false }} />
+        {/* <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+        <Stack.Screen name="welcome" options={{ headerShown: false }} /> */}
         <Stack.Screen
           name="onboarding"
           options={{ headerShown: false, animation: 'slide_from_right' }}

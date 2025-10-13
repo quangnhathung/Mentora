@@ -5,7 +5,6 @@ import { forwardRef, useImperativeHandle, useMemo } from 'react';
 import { useUserStore } from '@/entities/user/useUserStore';
 import { translate } from '@/shared/lib';
 import { colors, Modal, Text, useModal, View } from '@/shared/ui';
-import { PathProgress } from '@/widgets/path/PathProgress';
 import { LevelProgress } from '@/widgets/profile/LevelProgress';
 
 export type LevelModalProps = {
@@ -45,7 +44,6 @@ export const LevelModal = forwardRef<LevelModalRef, LevelModalProps>((_, ref) =>
           <Text className="pb-2 font-bevietnampro dark:text-white">
             {translate('common.learning_path')}
           </Text>
-          <PathProgress />
         </View>
       </View>
     </Modal>

@@ -9,7 +9,6 @@ import { moderateScale } from '@/shared/lib/helpers/scale';
 import { Image, Pressable, Text, View } from '@/shared/ui';
 import BottomBorder from '@/shared/ui/BottomBorder';
 import { SvgIcon } from '@/shared/ui/SvgIcon';
-import { PathProgress } from '@/widgets/path/PathProgress';
 
 interface HomeHeaderProps {
   bottomContent?: React.ReactNode;
@@ -70,9 +69,7 @@ const HomeHeader = ({ bottomContent }: HomeHeaderProps) => {
           </View>
         </View>
 
-        <Pressable className="relative" onPress={() => handleSelect()}>
-          <PathProgress />
-        </Pressable>
+        <Pressable className="relative" onPress={() => handleSelect()}></Pressable>
         <HomeHeaderModal ref={ModalRef} />
         {/* Bottom content */}
         {bottomContent}

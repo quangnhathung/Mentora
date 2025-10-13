@@ -65,9 +65,7 @@ export default function TabLayout() {
   // Precompute icon functions once so references stay stable between renders
   const iconHome = useMemo(() => makeIcon('home'), [makeIcon]);
   const iconDiscover = useMemo(() => makeIcon('compass', 25), [makeIcon]);
-  const iconMission = useMemo(() => makeIcon('achievement'), [makeIcon]);
   const iconGames = useMemo(() => makeIcon('games', 22), [makeIcon]);
-  const iconCommunity = useMemo(() => makeIcon('community'), [makeIcon]);
   const iconProfile = useMemo(() => makeIcon('profile'), [makeIcon]);
 
   const TAB_BAR_HEIGHT = Platform.OS === 'web' ? 35 : 48;
@@ -139,29 +137,11 @@ export default function TabLayout() {
         />
 
         <Tabs.Screen
-          name="(mission)"
-          options={{
-            title: 'Mission',
-            lazy: false,
-            tabBarIcon: iconMission,
-          }}
-        />
-
-        <Tabs.Screen
           name="(games)"
           options={{
             title: 'Games',
             lazy: false,
             tabBarIcon: iconGames,
-          }}
-        />
-
-        <Tabs.Screen
-          name="(community)"
-          options={{
-            title: 'Community',
-            lazy: false,
-            tabBarIcon: iconCommunity,
           }}
         />
 
@@ -175,13 +155,6 @@ export default function TabLayout() {
         />
 
         <Tabs.Screen
-          name="(lesson)"
-          options={{
-            href: null,
-          }}
-        />
-
-        <Tabs.Screen
           name="(exercise)"
           options={{
             href: null,
@@ -189,19 +162,7 @@ export default function TabLayout() {
         />
 
         <Tabs.Screen
-          name="(unit)"
-          options={{
-            href: null,
-          }}
-        />
-        <Tabs.Screen
           name="style"
-          options={{
-            href: null,
-          }}
-        />
-        <Tabs.Screen
-          name="(premium)"
           options={{
             href: null,
           }}
