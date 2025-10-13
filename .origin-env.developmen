@@ -1,0 +1,14 @@
+API_URL=
+
+## TODO: add the variable to your  CI and remove it from here, not recommended setting sensitive values on your git repo
+REACTOTRON_IP=
+SECRET_KEY=my-secret-key
+VAR_NUMBER=10 # this is a number variable
+VAR_BOOL=true # this is a boolean variable
+SIZE_MATTERS_BASE_WIDTH=350
+SIZE_MATTERS_BASE_HEIGHT=680
+EXPO_TOKEN=FPE0cWwGRuGJDeuSuTK-u5vwTnNSuEbeBhW2dNot
+EAS_PROJECT_ID=02f0fafb-9602-4257-8919-491d4f80c545
+OAUTH_GOOGLE_CLIENT_ID_WEB=511362573160-7efm9r6mhr1nov278kndi2gu07a9bipd.apps.googleusercontent.com
+OAUTH_GOOGLE_CLIENT_ID_IOS=511362573160-49o7d0reojf576s5583ugnp4pohgomi4.apps.googleusercontent.com
+OAUTH_GOOGLE_CLIENT_ID_ANDROID=511362573160-r6vjvlqcminauchtei3pjdjnle8d5nlv.apps.googleusercontent.com

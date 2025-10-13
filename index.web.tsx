@@ -1,0 +1,13 @@
+// index.web.tsx (nếu bạn đang dùng LoadSkiaWeb)
+import '@expo/metro-runtime';
+
+import { LoadSkiaWeb } from '@shopify/react-native-skia/lib/module/web';
+import { version } from 'canvaskit-wasm/package.json';
+import { App } from 'expo-router/build/qualified-entry';
+import { renderRootComponent } from 'expo-router/build/renderRootComponent';
+
+LoadSkiaWeb({
+  locateFile: (file) => `https://cdn.jsdelivr.net/npm/canvaskit-wasm@${version}/bin/full/${file}`,
+}).then(() => {
+  renderRootComponent(App);
+});

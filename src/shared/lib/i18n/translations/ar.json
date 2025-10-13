@@ -1,0 +1,45 @@
+{
+  "onboarding": {
+    "message": "مرحبا بكم في موقع تطبيق obytes"
+  },
+  "settings": {
+    "about": "حول التطبيق ",
+    "app_name": "اسم التطبيق",
+    "arabic": "عربي",
+    "english": "إنجليزي",
+    "generale": "عام",
+    "github": "جيثب",
+    "language": "لغة",
+    "links": "الروابط",
+    "logout": "تسجيل خروج",
+    "more": "أكثر",
+    "privacy": "سياسة الخصوصية",
+    "rate": "تقييم",
+    "share": "شارك",
+    "support": "الدعم",
+    "support_us": "ادعمنا",
+    "terms": "شروط الخدمة",
+    "theme": {
+      "dark": "مظلم",
+      "light": "خفيفة",
+      "system": "System",
+      "title": "سمة"
+    },
+    "title": "إعدادات",
+    "version": "إصدار",
+    "website": "موقع الكتروني"
+  },
+  "exercise": {
+    "finding_errors_quiz": {
+      "instruction_one_question": "حدد الخطأ في الجملة التالية",
+      "instruction_many_question": "حدد الأخطاء في الجمل التالية"
+    },
+    "finding_synonym_quiz": {
+      "instruction": "اختر الخيار الذي يعني 'غير مفاجئ'"
+    },
+    "choose_to_fill_the_blanks_quiz": {
+      "instruction": "اختر الكلمة المناسبة من القائمة أدناه لملء الفراغ"
+    }
+  },
+  "welcome": "test arabic"
+}

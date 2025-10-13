@@ -1,0 +1,284 @@
+{
+  "common": {
+    "days": "ngày",
+    "streak": "Streak",
+    "heart": "Tim",
+    "credit": "Tín dụng",
+    "create": "Viết bài",
+    "leaderboard": "Bảng xếp hạng",
+    "learning_path": "Lộ trình học tập",
+    "lb": "BXH",
+    "best_position": "Xếp hạng",
+    "mission": "Missions",
+    "star": "Sao",
+    "complete": "Hoàn thành",
+    "level": "Cấp độ",
+    "lesson": "Bài học",
+    "exp": "KN",
+    "badge": "Huy hiệu",
+    "inprogress": "Đang học",
+    "locked": "Đã khoá",
+    "comment": "Bình luận",
+    "submit": "Gửi"
+  },
+  "sorted": {
+    "monthly": "Tháng",
+    "weekly": "Tuần",
+    "all": "Tất cả"
+  },
+  "entity": {
+    "topic": "Chủ đề"
+  },
+  "button": {
+    "save": "Lưu",
+    "learning": "Bắt đầu học"
+  },
+  "onboarding": {
+    "message": "Chào mừng bạn đến với trang ứng dụng Obytes"
+  },
+  "search": {
+    "heading": {
+      "recent_search": "Tìm kiếm gần đây",
+      "recent_search_not_found": "Không có gì ở đây!"
+    }
+  },
+  "form": {
+    "error": {
+      "too_small": "Tiêu đề phải chứa ít nhất 10 ký tự",
+      "required": "Trường này là bắt buộc",
+      "date": "Ngày không đúng định dạng",
+      "email": "Email không đúng định dạng"
+    }
+  },
+  "noti": {
+    "info": {
+      "title": "Lời nhắc"
+    },
+    "success": {
+      "title": "Cập nhật thành công",
+      "update": "Cập nhật thành công"
+    },
+    "error": {
+      "title": "Có lỗi xảy ra",
+      "network": "Không thể truy cập. Xin vui lòng kiểm tra kết nối mạng và thử lại.",
+      "empty": "Không tìm thấy dữ liệu"
+    }
+  },
+  "profile": {
+    "title": "Hồ sơ",
+    "heading": {
+      "general": "Cấu hình",
+      "account": "Tài khoản",
+      "link": "Liên kết",
+      "utility": "Tiện ích"
+    },
+    "menu": {
+      "setting": "Cấu hình",
+      "profile": "Thông tin cá nhân",
+      "performance": "Hiệu suất học tập",
+      "help": "Trợ giúp",
+      "logout": "Đăng xuất",
+      "language": "Ngôn ngữ",
+      "term": "Điều khoản sử dụng",
+      "privacy": "Chính sách",
+      "reset": "Xoá cache",
+      "rating": "Đánh giá ứng dụng",
+      "theme": "Giao diện"
+    },
+    "form": {
+      "name": "Họ và tên",
+      "email": "Email",
+      "verified": "Đã xác thực",
+      "dob": "Ngày sinh"
+    },
+    "help": {
+      "title": "Trung tâm trợ giúp",
+      "stats": {
+        "general": "Chung",
+        "account": "Tài khoản",
+        "service": "Dịch vụ"
+      },
+      "fqa": {
+        "title": "FAQ",
+        "Mahtutor": "Mahtutor là gì?",
+        "start": "Làm sao tôi có thể bắt đầu buổi học?",
+        "earn": "Làm sao tôi có thể kiếm sao?",
+        "account": "Làm sao tôi có thể đóng tài khoản Mahtutor?"
+      },
+      "contact": {
+        "title": "Liên hệ",
+        "direct": "Dịch vụ khách hàng"
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Tạo tài khoản cá nhân",
+      "hook": "Đăng nhập để cá nhân hóa và theo dõi hành trình học tập của bạn nhé",
+      "terms": "Bằng cách đăng nhập, bạn xác nhận đã đọc và đồng ý với <CustomLink href=\"https://example.com/terms\">Điều khoản</CustomLink> và <CustomLink href=\"https://example.com/privacy\">Chính sách bảo mật</CustomLink> của chúng tôi"
+    }
+  },
+  "settings": {
+    "about": "Giới thiệu",
+    "app_name": "Tên ứng dụng",
+    "arabic": "Tiếng Ả Rập",
+    "vietnamese": "Tiếng Việt",
+    "english": "Tiếng Anh",
+    "generale": "Chung",
+    "github": "GitHub",
+    "language": "Ngôn ngữ",
+    "links": "Liên kết",
+    "logout": "Đăng xuất",
+    "more": "Thêm",
+    "privacy": "Chính sách quyền riêng tư",
+    "rate": "Đánh giá",
+    "share": "Chia sẻ",
+    "support": "Hỗ trợ",
+    "support_us": "Ủng hộ chúng tôi",
+    "terms": "Điều khoản dịch vụ",
+    "theme": {
+      "dark": "Tối",
+      "light": "Sáng",
+      "system": "Theo hệ thống",
+      "title": "Chủ đề"
+    },
+    "title": "Cài đặt",
+    "version": "Phiên bản",
+    "website": "Trang web"
+  },
+  "badge": {
+    "title": "Huy Hiệu"
+  },
+  "leaderboard": {
+    "title": "Bảng Xếp Hạng"
+  },
+  "community": {
+    "title": "Cộng đồng",
+    "tab": {
+      "feed": "Bảng tin",
+      "saved": "Đã lưu",
+      "news": "Tin tức",
+      "reward": "Phần thưởng"
+    },
+    "action": {
+      "save": "Lưu"
+    },
+    "form": {
+      "title": "Tiêu đề",
+      "title_placeholder": "Nhập tiêu đề ngắn gọn, rõ ràng",
+      "content": "Nội dung",
+      "content_placeholder": "Viết nội dung bài đăng của bạn..."
+    }
+  },
+  "post": {
+    "like": "Thích",
+    "unlike": "Bỏ thích",
+    "credit": "Tặng huy hiệu",
+    "uncredit": "Bỏ huy hiệu",
+    "comment": "Bình luận"
+  },
+  "comment": {
+    "posted": "Đã gửi bình luận"
+  },
+  "mission": {
+    "title": "Nhiệm vụ",
+    "checkInReward": "Điểm danh nhận ngay 5 sao",
+    "dailyMissions": "Nhiệm vụ hằng ngày",
+    "timeLeft": "Thời gian còn lại",
+    "collectStars": "Thu thập đủ 30 ngôi sao",
+    "completeAccuracy": "Đạt hiệu suất 90% với 2 bài tập",
+    "completeListening": "Làm 2 bài tập Listening",
+    "updated": "Cập nhật nhiệm vụ hàng ngày!",
+    "reward": "+{{points}}KN",
+    "status": {
+      "complete": "Hoàn thành",
+      "available": "Chưa bắt đầu",
+      "inprogress": "Đang thực hiện",
+      "claimed": "Đã nhận thưởng",
+      "failed": "Chưa đạt"
+    },
+    "days": {
+      "Mon": "T2",
+      "Tue": "T3",
+      "Wed": "T4",
+      "Thu": "T5",
+      "Fri": "T6",
+      "Sat": "T7",
+      "Sun": "CN"
+    }
+  },
+  "challenge": {
+    "title": "Thử thách",
+    "heading": "Thử thách trong tháng",
+    "unlockThisMonth": "Mở khoá thành tựu trong tháng",
+    "letterReceived": "nhận ngay chữ cái {{letter}}",
+    "completeTopic": "Hoàn thành chủ đề {{topic}} nhận ngay chữ cái {{letter}}"
+  },
+  "game": {
+    "title": {
+      "word_guess": "Chọn từ đúng dựa trên hình và chủ đề cho.",
+      "find_the_words": "Tìm từ trong bảng chữ cái có sẵn.",
+      "word_slide": "Trượt từng cột để tạo hàng ngang thành từ tiếng Anh.",
+      "word_chain": "Chọn chữ cái đúng để ghép thành một từ."
+    },
+    "description": {
+      "word_guess": "Nhìn hình và chọn từ vựng tiếng Anh đúng theo chủ đề. Cách học từ vựng hiệu quả qua hình ảnh, phù hợp cho người mới bắt đầu và người học thiên về thị giác.",
+      "find_the_words": "Tìm từ đúng được giấu trong bảng chữ cái 5x5. Chữ có thể nằm ngang, dọc hoặc chéo. Giúp rèn luyện khả năng quan sát và nhận diện từ vựng tiếng Anh.",
+      "word_slide": "Trượt các cột chữ cái lên hoặc xuống để tạo thành từ tiếng Anh theo hàng ngang. Đòi hỏi tư duy chiến lược và khả năng sắp xếp từ.",
+      "word_chain": "Sử dụng toàn bộ chữ cái cho sẵn để ghép thành một từ tiếng Anh hợp lệ. Không được thêm hay bỏ chữ. Kiểm tra vốn từ và kỹ năng chính tả của bạn."
+    }
+  },
+  "nav": {
+    "home": {
+      "label": "Trang chủ",
+      "description": "Tổng quan và gợi ý hằng ngày"
+    },
+    "discover": {
+      "label": "Khám phá",
+      "description": "Chủ đề và playlist mới"
+    },
+    "mission": {
+      "label": "Nhiệm vụ",
+      "description": "Theo dõi tiến độ và cột mốc"
+    },
+    "games": {
+      "label": "Trò chơi",
+      "description": "Luyện tập với thử thách vui"
+    },
+    "community": {
+      "label": "Cộng đồng",
+      "description": "Kết nối học viên và cố vấn"
+    },
+    "profile": {
+      "label": "Hồ sơ",
+      "description": "Cài đặt và thành tích"
+    }
+  },
+  "levels": {
+    "all": "Tất cả",
+    "beginner": "Sơ cấp",
+    "elementary": "Cơ bản",
+    "intermediate": "Trung cấp",
+    "advanced": "Nâng cao"
+  },
+  "exercise": {
+    "finding_errors_quiz": {
+      "instruction_one_question": "Xác định lỗi sai trong câu sau",
+      "instruction_many_question": "Xác định lỗi sai trong các câu sau"
+    },
+    "finding_synonym_quiz": {
+      "instruction": "Chọn từ đồng nghĩa với"
+    },
+    "chosse_to_fil_the_blanks_quiz": {
+      "instruction": "Chọn từ vựng phù hợp trong bảng sau để điền vào chỗ trống"
+    }
+  },
+
+  "pathprogresmodal": {
+    "buttons": {
+      "performance": "Hiệu suất",
+      "review": "Ôn lại"
+    }
+  },
+  "welcome": "Chào mừng bạn đến với trang ứng dụng Mahtutor"
+}
