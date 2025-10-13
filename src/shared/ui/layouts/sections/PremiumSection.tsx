@@ -46,7 +46,7 @@ export const PremiumSection: React.FC<{
         className={twMerge('flex-1', className)}
       >
         <GradientView
-          colors={['primary-dark', 'primary', 'primary-light']}
+          colors={['primary-dark', 'primary']}
           containerClassName={`relative`}
           className={`size-full bg-gradient-to-r from-primary-dark via-primary to-primary-light`}
           start={{ x: 0.5, y: 0 }}

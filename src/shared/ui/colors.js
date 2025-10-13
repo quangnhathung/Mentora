@@ -3,30 +3,21 @@ module.exports = {
   ring: '#274b36',
   foreground: '#a9ffea',
   primary: {
-    DEFAULT: '#8D7FFF',
-    dark: '#7866FF',
-    light: '#B1A7FF',
-    50: '#FFE2CC',
-    100: '#FFC499',
-    200: '#FFA766',
-    300: '#FF984C',
-    400: '#FF8933',
-    500: '#FF7B1A',
-    600: '#FF6C00',
-    700: '#E56100',
-    800: '#CC5600',
-    900: '#B24C00',
+    DEFAULT: '#3B82F6',
+    dark: '#2563EB',
+    light: '#8B5CF6',
+    100: '#3B82F6',
   },
   secondary: {
-    DEFAULT: '#FFAA00',
-    dark: '#DB9200',
-    light: '#FFC042',
+    DEFAULT: '#8B5CF6',
+    dark: '#7C3AED',
+    light: '#DDD6FE',
   },
   background: {
-    DEFAULT: '#FFFFFF',
+    DEFAULT: '#F8FAFC',
     dark: {
-      DEFAULT: '#3C3F55',
-      light: '#545879',
+      DEFAULT: '#D1D5DB',
+      light: '#F5F6F6',
     },
     gray: {
       DEFAULT: '#919191',
@@ -36,7 +27,7 @@ module.exports = {
     DEFAULT: '#3C3F55',
   },
   border: {
-    DEFAULT: '#333333',
+    DEFAULT: '#5A6D93',
     white: '#FFFFFF',
   },
   red: {
@@ -136,5 +127,11 @@ module.exports = {
     700: '#404040',
     800: '#262626',
     900: '#171717',
+  },
+
+  navbar: {
+    DEFAULT: '#CBD5E1',
+    element: '#94A3B8',
+    active: '#6366F1',
   },
 };

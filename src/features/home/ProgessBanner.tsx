@@ -1,0 +1,39 @@
+import { View } from 'react-native';
+
+import { useUserStore } from '@/entities/user/useUserStore';
+import { ProgressBar, Text } from '@/shared/ui';
+import BottomBorder from '@/shared/ui/BottomBorder';
+import { GradientView } from '@/shared/ui/GradientView/GradientView';
+
+export const ProgressBanner = () => {
+  const { profile } = useUserStore();
+
+  return (
+    <BottomBorder className={`border-custom-5 rounded-b-2xl`}>
+      <GradientView
+        colors={['#A78BFA', '#F472B6']}
+        containerClassName={`overflow-hidden rounded-xl`}
+        className={`via-dark-light bg-gradient-to-r from-background-dark-light to-background-dark-light`}
+        start={{ x: 0.5, y: 0 }}
+        end={{ x: 0.5, y: 1 }}
+      >
+        <View className={`rounded-lg p-3`}>
+          <Text className="font-baloo text-xl dark:text-white">
+            Hi {profile?.progress?.currentPath?.name ?? 'Guest'}, ready to practice today?
+          </Text>
+          <Text className="dark:text-white">Today learning journey</Text>
+          <View className={`flex-row justify-between`}>
+            <Text className="my-1 text-xs dark:text-white">
+              {profile?.progress?.currentPath?.currentTopic?.name}
+            </Text>
+            <Text className="my-1 text-xs dark:text-cyan">
+              {profile?.progress?.currentPathProgress ?? '0'}%
+            </Text>
+          </View>
+          <ProgressBar initialProgress={profile?.progress?.currentPathProgress} />
+        </View>
+        {/* <ProgressBar pct={data.progressPct} className="mt-2" /> */}
+      </GradientView>
+    </BottomBorder>
+  );
+};

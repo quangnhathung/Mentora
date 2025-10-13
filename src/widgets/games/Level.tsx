@@ -54,9 +54,8 @@ export const ChooseLevel = ({ data }: Props) => {
   return (
     <View className="my-12 items-center justify-center gap-3">
       <GradientView
-        colors={['primary-dark', 'primary', 'primary-light']}
+        colors={['#F8AAD3', '#CAB9FC']}
         containerClassName="w-full rounded-xl"
-        className="bg-gradient-to-r from-primary-dark via-primary to-primary-light p-4"
         start={{ x: 0.5, y: 0 }}
         end={{ x: 0.5, y: 1 }}
         style={moderateSize}
@@ -65,9 +64,9 @@ export const ChooseLevel = ({ data }: Props) => {
         <View className="w-full items-center py-2 pt-4">
           <View className="size-[170px] items-center justify-center overflow-hidden rounded-full p-4">
             <GradientView
-              colors={['secondary-dark', 'secondary', 'secondary-light']}
+              colors={['#1F2937', '#5A6D93']}
               style={StyleSheet.absoluteFillObject}
-              containerClassName="absolute inset-0"
+              containerClassName="absolute inset-0 px-2"
               className="rounded-full bg-gradient-to-r from-secondary-dark via-secondary to-secondary-light"
               pointerEvents="box-none"
             />
@@ -75,7 +74,7 @@ export const ChooseLevel = ({ data }: Props) => {
           </View>
         </View>
 
-        <View className="w-full items-start justify-start gap-3 py-5">
+        <View className="w-full justify-start gap-3 px-3 py-5">
           {levels.map((level, idx) => (
             <RadioButton
               key={level.value}
@@ -85,25 +84,25 @@ export const ChooseLevel = ({ data }: Props) => {
               className="relative h-[--c-50] w-full"
             >
               <View className="size-full items-center justify-center">
-                <Text className="font-bevietnampro text-lg font-bold text-white">
-                  {level.label}
-                </Text>
+                <Text className="font-bevietnampro text-lg font-bold">{level.label}</Text>
               </View>
               <View pointerEvents="none" className="absolute inset-0 h-full justify-center">
-                <View className="flex-row self-start rounded-2xl bg-secondary px-3 py-1">
+                <View className="flex-row self-start rounded-2xl bg-green-500 px-3 py-1">
                   <SvgIcon className="mr-1" name="star" size={15} />
-                  <Text className="font-bevietnampro">{level.value}</Text>
+                  <Text className="font-bevietnampro dark:text-white">{level.value}</Text>
                 </View>
               </View>
             </RadioButton>
           ))}
         </View>
-        <SecondaryButton
-          title={'play'}
-          className={`my-2`}
-          textStyle={`uppercase`}
-          onPress={handlePlay}
-        />
+        <View className="px-3">
+          <SecondaryButton
+            title={'play'}
+            className={`my-2`}
+            textStyle={`uppercase`}
+            onPress={handlePlay}
+          />
+        </View>
       </GradientView>
       <AdBanner
         adClient="ca-pub-3940256099942544"

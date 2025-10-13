@@ -12,6 +12,7 @@ import CheckfailGray from '@assets/images/svgs/checkfailgray.svg';
 import ChevronDown from '@assets/images/svgs/ChevronDown.svg';
 import ChevronUp from '@assets/images/svgs/ChevronUp.svg';
 import Clock from '@assets/images/svgs/clock.svg';
+import Coin from '@assets/images/svgs/coin.svg';
 import Comment from '@assets/images/svgs/comment.svg';
 import Community from '@assets/images/svgs/community.svg';
 import Compass from '@assets/images/svgs/compass.svg';
@@ -51,6 +52,7 @@ import Rating from '@assets/images/svgs/rating.svg';
 import Replay from '@assets/images/svgs/replay.svg';
 import Report from '@assets/images/svgs/report.svg';
 import Reset from '@assets/images/svgs/reset.svg';
+import Search from '@assets/images/svgs/Search.svg';
 import SecondaryButtonPlay from '@assets/images/svgs/secondary-button-play.svg';
 import Share from '@assets/images/svgs/share.svg';
 import Speaker from '@assets/images/svgs/speaker.svg';
@@ -92,6 +94,8 @@ const ICONS = {
   achievement: Achievement,
   home: Home,
   mission: Mission,
+  coin: Coin,
+  search: Search,
   book: Book,
   leaderboard: Leaderboard,
   leaderboardStage: LeaderboardStage,

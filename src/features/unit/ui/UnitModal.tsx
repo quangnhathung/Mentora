@@ -1,7 +1,6 @@
 import { type BottomSheetModal } from '@gorhom/bottom-sheet';
-import { useRouter } from 'expo-router';
 import { useColorScheme, vars } from 'nativewind';
-import { forwardRef, useCallback, useEffect, useImperativeHandle, useMemo, useState } from 'react';
+import { forwardRef, useEffect, useImperativeHandle, useMemo, useState } from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { convertLessonsToChoices, type Lesson } from '@/entities/lesson/types';
@@ -23,7 +22,7 @@ export type UnitModalRef = {
 export const UnitModal = forwardRef<UnitModalRef, UnitModalProps>(({ data }, ref) => {
   const [lesson, setLesson] = useState<Lesson>();
   const modal = useModal();
-  const router = useRouter();
+  //const router = useRouter();
   const options = convertLessonsToChoices(data?.lessons || []);
 
   useEffect(() => {
@@ -41,15 +40,15 @@ export const UnitModal = forwardRef<UnitModalRef, UnitModalProps>(({ data }, ref
     setLesson(chosen);
   };
 
-  const onSelect = useCallback(() => {
-    if (!lesson || !data) return;
+  // const onSelect = useCallback(() => {
+  //   if (!lesson || !data) return;
 
-    modal.dismiss();
-    router.push({
-      pathname: `/(tabs)/(lesson)/[lid]`,
-      params: { lid: lesson.id!, unitId: data.id }, // query params
-    });
-  }, [data, lesson, modal, router]);
+  //   modal.dismiss();
+  //   router.push({
+  //     pathname: `/(tabs)/(lesson)/[lid]`,
+  //     params: { lid: lesson.id!, unitId: data.id }, // query params
+  //   });
+  // }, [data, lesson, modal, router]);
 
   // expose
   useImperativeHandle(ref, () => ({
@@ -117,7 +116,8 @@ export const UnitModal = forwardRef<UnitModalRef, UnitModalProps>(({ data }, ref
           title={translate('button.learning')}
           className={`border-custom-5 my-2`}
           textStyle={``}
-          onPress={() => onSelect()}
+          // onPress={() => onSelect()}
+          onPress={() => {}}
         />
       </View>
     </Modal>

@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import { useRouter } from 'expo-router';
 import { vars } from 'nativewind';
 import React, { useMemo } from 'react';
@@ -8,14 +7,10 @@ import { type Onboarding } from '@/features/onboarding/types';
 import { useIsFirstTime } from '@/shared/lib';
 import { moderateScale } from '@/shared/lib/helpers/scale';
 import { useConfigStore } from '@/shared/lib/storage/config/useConfigStore';
-import { colors, Text, View } from '@/shared/ui';
-import BackButton from '@/shared/ui/BackButton';
-import BottomBorder from '@/shared/ui/BottomBorder';
+import { Image, Text, View } from '@/shared/ui';
 import { ThreeSection } from '@/shared/ui/layouts/sections/ThreeSection';
 import SelectableList from '@/shared/ui/List/SelectableList';
 import { PrimaryButton } from '@/shared/ui/PrimaryButton';
-import CatWithFlagSvg from '@/shared/ui/svg/CatWithFlagSvg';
-import { TextGradient } from '@/shared/ui/TextGradient/TextGradient';
 
 type OnboardingFlowProps = {
   stepsData: Onboarding[]; // KHÔNG dùng any
@@ -24,16 +19,16 @@ type OnboardingFlowProps = {
 };
 
 const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ stepsData, isLoading, isError }) => {
-  const { current, currentStep, selection, setSelection, next, prev } = useOnboardingStep();
+  const { current, currentStep, selection, setSelection, next } = useOnboardingStep();
   const [_, setIsFirstTime] = useIsFirstTime();
 
   const router = useRouter();
   const { setConfig } = useConfigStore();
 
-  const routeBack = () => {
-    if (currentStep > 1) prev();
-    else router.back();
-  };
+  // const routeBack = () => {
+  //   if (currentStep > 1) prev();
+  //   else router.back();
+  // };
 
   const routeNext = () => {
     if (currentStep < stepsData.length) {
@@ -67,12 +62,12 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ stepsData, isLoading, i
       className={``}
       style={moderateSize}
       Header={
-        <View className={`w-full py-2`}>
-          <View className={`flex-row items-center justify-between px-3`}>
+        <View className={`w-full items-center justify-between py-2`}>
+          {/* <View className={`flex-row items-center justify-between px-3`}>
             <BackButton
               size={`--h-20`}
               iconSize={20}
-              color={colors.white.DEFAULT}
+              color="black"
               className={`absolute left-0`}
               onPress={routeBack}
             />
@@ -83,27 +78,27 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ stepsData, isLoading, i
                     key={`step-${i}`}
                     className={clsx(
                       'h-[--s-step] rounded-full',
-                      currentStep >= i + 1 ? 'bg-primary' : 'bg-white'
+                      currentStep >= i + 1 ? 'bg-navbar-active' : 'border bg-white'
                     )}
                   />
                 </BottomBorder>
               ))}
             </View>
-          </View>
-          <TextGradient
-            className={`from-primary via-white to-primary py-2 text-center font-baloo text-xl uppercase tracking-widest`}
-            content={stepsData[currentStep - 1]?.screenName}
-            colors={['primary', 'white', 'primary']}
-            locations={[0, 0.47, 1]}
-          />
+          </View> */}
+          <Text className="font-baloo text-2xl font-bold">
+            {stepsData[currentStep - 1]?.screenName}
+          </Text>
         </View>
       }
       Body={
         <View className="flex-1 items-center justify-center">
-          <CatWithFlagSvg className={`h-[--s-150] w-full`} />
+          <Image
+            source={require('@assets/images/pngs/mentora_removebg.png')}
+            className="h-[250px] w-[210px]"
+          />
           <View className={`flex-1 self-stretch py-4`}>
             {stepsData[currentStep - 1]?.title && (
-              <Text className={`text-4 py-2 font-bevietnampro text-white`}>
+              <Text className={`text-4 py-2 font-bevietnampro`}>
                 {stepsData[currentStep - 1]?.title}
               </Text>
             )}
@@ -120,7 +115,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ stepsData, isLoading, i
         </View>
       }
       Bottom={
-        <>
+        <View className="px-3">
           <PrimaryButton
             title="Next"
             disabled={selection[current] === -1}
@@ -128,7 +123,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ stepsData, isLoading, i
             textStyle={`uppercase`}
             onPress={routeNext}
           />
-        </>
+        </View>
       }
     />
   );

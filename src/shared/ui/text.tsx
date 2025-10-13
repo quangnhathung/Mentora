@@ -29,7 +29,7 @@ export const Text = ({
   ...rest
 }: Props) => {
   const textStyle = React.useMemo(
-    () => twMerge('text-sm text-white dark:text-white font-bevietnampro', className),
+    () => twMerge('text-sm text-white dark:text-[#1F2937] font-bevietnampro', className),
     [className]
   );
 

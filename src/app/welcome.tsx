@@ -4,12 +4,9 @@ import { useMemo } from 'react';
 
 import { moderateScale } from '@/shared/lib/helpers/scale';
 import { withDeviceLayout } from '@/shared/lib/hocs/withDeviceLayout';
-import { Text, View } from '@/shared/ui';
+import { Image, Text, View } from '@/shared/ui';
 import { TwoSection } from '@/shared/ui/layouts/sections/TwoSection';
 import { PrimaryButton } from '@/shared/ui/PrimaryButton';
-import CatWithFlagSvg from '@/shared/ui/svg/CatWithFlagSvg';
-import Logo from '@/shared/ui/svg/Logo';
-import { TextGradient } from '@/shared/ui/TextGradient/TextGradient';
 
 const WelcomeScreen = () => {
   const moderateSize = useMemo(
@@ -27,20 +24,13 @@ const WelcomeScreen = () => {
       className={``}
       style={moderateSize}
       Body={
-        <View className="flex-1 items-center justify-center">
-          <View className={`h-[--s-60] w-full`}>
-            <Logo className="size-full" />
-          </View>
-          <CatWithFlagSvg className={`h-[--s-270] w-full`} />
+        <View className="flex-1 items-center justify-center gap-5">
+          <Image
+            source={require('@assets/images/pngs/mentora_removebg.png')}
+            className="h-[260px] w-[220px]"
+          />
           <View className={`items-center justify-center`}>
-            {/* <Text className={`py-2 font-baloo text-xl text-white`}>From Basics to Brilliance</Text> */}
-            <TextGradient
-              className={`from-primary via-white/70 to-secondary py-2 text-center font-baloo text-xl uppercase tracking-widest`}
-              content="From Basics to Brilliance"
-              colors={['primary', 'white/70', 'secondary']}
-              // colors={[Colors.primary.DEFAULT, Colors.white.DEFAULT, Colors.primary.DEFAULT]}
-              locations={[0, 0.47, 1]}
-            />
+            <Text className="text-[48px] font-bold">WELCOME!</Text>
           </View>
         </View>
       }

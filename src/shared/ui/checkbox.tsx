@@ -66,7 +66,7 @@ const Label = ({ text, testID, className = '' }: LabelProps) => {
 };
 
 export const CheckboxIcon = ({ checked = false }: IconProps) => {
-  const color = checked ? colors.primary[300] : colors.charcoal[400];
+  const color = checked ? colors.primary[100] : colors.charcoal[400];
   return (
     <MotiView
       style={{
@@ -190,7 +190,7 @@ export const Radio = Object.assign(RadioBase, {
 export const SwitchIcon = ({ checked = false }: IconProps) => {
   const translateX = checked ? THUMB_OFFSET : WIDTH - THUMB_WIDTH - THUMB_OFFSET;
 
-  const backgroundColor = checked ? colors.primary[300] : colors.charcoal[400];
+  const backgroundColor = checked ? colors.primary[100] : colors.charcoal[400];
 
   return (
     <View className="w-[50px] justify-center">

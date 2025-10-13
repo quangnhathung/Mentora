@@ -5,7 +5,6 @@ import '../../global.css';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import NetInfo from '@react-native-community/netinfo';
-import { ThemeProvider } from '@react-navigation/native';
 import { focusManager, onlineManager } from '@tanstack/react-query';
 import * as Font from 'expo-font';
 import { Stack, usePathname } from 'expo-router';
@@ -150,24 +149,6 @@ export default function RootLayout() {
       <View className="flex-1 items-center justify-center bg-white" onLayout={onLayoutRootView}>
         <View className="size-full">
           <RiveAnimation source={require('@assets/animations/mentora-splash.riv')} />
-          {/* <LottieView
-            resizeMode="cover"
-            // ref={animationRef}
-            // eslint-disable-next-line global-require
-            source={require('@assets/lotties/lottie-splash-2.json')}
-            // source={{
-            //   uri: 'https://static.saoladigital.com/public/lm-web-homepage/images/lotties/lottie.json',
-            // }}
-            style={{ width: '100%', height: '100%' }}
-            // className="h-full w-full"
-            autoPlay
-            loop={false}
-          /> */}
-          {/* <Image
-            className="flex-1"
-            source="https://static.saoladigital.com/public/lm-web-homepage/images/mascot/astro-hi.svg"
-            contentFit="cover"
-          /> */}
         </View>
       </View>
     );
@@ -190,6 +171,7 @@ function RootLayoutNav() {
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         {/* <Stack.Screen name="(auth)" options={{ headerShown: false }} />
         <Stack.Screen name="welcome" options={{ headerShown: false }} /> */}
+        <Stack.Screen name="welcome" options={{ headerShown: false }} />
         <Stack.Screen
           name="onboarding"
           options={{ headerShown: false, animation: 'slide_from_right' }}
@@ -213,7 +195,7 @@ function Providers({ children }: { children: React.ReactNode }) {
     <GestureHandlerRootView className={`flex-1 ${theme.dark ? `dark` : undefined}`}>
       <SafeAreaProvider>
         <KeyboardProvider>
-          <StatusBar barStyle="light-content" />
+          {/* <StatusBar barStyle="light-content" />
           <ThemeProvider
             value={{
               ...theme,
@@ -222,18 +204,18 @@ function Providers({ children }: { children: React.ReactNode }) {
                 background: 'transparent',
               },
             }}
-          >
-            <VariableThemeProvider>
-              <APIProvider>
-                <PaperProvider theme={theme.dark ? MD3DarkTheme : MD3LightTheme}>
-                  <BottomSheetModalProvider>
-                    {children}
-                    <FlashMessage position="top" />
-                  </BottomSheetModalProvider>
-                </PaperProvider>
-              </APIProvider>
-            </VariableThemeProvider>
-          </ThemeProvider>
+          > */}
+          <VariableThemeProvider>
+            <APIProvider>
+              <PaperProvider theme={theme.dark ? MD3DarkTheme : MD3LightTheme}>
+                <BottomSheetModalProvider>
+                  {children}
+                  <FlashMessage position="top" />
+                </BottomSheetModalProvider>
+              </PaperProvider>
+            </APIProvider>
+          </VariableThemeProvider>
+          {/* </ThemeProvider> */}
         </KeyboardProvider>
       </SafeAreaProvider>
     </GestureHandlerRootView>

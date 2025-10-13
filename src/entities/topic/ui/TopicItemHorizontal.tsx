@@ -25,7 +25,7 @@ export const TopicItemHorizontal = ({ data = {}, last, handleSelect }: TopicItem
       <Pressable onPress={() => handleSelect(data)}>
         <BottomBorder className={`border-custom-5-light flex-1 rounded-xl`}>
           <GradientView
-            colors={['primary-dark', 'primary', 'primary-light']}
+            colors={['primary-dark', 'primary']}
             containerClassName={`overflow-hidden rounded-xl`}
             className={`w-full justify-end bg-gradient-to-r from-primary-dark via-primary to-primary-light`}
           >

@@ -16,11 +16,7 @@ export type Premium = {
 
 export type UserStats = {
   streak: number;
-  credit: number;
-  star: number;
-  lesson: number;
-  mission: number;
-  leaderboard: number;
+  coins: number;
 };
 
 export type UserLevel = 'beginner' | 'elementary' | 'intermediate' | 'advanced' | 'master';

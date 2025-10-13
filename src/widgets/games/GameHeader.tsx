@@ -27,15 +27,17 @@ export const GameHeader = ({ data, modalRef }: GameHeaderProps) => {
   };
 
   return (
-    <View style={moderateSize} className="mb-2 w-full flex-row items-center justify-between">
+    <View style={moderateSize} className="mb-2 w-full flex-row items-center justify-between px-4">
       <Pressable onPress={() => router.replace('/(games)/games')}>
-        <SvgIcon name="arrowleft" size={24} />
+        <SvgIcon name="arrowleft" size={24} color="#6B7280" />
       </Pressable>
 
-      <Text className="py-3 text-center font-baloo text-2xl">{data.name}</Text>
+      <Text className="py-3 text-center font-baloo text-2xl dark:text-navbar-active">
+        {data.name}
+      </Text>
 
       <Pressable onPress={handleSelect}>
-        <SvgIcon name="instructions" size={24} />
+        <SvgIcon name="instructions" size={24} color="#6B7280" />
       </Pressable>
       <UnitGameModal ref={modalRef} data={data} />
     </View>

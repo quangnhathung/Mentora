@@ -104,7 +104,7 @@ export const FindTheWord = ({
     <BottomBorder className="border-custom-5 w-full">
       <View className="w-full items-center justify-center">
         <GradientView
-          colors={['primary-dark', 'primary', 'primary-light']}
+          colors={['primary-dark', 'primary']}
           containerClassName="min-h-4 w-full rounded-xl"
           className="bg-gradient-to-r from-primary-dark via-primary to-primary-light p-4"
           start={{ x: 0.5, y: 0 }}

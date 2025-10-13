@@ -63,9 +63,9 @@ export default function TabLayout() {
   );
 
   // Precompute icon functions once so references stay stable between renders
-  const iconHome = useMemo(() => makeIcon('home'), [makeIcon]);
-  const iconDiscover = useMemo(() => makeIcon('compass', 25), [makeIcon]);
-  const iconGames = useMemo(() => makeIcon('games', 22), [makeIcon]);
+  const iconHome = useMemo(() => makeIcon('home', 28), [makeIcon]);
+  const iconDiscover = useMemo(() => makeIcon('search', 28), [makeIcon]);
+  const iconGames = useMemo(() => makeIcon('games', 33), [makeIcon]);
   const iconProfile = useMemo(() => makeIcon('profile'), [makeIcon]);
 
   const TAB_BAR_HEIGHT = Platform.OS === 'web' ? 35 : 48;
@@ -92,16 +92,14 @@ export default function TabLayout() {
         borderTopRightRadius: 16,
         overflow: 'hidden',
       } as ViewStyle,
-      tabBarInactiveTintColor: colors.gray.DEFAULT,
-      tabBarActiveTintColor: colors.secondary.DEFAULT,
+      tabBarInactiveTintColor: colors.navbar.element,
+      tabBarActiveTintColor: colors.navbar.active,
       sceneContainerStyle: {
         paddingBottom: hide ? bottomSpace : bottomSpace + TAB_BAR_HEIGHT,
         backgroundColor: colors.background.dark.DEFAULT,
       } as ViewStyle,
       tabBarBackground: () => (
-        <View
-          className={`flex-1 rounded-t-2xl bg-background-dark-light ${hide ? 'none' : 'flex'}`}
-        />
+        <View className={`flex-1 rounded-t-2xl bg-navbar ${hide ? 'none' : 'flex'}`} />
       ),
     }),
     [hide, bottomSpace, TAB_BAR_HEIGHT]
@@ -112,11 +110,11 @@ export default function TabLayout() {
   }
 
   if (status === 'signOut') {
-    return <Redirect href="/(auth)/login" />;
+    //return <Redirect href="/(auth)/login" />;
   }
 
   return (
-    <View className={`max-w-screen-md flex-1 bg-background-dark`}>
+    <View className={`max-w-screen-md flex-1 bg-navbar`}>
       <Tabs initialRouteName="index" backBehavior="history" screenOptions={screenOptions}>
         <Tabs.Screen
           name="index"

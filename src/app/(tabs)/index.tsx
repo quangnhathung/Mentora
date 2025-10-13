@@ -9,6 +9,7 @@ import React, { useMemo } from 'react';
 import { moderateScale } from '@/shared/lib/helpers/scale';
 import { View } from '@/shared/ui';
 import { TwoSectionHeader } from '@/shared/ui/layouts/sections/TwoSectionHeader';
+import HomeHeader from '@/widgets/common/HomeHeader';
 
 export default function Home() {
   //const home = usePathData.getCurrentPath();
@@ -62,8 +63,8 @@ export default function Home() {
       className={``}
       scrollable
       style={moderateSize}
-      Header={<></>}
-      Body={<View className={`items-center justify-center py-2`}></View>}
+      Header={<HomeHeader />}
+      Body={<View className={`flex-1 items-center justify-center py-2`}></View>}
     />
   );
 }

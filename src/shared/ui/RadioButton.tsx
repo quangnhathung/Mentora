@@ -28,7 +28,6 @@ const RadioButton = forwardRef<RadioButtonHandle, RadioButtonProp>(
       children,
       className,
       iconUrl,
-      dark,
       selectable = true,
       icon,
       minSize = 45,
@@ -51,9 +50,7 @@ const RadioButton = forwardRef<RadioButtonHandle, RadioButtonProp>(
     return (
       <BottomBorder rounded="rounded-2xl" className={twMerge(`border-custom-5`)}>
         <View
-          className={twMerge(
-            `justify-center rounded-xl ${dark ? 'bg-background-dark' : 'bg-background-dark-light'} ${className}`
-          )}
+          className={twMerge(`justify-center rounded-xl border bg-background-dark ${className}`)}
           style={moderateSize}
         >
           <Pressable className={`min-h-[--s-radio] justify-center`} onPress={onChoose}>

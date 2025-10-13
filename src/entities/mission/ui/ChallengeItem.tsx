@@ -27,7 +27,7 @@ export const ChallengeItem = ({ data }: props) => {
   const withCondition = (c: React.ReactNode, condition: boolean) => {
     return condition ? (
       <GradientView
-        colors={['secondary-dark', 'secondary', 'secondary-light']}
+        colors={['secondary-dark', 'secondary']}
         containerClassName={`rounded-xl`}
         className={`w-full bg-gradient-to-r from-secondary-dark via-secondary to-secondary-light`}
       >
@@ -42,7 +42,7 @@ export const ChallengeItem = ({ data }: props) => {
     <BottomBorder className={`border-custom-5-light rounded-b-2xl`}>
       <View>
         <GradientView
-          colors={['primary-dark', 'primary', 'primary-light']}
+          colors={['primary-dark', 'primary']}
           containerClassName={`rounded-xl`}
           className={`w-full bg-gradient-to-r from-primary-dark via-primary to-primary-light`}
         >
@@ -50,7 +50,7 @@ export const ChallengeItem = ({ data }: props) => {
             <View className={`w-full flex-row`}>
               <View className={`items-center justify-center overflow-hidden rounded-xl p-4`}>
                 <GradientView
-                  colors={['secondary-dark', 'secondary', 'secondary-light']}
+                  colors={['secondary-dark', 'secondary']}
                   style={StyleSheet.absoluteFillObject}
                   containerClassName={`absolute inset-0`}
                   className={`rounded-xl bg-gradient-to-r from-secondary-dark via-secondary to-secondary-light`}

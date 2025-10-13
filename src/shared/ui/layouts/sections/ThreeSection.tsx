@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView, type StyleProp, type ViewStyle } from 'react-native';
-import { type Edge, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { type Edge } from 'react-native-safe-area-context';
 
 import { FocusAwareStatusBar, View } from '@/shared/ui';
 import Screen from '@/shared/ui/screen';
@@ -14,7 +14,7 @@ export const ThreeSection: React.FC<{
   Body: React.ReactNode;
   Bottom: React.ReactNode;
 }> = ({ Header, Body, Bottom, edges, scrollable, className, style }) => {
-  const insets = useSafeAreaInsets();
+  //const insets = useSafeAreaInsets();
   const Container: React.ElementType = scrollable ? ScrollView : View;
   const scrollProps = scrollable
     ? {
@@ -33,7 +33,7 @@ export const ThreeSection: React.FC<{
         </Container>
         <View className={``}>{Bottom}</View>
       </View>
-      <View style={{ height: insets.bottom + 50 }} />
+      {/* <View className='border' style={{ height: insets.bottom + 50 }} /> */}
     </Screen>
   );
 };

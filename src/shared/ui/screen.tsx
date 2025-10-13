@@ -67,7 +67,7 @@ export default function Screen({
       edges={edges}
       // style={style}
       style={[isTransparent ? { backgroundColor: 'transparent' } : null, style]}
-      className={twMerge(`flex-1 ${Platform.OS === 'web' ? '' : 'bg-background-dark'}`, className)}
+      className={twMerge(`flex-1 ${Platform.OS === 'web' ? '' : 'bg-background'}`, className)}
     >
       {Platform.OS !== 'web' && (
         <ImageBackground

@@ -47,7 +47,7 @@ export default function VocabularyChart() {
   return (
     <BottomBorder className={`border-custom-5-light w-full rounded-2xl`}>
       <GradientView
-        colors={['primary-dark', 'primary', 'primary-light']}
+        colors={['primary-dark', 'primary']}
         containerClassName={`w-full overflow-hidden rounded-2xl`}
         className={`bg-gradient-to-r from-primary-dark via-primary to-primary-light`}
       >

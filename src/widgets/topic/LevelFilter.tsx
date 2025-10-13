@@ -30,9 +30,11 @@ export function LevelFilter({ value, onChange, data }: props) {
           return (
             <TouchableOpacity key={l.key} onPress={() => onChange(l.key)} testID={`level-${l.key}`}>
               <View
-                className={`rounded-3xl border-2 border-white px-5 py-1 ${active ? 'bg-secondary' : 'bg-transparent'}`}
+                className={`rounded-3xl border-2 border-[#6366F1] px-5 py-1 ${active ? 'bg-primary' : 'bg-transparent'}`}
               >
-                <Text className={`min-w-[30px] text-center font-bevietnampro text-base text-white`}>
+                <Text
+                  className={`min-w-[30px] text-center font-bevietnampro text-base font-bold ${active ? 'dark:text-white' : ''}`}
+                >
                   {l.label}
                 </Text>
               </View>

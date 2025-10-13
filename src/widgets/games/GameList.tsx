@@ -32,7 +32,7 @@ export const GameList = () => {
         <ItemWithImage key={item.id} image={item.image} isFail={false}>
           <View className="w-full flex-1 flex-col justify-between">
             <View className="flex-row justify-between">
-              <Text className="font-baloo text-2xl text-white">{item.name}</Text>
+              <Text className="font-baloo text-2xl dark:text-white">{item.name}</Text>
               <Pressable
                 onPress={() => {
                   handleSelect(item);
@@ -57,12 +57,11 @@ export const GameList = () => {
                 className="self-start"
               >
                 <GradientView
-                  colors={['secondary-dark', 'secondary', 'secondary-light']}
+                  colors={['#FBBC05', '#FFE69E']}
                   containerClassName="overflow-hidden rounded-xl border-2 border-white"
-                  className="bg-gradient-to-r from-secondary-dark via-secondary to-secondary-light"
                 >
                   <View className="px-4">
-                    <Text className="font-baloo text-base">Play</Text>
+                    <Text className="font-baloo text-base dark:text-white">Play</Text>
                   </View>
                 </GradientView>
               </Pressable>

@@ -4,9 +4,8 @@ import React, { useMemo } from 'react';
 import { View } from 'react-native';
 
 import { moderateScale } from '@/shared/lib/helpers/scale';
-import { colors } from '@/shared/ui';
+import { colors, Text } from '@/shared/ui';
 import BackButton from '@/shared/ui/BackButton';
-import { TextGradient } from '@/shared/ui/TextGradient/TextGradient';
 
 type HeaderWithBackProps = {
   title?: string;
@@ -38,12 +37,7 @@ export const HeaderWithBack = ({ title, children }: HeaderWithBackProps) => {
         onPress={routeBack}
       />
       <View className={`w-full items-center justify-center`}>
-        <TextGradient
-          className={`from-primary via-white to-primary pt-1 text-center font-baloo text-xl uppercase`}
-          content={title!}
-          colors={['primary', 'white', 'primary']}
-          locations={[0, 0.47, 1]}
-        />
+        <Text className="font-baloo text-2xl dark:text-navbar-active">{title}</Text>
       </View>
       {children}
     </View>

@@ -21,16 +21,16 @@ export const AccordionWithGradient = ({
 }: Props) => {
   return (
     <BottomBorder
-      className={`${className} ${isExpand ? 'bg-background-dark-light' : 'border-custom-5-light'} w-full rounded-xl`}
+      className={`${className} ${isExpand ? 'border bg-background-dark-light' : 'border-custom-5-light'} w-full rounded-xl`}
     >
       <GradientView
-        colors={['primary-dark', 'primary', 'primary-light']}
+        colors={['#8789EF', '#25B9D2']}
         containerClassName="rounded-xl"
         className="w-full bg-gradient-to-r from-primary-dark via-primary to-primary-light"
       >
         <Pressable onPress={onToggle} className="flex-row items-center justify-between px-3 py-4">
           <View className="flex-row">
-            <Text className="font-baloo text-base">{title}</Text>
+            <Text className="font-baloo text-base dark:text-white">{title}</Text>
           </View>
           <View className="flex-row gap-2">
             <SvgIcon name={isExpand ? 'chevronUp' : 'chevronDown'} />

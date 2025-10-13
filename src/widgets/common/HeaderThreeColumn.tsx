@@ -5,7 +5,6 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { moderateScale } from '@/shared/lib/helpers/scale';
 import { Text } from '@/shared/ui';
-import BottomBorder from '@/shared/ui/BottomBorder';
 
 type HeaderThreeColumnProps = {
   title?: string;
@@ -24,17 +23,15 @@ export const HeaderThreeColumn = ({ title, left, right }: HeaderThreeColumnProps
   );
 
   return (
-    <BottomBorder className={`border-custom-7-light rounded-b-3xl`}>
-      <View
-        className={`flex-row rounded-b-3xl bg-primary p-4`}
-        style={{ ...moderateSize, paddingTop: insets.top + (Platform.OS === 'web' ? 20 : 10) }}
-      >
-        <View className={`flex-1`}>{left}</View>
-        <View className={`w-3/5 items-center justify-center`}>
-          <Text className={`font-baloo text-xl uppercase`}>{title}</Text>
-        </View>
-        <View className={`flex-1`}>{right}</View>
+    <View
+      className={`flex-row bg-background p-4`}
+      style={{ ...moderateSize, paddingTop: insets.top + (Platform.OS === 'web' ? 20 : 10) }}
+    >
+      <View className={`flex-1`}>{left}</View>
+      <View className={`w-3/5 items-center justify-center`}>
+        <Text className={`font-baloo text-xl uppercase dark:text-navbar-active`}>{title}</Text>
       </View>
-    </BottomBorder>
+      <View className={`flex-1`}>{right}</View>
+    </View>
   );
 };

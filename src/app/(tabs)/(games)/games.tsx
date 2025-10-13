@@ -1,14 +1,12 @@
-import { router } from 'expo-router';
 import { vars } from 'nativewind';
 import React, { useMemo } from 'react';
 
 import { moderateScale } from '@/shared/lib/helpers/scale';
 import { withDeviceLayout } from '@/shared/lib/hocs/withDeviceLayout';
 import { withErrorBoundary } from '@/shared/lib/hocs/withErrorBoundary';
-import { View } from '@/shared/ui';
+import { Text, View } from '@/shared/ui';
 import AdBanner from '@/shared/ui/Ads/AdBanner';
 import { ThreeSection } from '@/shared/ui/layouts/sections/ThreeSection';
-import { TextGradient } from '@/shared/ui/TextGradient/TextGradient';
 import { GameList } from '@/widgets/games/GameList';
 import { PremiumBanner } from '@/widgets/profile/ProfilePremiumBanner';
 
@@ -29,12 +27,7 @@ const GamesScreen = () => {
       style={moderateSize}
       Header={
         <View className={`items-center justify-between pb-2`}>
-          <TextGradient
-            className={`from-primary via-white to-primary py-2 text-center font-baloo text-2xl tracking-widest`}
-            content={'Games'}
-            colors={['primary', 'white', 'primary']}
-            locations={[0, 0.47, 1]}
-          />
+          <Text className="font-baloo text-2xl dark:text-navbar-active">Games</Text>
         </View>
       }
       Body={
@@ -51,11 +44,11 @@ const GamesScreen = () => {
             />
           </View>
 
-          <PremiumBanner
-            onPress={() => {
-              router.push('/(tabs)/(premium)/benefit');
-            }}
-          />
+          <PremiumBanner />
+
+          <View className="mb-4 mt-5 h-[500px] w-full">
+            <Text> </Text>
+          </View>
         </View>
       }
       Bottom={<></>}

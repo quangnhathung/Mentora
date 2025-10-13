@@ -2,6 +2,7 @@ import { vars } from 'nativewind';
 import React, { useMemo, useState } from 'react';
 import { Tabs, TabScreen, TabsProvider } from 'react-native-paper-tabs';
 
+import { useHideTabBar } from '@/shared/hook/useHideTabBar';
 import { translate } from '@/shared/lib';
 import { moderateScale } from '@/shared/lib/helpers/scale';
 import { withDeviceLayout } from '@/shared/lib/hocs/withDeviceLayout';
@@ -31,7 +32,7 @@ export type HelpCenter = {
 const helpContent: HelpCenter[] = [
   {
     id: 1,
-    title: String(translate('profile.help.fqa.Mahtutor') || ''),
+    title: 'What is Mentora?',
     content:
       '“Khởi động” là giai đoạn làm quen, giúp bạn nắm vững kiến thức cơ bản và tạo nền tảng cho hành trình học tiếng Anh.',
     filter: '3',
@@ -45,16 +46,16 @@ const helpContent: HelpCenter[] = [
   },
   {
     id: 3,
-    title: String(translate('profile.help.fqa.earn') || ''),
+    title: 'How can I earn coin?',
     content:
-      'Bạn sẽ nhận được "stars" khi hoàn thành các bài học, làm đúng bài tập và tham gia thử thách trong ứng dụng.',
+      'Bạn sẽ nhận được "coin" khi hoàn thành các bài học, làm đúng bài tập và tham gia thử thách trong ứng dụng.',
     filter: '3',
   },
   {
     id: 4,
-    title: String(translate('profile.help.fqa.account') || ''),
+    title: 'How can i close Mentora account?',
     content:
-      'Để đóng tài khoản Mahtutor, hãy vào phần "Cài đặt" → "Tài khoản" và chọn tùy chọn "Xóa tài khoản".',
+      'Để đóng tài khoản Mentora, hãy vào phần "Cài đặt" → "Tài khoản" và chọn tùy chọn "Xóa tài khoản".',
     filter: '2',
   },
   {
@@ -108,30 +109,31 @@ const ContactMenuMock: ChoiceBase[] = [
   {
     id: 1,
     value: 'customer',
-    description: `<p class="justify-start"><span class="text-white text-sm">${translate('profile.help.contact.direct')}</span></p>`,
+    description: `<p class="justify-start"><span class="text-sm">${translate('profile.help.contact.direct')}</span></p>`,
     icon: 'customer',
   },
   {
     id: 2,
     value: 'web',
-    description: `<p class="justify-start"><span class="text-white text-sm">${'Website'}</span></p>`,
+    description: `<p class="justify-start"><span class="text-sm">${'Website'}</span></p>`,
     icon: 'website',
   },
   {
     id: 3,
     value: 'tiktok',
-    description: `<p class="justify-start"><span class="text-white text-sm">${'Tiktok'}</span></p>`,
+    description: `<p class="justify-start"><span class="text-sm">${'Tiktok'}</span></p>`,
     icon: 'tiktok',
   },
   {
     id: 4,
     value: 'facebook',
-    description: `<p class="justify-start"><span class="text-white text-sm">${'Facebook'}</span></p>`,
+    description: `<p class="justify-start"><span class="text-sm">${'Facebook'}</span></p>`,
     icon: 'facebook',
   },
 ];
 
 const ProfileScreen = () => {
+  useHideTabBar();
   const [filter, setFilter] = useState<string>('1'); // đổi thành string
   const HelpData = useMemo(
     () => (filter === '1' ? helpContent : helpContent.filter((item) => item.filter === filter)),
@@ -157,7 +159,7 @@ const ProfileScreen = () => {
           <Tabs
             mode="fixed"
             disableSwipe={false}
-            tabLabelStyle={{ fontSize: 16, color: '#fff' }}
+            tabLabelStyle={{ fontSize: 16, color: '#1F2937' }}
             style={{ backgroundColor: 'transparent' }}
             theme={{ colors: { primary: '#FFAA00' } }}
           >
