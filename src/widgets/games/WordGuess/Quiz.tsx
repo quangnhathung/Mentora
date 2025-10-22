@@ -70,18 +70,22 @@ export const Quiz = forwardRef<QuizRef, Props>(({ data, onResult, onIncorrect },
 
         let bgColor = 'bg-background-dark-light';
         let icon: React.ReactNode = null;
+        let textcolor = '';
 
         if (isSelected) {
           if (isCorrect) {
             bgColor = 'bg-green-500';
             icon = <SvgIcon name="checked" size={16} color="green" />;
+            textcolor = 'dark:text-white font-bold';
           } else {
             bgColor = 'bg-red';
             icon = <SvgIcon name="error" size={16} />;
+            textcolor = 'dark:text-white font-bold';
           }
         } else if (showCorrect) {
           bgColor = 'bg-green-500';
           icon = <SvgIcon name="checked" size={16} color="green" />;
+          textcolor = 'dark:text-white font-bold';
         }
 
         return (
@@ -90,7 +94,7 @@ export const Quiz = forwardRef<QuizRef, Props>(({ data, onResult, onIncorrect },
               onPress={() => handlePress(opt.id)}
               className={`w-full ${bgColor} flex-1 flex-row items-center justify-between rounded-xl p-3`}
             >
-              <Text className={`flex-1 text-center`}>{opt.text}</Text>
+              <Text className={`flex-1 text-center ${textcolor}`}>{opt.text}</Text>
               {icon}
             </Pressable>
           </BottomBorder>

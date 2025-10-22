@@ -46,7 +46,7 @@ const GamesScreen = () => {
 
           <PremiumBanner />
 
-          <View className="mb-4 mt-5 h-[500px] w-full">
+          <View className="mb-4 mt-5 h-[20px] w-full">
             <Text> </Text>
           </View>
         </View>

@@ -124,7 +124,7 @@ const ProfileScreen = () => {
           <Text className={`my-2 w-full text-center`}>
             {translate('settings.version')}: {Env.VERSION}
           </Text>
-          <View className="h-[200px] w-full">
+          <View className="h-[25px] w-full">
             <Text></Text>
           </View>
         </View>

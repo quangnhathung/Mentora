@@ -7,7 +7,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
     quests: [
       {
         id: '1',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'Which word describes this animal?',
         options: [
           { id: '1', text: 'Big', correct: true },
@@ -17,7 +18,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '2',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'Choose the correct adjective for this bird.',
         options: [
           { id: '1', text: 'Small', correct: true },
@@ -27,7 +29,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '3',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'How does the child feel?',
         options: [
           { id: '1', text: 'Happy', correct: true },
@@ -37,7 +40,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '4',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'Choose the correct adjective.',
         options: [
           { id: '1', text: 'Sad', correct: true },
@@ -47,7 +51,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '5',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'This car is very ____.',
         options: [
           { id: '1', text: 'Fast', correct: true },
@@ -57,7 +62,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '6',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'The turtle is ____.',
         options: [
           { id: '1', text: 'Slow', correct: true },
@@ -67,7 +73,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '7',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'How is the weather?',
         options: [
           { id: '1', text: 'Hot', correct: true },
@@ -77,7 +84,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '8',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'Ice cream is usually ____.',
         options: [
           { id: '1', text: 'Cold', correct: true },
@@ -87,7 +95,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '9',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'The building is very ____.',
         options: [
           { id: '1', text: 'Tall', correct: true },
@@ -97,7 +106,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '10',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'The boy is ____.',
         options: [
           { id: '1', text: 'Short', correct: true },
@@ -107,7 +117,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '11',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'How would you describe this man?',
         options: [
           { id: '1', text: 'Old', correct: true },
@@ -117,7 +128,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '12',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'Choose the correct adjective.',
         options: [
           { id: '1', text: 'Young', correct: true },
@@ -127,7 +139,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '13',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'The room looks ____.',
         options: [
           { id: '1', text: 'Clean', correct: true },
@@ -137,7 +150,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '14',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'These shoes are ____.',
         options: [
           { id: '1', text: 'Dirty', correct: true },
@@ -147,7 +161,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '15',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'This flower is very ____.',
         options: [
           { id: '1', text: 'Beautiful', correct: true },
@@ -164,7 +179,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
     quests: [
       {
         id: '1',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'Which vehicle has two wheels?',
         options: [
           { id: '1', text: 'Bicycle', correct: true },
@@ -174,7 +190,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '2',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'Which transport is used for public city travel on rails?',
         options: [
           { id: '1', text: 'Tram', correct: true },
@@ -184,7 +201,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '3',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'This vehicle carries people quickly on roads.',
         options: [
           { id: '1', text: 'Car', correct: true },
@@ -194,7 +212,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '4',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'Which vehicle carries many passengers and follows a schedule?',
         options: [
           { id: '1', text: 'Bus', correct: true },
@@ -204,7 +223,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '5',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'This transport runs on tracks between stations.',
         options: [
           { id: '1', text: 'Train', correct: true },
@@ -214,7 +234,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '6',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'Which transport flies and crosses countries quickly?',
         options: [
           { id: '1', text: 'Airplane', correct: true },
@@ -224,7 +245,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '7',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'Which transport moves on water?',
         options: [
           { id: '1', text: 'Boat', correct: true },
@@ -234,7 +256,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '8',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'This aircraft can hover and land vertically.',
         options: [
           { id: '1', text: 'Helicopter', correct: true },
@@ -244,7 +267,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '9',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'Which vehicle transports goods in large quantities?',
         options: [
           { id: '1', text: 'Truck', correct: true },
@@ -254,7 +278,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '10',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'Which vehicle is commonly used as a paid taxi service?',
         options: [
           { id: '1', text: 'Taxi', correct: true },
@@ -264,7 +289,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '11',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'Which transport goes under the city?',
         options: [
           { id: '1', text: 'Subway', correct: true },
@@ -274,7 +300,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '12',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'This small electric vehicle is popular for short urban trips.',
         options: [
           { id: '1', text: 'Scooter', correct: true },
@@ -284,7 +311,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '13',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'Which transport is used for long-distance sea travel?',
         options: [
           { id: '1', text: 'Ship', correct: true },
@@ -294,7 +322,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '14',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'Which vehicle is designed to travel into space?',
         options: [
           { id: '1', text: 'Rocket', correct: true },
@@ -304,7 +333,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '15',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'Which two-wheeled motorized vehicle is common in cities?',
         options: [
           { id: '1', text: 'Motorbike', correct: true },
@@ -321,7 +351,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
     quests: [
       {
         id: '1',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'Where do travelers usually stay overnight?',
         options: [
           { id: '1', text: 'Hotel', correct: true },
@@ -331,7 +362,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '2',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'Where do planes take off and land?',
         options: [
           { id: '1', text: 'Airport', correct: true },
@@ -341,7 +373,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '3',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'Which place has sand and sea?',
         options: [
           { id: '1', text: 'Beach', correct: true },
@@ -351,7 +384,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '4',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'Where do people go to climb and see high views?',
         options: [
           { id: '1', text: 'Mountain', correct: true },
@@ -361,7 +395,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '5',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'Which place is a large urban area with many buildings?',
         options: [
           { id: '1', text: 'City', correct: true },
@@ -371,7 +406,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '6',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'A small rural community is called a ____.',
         options: [
           { id: '1', text: 'Village', correct: true },
@@ -381,7 +417,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '7',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'What do you need to board a plane?',
         options: [
           { id: '1', text: 'Ticket', correct: true },
@@ -391,7 +428,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '8',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'Which document is required to travel internationally?',
         options: [
           { id: '1', text: 'Passport', correct: true },
@@ -401,7 +439,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '9',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'Where do you keep clothes and belongings while traveling?',
         options: [
           { id: '1', text: 'Luggage', correct: true },
@@ -411,7 +450,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '10',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'What helps travelers find places and directions?',
         options: [
           { id: '1', text: 'Map', correct: true },
@@ -421,7 +461,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '11',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'Where do travelers often eat when away from home?',
         options: [
           { id: '1', text: 'Restaurant', correct: true },
@@ -431,7 +472,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '12',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'Where can you buy small gifts to remember a trip?',
         options: [
           { id: '1', text: 'Souvenir shop', correct: true },
@@ -441,7 +483,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '13',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'What do people do when they sleep outdoors in a tent?',
         options: [
           { id: '1', text: 'Camping', correct: true },
@@ -451,7 +494,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '14',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'Which activity means walking long distances in nature?',
         options: [
           { id: '1', text: 'Hiking', correct: true },
@@ -461,7 +505,8 @@ export const wordGuessTopicsData: WordGuessTopic[] = [
       },
       {
         id: '15',
-        image: 'https://static.saoladigital.com/public/mtt-mobile-app/images/demo/image-demo.jpg',
+        image:
+          'https://quangnhathung.github.io/public/mentora/png/BCO.51f13dc1-9c9d-417f-8da7-3d291fcc16f6.png',
         text: 'What do people often do at a beach for fun in the water?',
         options: [
           { id: '1', text: 'Swimming', correct: true },

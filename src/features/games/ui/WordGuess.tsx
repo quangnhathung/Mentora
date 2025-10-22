@@ -111,22 +111,21 @@ export const WordGuess = ({
     <BottomBorder className="border-custom-5 w-full">
       <View className="relative items-center justify-center">
         <GradientView
-          colors={['primary-dark', 'primary']}
+          colors={['#F8AAD3', '#CAB9FC']}
           containerClassName="min-h-4 w-full rounded-xl"
-          className="bg-gradient-to-r from-primary-dark via-primary to-primary-light p-4"
           start={{ x: 0.5, y: 0 }}
           end={{ x: 0.5, y: 1 }}
           style={moderateSize}
           pointerEvents="box-none"
         >
-          <View>
+          <View className="px-3 py-1">
             <View className="flex-row items-center justify-between">
               <View className="justify-between">
-                <Text className="font-bevietnampro dark:text-cyan">Topic</Text>
-                <Text className="font-baloo text-2xl">{data.name}</Text>
+                <Text className="font-bevietnampro">Topic</Text>
+                <Text className="font-baloo text-2xl dark:text-white">{data.name}</Text>
               </View>
               <View className="flex-row items-center justify-center gap-2">
-                <Text className="pt-1 text-center font-baloo text-xl">
+                <Text className="pt-1 text-center font-baloo text-xl dark:text-white">
                   {currentQuestion + 1} / {NumOfQuest}
                 </Text>
                 <Pressable>

@@ -52,6 +52,7 @@ import Rating from '@assets/images/svgs/rating.svg';
 import Replay from '@assets/images/svgs/replay.svg';
 import Report from '@assets/images/svgs/report.svg';
 import Reset from '@assets/images/svgs/reset.svg';
+import Routine from '@assets/images/svgs/routine.svg';
 import Search from '@assets/images/svgs/Search.svg';
 import SecondaryButtonPlay from '@assets/images/svgs/secondary-button-play.svg';
 import Share from '@assets/images/svgs/share.svg';
@@ -106,6 +107,7 @@ const ICONS = {
   games: Games,
   instructions: Instruction,
   arrowleft: ArrowLeft,
+  routine: Routine,
   clock: Clock,
   speaker: Speaker,
   checked: Checked,

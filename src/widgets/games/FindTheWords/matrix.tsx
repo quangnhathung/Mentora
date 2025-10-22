@@ -324,7 +324,7 @@ export const Matrix: React.FC<Props> = ({ rows, cols, words, onFoundCountChange 
               <View />
               <Text
                 className={`pt-2 text-center font-baloo text-xl ${
-                  isDisplayedFound ? 'dark:text-cyan' : 'text-white'
+                  isDisplayedFound ? 'dark:text-green-500' : ''
                 }`}
               >
                 {displayedWord ?? ''}
@@ -366,7 +366,11 @@ export const Matrix: React.FC<Props> = ({ rows, cols, words, onFoundCountChange 
                   className="border-custom-5 rounded-2xl"
                 >
                   <View className={`${baseClass} ${cls}`} style={{ width: size, height: size }}>
-                    <Text className={`font-bevietnampro text-2xl font-bold`}>{ch}</Text>
+                    <Text
+                      className={`font-bevietnampro ${found ? 'dark:text-white' : ''} text-2xl font-bold`}
+                    >
+                      {ch}
+                    </Text>
                   </View>
                 </BottomBorder>
               );

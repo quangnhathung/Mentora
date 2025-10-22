@@ -390,7 +390,7 @@ export const Cross = forwardRef<CrossRef, Props>(({ words: rawWords, onCompleted
                       currentPath.includes(index) ? 'bg-green-500' : 'bg-background-dark-light'
                     } flex items-center justify-center rounded-xl`}
                   >
-                    <Text className={`pt-2 font-baloo text-2xl dark:text-white`}>{letter}</Text>
+                    <Text className={`pt-2 font-baloo text-2xl`}>{letter}</Text>
                   </View>
                 </BottomBorder>
               );

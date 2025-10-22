@@ -91,7 +91,7 @@ export const Modal = React.forwardRef(
     const renderHandleComponent = React.useCallback(
       () => (
         <>
-          <View className="mt-2 h-[7px] w-[50px] self-center rounded-lg bg-gray-400 dark:bg-gray-700" />
+          <View className="mt-2 h-[7px] w-[50px] self-center rounded-lg bg-gray-400" />
           <ModalHeader title={title} dismiss={modal.dismiss} />
         </>
       ),

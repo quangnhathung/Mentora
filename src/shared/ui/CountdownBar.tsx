@@ -33,9 +33,9 @@ const CountdownBar = forwardRef<CountdownBarRef, Props>(
       onTick,
       onExpire,
       className = 'w-full',
-      barBgClass = 'bg-white',
-      barFillClass = 'bg-teal-300',
-      clockColorClass = 'text-teal-300',
+      barBgClass = 'bg-background-dark',
+      barFillClass = 'bg-black',
+      clockColorClass = 'dark:text-black',
     },
     ref
   ) => {
@@ -200,14 +200,14 @@ const CountdownBar = forwardRef<CountdownBarRef, Props>(
 
         {/* clock + time */}
         <View className="mr-3 flex-row items-center">
-          <SvgIcon name="clock" size={16} color="cyan" />
-          <Text className={`ml-1 font-bold text-cyan ${clockColorClass}`}>{fmt(remaining)}</Text>
+          <SvgIcon name="clock" size={16} color="black" />
+          <Text className={`ml-1 font-bold ${clockColorClass}`}>{fmt(remaining)}</Text>
         </View>
 
         {/* points pill */}
         {typeof points === 'number' && (
           <View className="flex-row items-center rounded-full bg-secondary px-3 py-1">
-            <SvgIcon name="star" size={14} />
+            <SvgIcon name="coin" size={14} />
             <Text className="ml-2 font-bold text-white">{points}</Text>
           </View>
         )}

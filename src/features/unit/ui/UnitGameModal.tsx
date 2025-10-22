@@ -45,7 +45,7 @@ export const UnitGameModal = forwardRef<GameInstructionsModalRef, UnitGameModalP
         index={0}
         snapPoints={snapPoints}
         backgroundStyle={{
-          backgroundColor: isDark ? colors.background.dark.light : (colors.white.DEFAULT as string),
+          backgroundColor: isDark ? '#CBD5E1' : (colors.white.DEFAULT as string),
         }}
       >
         <View className={`flex-1 flex-col gap-3 px-5`} style={{ paddingBottom: insets.bottom }}>

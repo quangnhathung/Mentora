@@ -104,7 +104,7 @@ export const FindTheWord = ({
     <BottomBorder className="border-custom-5 w-full">
       <View className="w-full items-center justify-center">
         <GradientView
-          colors={['primary-dark', 'primary']}
+          colors={['#F8AAD3', '#CAB9FC']}
           containerClassName="min-h-4 w-full rounded-xl"
           className="bg-gradient-to-r from-primary-dark via-primary to-primary-light p-4"
           start={{ x: 0.5, y: 0 }}
@@ -115,11 +115,11 @@ export const FindTheWord = ({
           <View>
             <View className="flex-row items-center justify-between">
               <View className="justify-between">
-                <Text className="font-bevietnampro dark:text-cyan">Topic</Text>
-                <Text className="font-baloo text-2xl">{data.text}</Text>
+                <Text className="font-bevietnampro">Topic</Text>
+                <Text className="font-baloo text-2xl dark:text-white">{data.text}</Text>
               </View>
               <View className="flex-row items-center justify-center gap-2">
-                <Text className="pt-1 text-center font-baloo text-2xl">
+                <Text className="pt-1 text-center font-baloo text-2xl dark:text-white">
                   {foundCount}/{totalCount}
                 </Text>
                 <Pressable>

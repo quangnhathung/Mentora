@@ -103,7 +103,7 @@ export const WordChain = ({ level, isTimeout, countdownBarRef, onTryAgain, onEnd
   return (
     <View className="w-full items-center justify-center pt-2">
       <GradientView
-        colors={['primary-dark', 'primary']}
+        colors={['#F8AAD3', '#CAB9FC']}
         containerClassName="min-h-4 w-full rounded-xl"
         className="bg-gradient-to-r from-primary-dark via-primary to-primary-light p-4"
         start={{ x: 0.5, y: 0 }}
@@ -114,7 +114,7 @@ export const WordChain = ({ level, isTimeout, countdownBarRef, onTryAgain, onEnd
         <View>
           <View className="flex-row items-center justify-end">
             <View className="flex-row items-center justify-center gap-2">
-              <Text className="pt-1 text-center font-baloo text-2xl">
+              <Text className="pt-1 text-center font-baloo text-2xl dark:text-white">
                 {currentQuest + 1}/{NumOfQuest}
               </Text>
               <Pressable>

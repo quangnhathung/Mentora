@@ -67,6 +67,7 @@ export default function TabLayout() {
   const iconDiscover = useMemo(() => makeIcon('search', 28), [makeIcon]);
   const iconGames = useMemo(() => makeIcon('games', 33), [makeIcon]);
   const iconProfile = useMemo(() => makeIcon('profile'), [makeIcon]);
+  const iconMisson = useMemo(() => makeIcon('routine'), [makeIcon]);
 
   const TAB_BAR_HEIGHT = Platform.OS === 'web' ? 35 : 48;
   const V_MARGIN = 12; // khoảng cách nổi lên khỏi đáy
@@ -135,6 +136,15 @@ export default function TabLayout() {
         />
 
         <Tabs.Screen
+          name="(mission)"
+          options={{
+            title: 'Mission',
+            lazy: false,
+            tabBarIcon: iconMisson,
+          }}
+        />
+
+        <Tabs.Screen
           name="(games)"
           options={{
             title: 'Games',
@@ -149,13 +159,6 @@ export default function TabLayout() {
             title: 'Profile',
             lazy: false,
             tabBarIcon: iconProfile,
-          }}
-        />
-
-        <Tabs.Screen
-          name="(exercise)"
-          options={{
-            href: null,
           }}
         />
 
