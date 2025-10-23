@@ -110,12 +110,6 @@ const LoginOauth: React.FC<LoginOauthProps> = () => {
             queryClient.invalidateQueries({
               queryKey: useUserData.getUserProfile.getKey(),
             });
-            queryClient.invalidateQueries({
-              queryKey: useUserData.getUserCurrentProgress.getKey(),
-            });
-            queryClient.invalidateQueries({
-              queryKey: useUserData.getCurrentPathInfo.getKey(),
-            });
             router.push('/');
           },
           onError: (error) => {

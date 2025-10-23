@@ -42,7 +42,7 @@ export const ProgressBar = forwardRef<ProgressBarRef, Props>(
     });
     return (
       <View className={twMerge(`rounded-full ${empty ? 'bg-white' : 'bg-white'}`, className)}>
-        <Animated.View style={style} className={`rounded-full bg-cyan`} />
+        <Animated.View style={style} className={`rounded-full bg-secondary`} />
         {marker}
       </View>
     );

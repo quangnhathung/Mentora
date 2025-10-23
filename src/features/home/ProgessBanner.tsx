@@ -19,13 +19,11 @@ export const ProgressBanner = () => {
       >
         <View className={`rounded-lg p-3`}>
           <Text className="font-baloo text-xl dark:text-white">
-            Hi {profile?.progress?.currentPath?.name ?? 'Guest'}, ready to practice today?
+            Hi {profile?.name ?? 'Guest'}, ready to practice today?
           </Text>
           <Text className="dark:text-white">Today learning journey</Text>
           <View className={`flex-row justify-between`}>
-            <Text className="my-1 text-xs dark:text-white">
-              {profile?.progress?.currentPath?.currentTopic?.name}
-            </Text>
+            <Text className="my-1 text-xs dark:text-white">{profile?.name}</Text>
             <Text className="my-1 text-xs dark:text-cyan">
               {profile?.progress?.currentPathProgress ?? '0'}%
             </Text>

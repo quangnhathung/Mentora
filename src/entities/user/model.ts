@@ -88,28 +88,10 @@ export const useUserData = {
     retry: 1, // thử lại 1 lần
   }),
 
-  getUserCurrentProgress: createQuery<UserProgressResponse, Variables, AxiosError>({
-    queryKey: ['/api-profile/v1/private/user/progress'], // -> cache key
-    enabled: () => !!useAuthStore.getState().token?.access,
-    fetcher: () => userApi.getUserCurrentProgress(),
-    use: [logger, syncUserProgressMiddleware], // side-effect
-    staleTime: 1000 * 60 * 60, // stale after 1 hours
-    retry: 1, // thử lại 1 lần
-  }),
-
   doUpdateProfile: createMutation<UserUpdateProfileResponse, UserUpdateProfileRequest, AxiosError>({
     // throwOnError: (error) => error.response?.status! >= 500,
     mutationFn: (payload) => userApi.doUpdateProfile(payload),
     use: [loggerMutation], // side-effect
     retry: 1, // thử lại 1 lần
-  }),
-
-  getCurrentPathInfo: createQuery<PathProgressResponse, Variables, AxiosError>({
-    queryKey: ['/api-profile/v1/private/user/path/current-progress'],
-    enabled: () => !!useAuthStore.getState().token?.access,
-    fetcher: () => userApi.getCurrentPathInfo(),
-    use: [logger, syncProgressMiddleware],
-    staleTime: 1000 * 60 * 60,
-    retry: 1,
   }),
 };

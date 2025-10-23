@@ -1,15 +1,11 @@
 import { vars } from 'nativewind';
-import React, { useMemo, useState } from 'react';
-import { Keyboard } from 'react-native';
+import React, { useMemo } from 'react';
 
-import { type Topic } from '@/entities/topic/types';
 import { translate } from '@/shared/lib';
 import { moderateScale } from '@/shared/lib/helpers/scale';
 import { View } from '@/shared/ui';
 import { TwoSectionHeader } from '@/shared/ui/layouts/sections/TwoSectionHeader';
 import HeaderWithSearch from '@/widgets/common/HeaderWithSearch';
-import { TopicRecentSearch } from '@/widgets/topic/TopicRecentSearch';
-import { TopicSearch } from '@/widgets/topic/TopicSearch';
 
 export default function Search() {
   const moderateSize = useMemo(
@@ -20,12 +16,7 @@ export default function Search() {
     []
   );
 
-  const [query, setQuery] = useState<string>('');
-
-  const handleSelect = (topic: Topic) => {
-    Keyboard.dismiss();
-    console.log('selected topic', topic);
-  };
+  //const [query, setQuery] = useState<string>('');
 
   return (
     <TwoSectionHeader
@@ -37,16 +28,16 @@ export default function Search() {
         <HeaderWithSearch
           title={translate('nav.discover.label')}
           autoFocus
-          onQueryChange={setQuery}
+          //onQueryChange={setQuery}
         />
       }
       Body={
         <View className={`items-center justify-center pt-2`}>
-          {query === '' ? (
+          {/* {query === '' ? (
             <TopicRecentSearch onSelect={handleSelect} />
           ) : (
             <TopicSearch q={query} onSelect={handleSelect} />
-          )}
+          )} */}
         </View>
       }
     />

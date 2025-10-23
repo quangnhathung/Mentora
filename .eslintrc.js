@@ -22,7 +22,7 @@ module.exports = {
       },
     ],
     'unicorn/filename-case': 'off',
-    'max-params': ['error', 3], // Limit the number of parameters in a function to use object instead
+    'max-params': ['error', 8], // Limit the number of parameters in a function to use object instead
     'max-lines-per-function': 'off',
     'react/display-name': 'off',
     'react/no-inline-styles': 'off',

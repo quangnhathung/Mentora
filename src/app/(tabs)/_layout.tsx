@@ -4,7 +4,6 @@ import React, { useCallback, useEffect, useMemo } from 'react';
 import { Platform, type ViewStyle } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { usePathData } from '@/entities/path/model';
 import { useUserData } from '@/entities/user/model';
 import { useIsFirstTime } from '@/shared/lib';
 import { useAuthStore } from '@/shared/lib/storage/auth/useAuthStore';
@@ -42,8 +41,6 @@ export default function TabLayout() {
   }, []);
 
   useUserData.getUserProfile();
-  useUserData.getUserCurrentProgress();
-  usePathData.getCurrentPath();
 
   useEffect(() => {
     if (status !== 'idle') {

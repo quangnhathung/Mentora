@@ -8,9 +8,6 @@ import { withErrorBoundary } from '@/shared/lib/hocs/withErrorBoundary';
 import { View } from '@/shared/ui';
 import { TwoSectionHeader } from '@/shared/ui/layouts/sections/TwoSectionHeader';
 import HeaderWithSearch from '@/widgets/common/HeaderWithSearch';
-import { TopicDiscover } from '@/widgets/topic/TopicDiscover';
-import { TopicFilters } from '@/widgets/topic/TopicFilters';
-import { TopicHighlight } from '@/widgets/topic/TopicHighlight';
 
 const DiscoverScreen = () => {
   const moderateSize = useMemo(
@@ -32,20 +29,7 @@ const DiscoverScreen = () => {
       scrollable={false}
       style={moderateSize}
       Header={<HeaderWithSearch title={translate('nav.discover.label')} onPress={handlePress} />}
-      Body={
-        <View className="flex-1">
-          <TopicDiscover
-            header={
-              <View className="gap-4">
-                <View className="items-center justify-center py-2">
-                  <TopicHighlight />
-                </View>
-                <TopicFilters />
-              </View>
-            }
-          />
-        </View>
-      }
+      Body={<View className="flex-1"></View>}
     />
   );
 };

@@ -1,4 +1,5 @@
 //import { Redirect } from 'expo-router';
+//import { Redirect } from 'expo-router';
 import { vars } from 'nativewind';
 import React, { useMemo } from 'react';
 
@@ -54,7 +55,7 @@ export default function Home() {
   // Chỉ redirect khi đang dev
   if (__DEV__) {
     //return <Redirect href="/(tabs)/(lesson)/1" />;
-    // return <Redirect href="/(tabs)/(community)/community" />;
+    //return <Redirect href="/(tabs)/(mission)/congra" />;
   }
 
   return (

@@ -1,5 +1,3 @@
-import { type Path } from '@/entities/path/types';
-
 export type User = {
   id?: number;
   name?: string;
@@ -23,7 +21,6 @@ export type UserLevel = 'beginner' | 'elementary' | 'intermediate' | 'advanced' 
 
 export type UserProgress = {
   currentHealth?: number;
-  currentPath?: Path;
   currentLevel: UserLevel;
   currentLevelNumber: number;
   currentLevelProgress: number;
