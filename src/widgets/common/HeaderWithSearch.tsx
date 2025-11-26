@@ -1,39 +1,36 @@
+import { Feather } from '@expo/vector-icons'; // Sử dụng icon kính lúp
 import { zodResolver } from '@hookform/resolvers/zod';
-import { router, useFocusEffect } from 'expo-router';
+import { useFocusEffect, useRouter } from 'expo-router';
 import React, { useCallback, useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { Keyboard, Platform } from 'react-native';
+import { Controller, useForm } from 'react-hook-form';
+import { Keyboard, Platform, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { twMerge } from 'tailwind-merge';
-import { z } from 'zod';
+import * as z from 'zod';
 
-import { ControlledInput, Text, TouchableOpacity, View } from '@/shared/ui';
-import BottomBorder from '@/shared/ui/BottomBorder';
-import Screen from '@/shared/ui/screen';
-import { TextGradient } from '@/shared/ui/TextGradient/TextGradient';
+// Định nghĩa lại các type nếu cần (giả định dựa trên code của bạn)
+const schema = z.object({
+  search: z.string().optional(),
+});
+type FormType = z.infer<typeof schema>;
 
-interface HeaderWithSearchProps {
-  title: string;
+type HeaderWithSearchProps = {
+  title?: string;
   className?: string;
   onPress?: () => void;
-  onQueryChange?: (q: string) => void;
+  onQueryChange?: (query: string) => void;
   onCancel?: () => void;
   autoFocus?: boolean;
-}
-
-const schema = z.object({
-  search: z.string(),
-});
-
-type FormType = z.infer<typeof schema>;
+};
 
 const HeaderWithSearch = ({
   title,
   className,
-  onPress,
   onQueryChange,
+  onPress,
   onCancel,
   autoFocus,
 }: HeaderWithSearchProps) => {
+  const router = useRouter();
   const { control, watch, reset } = useForm<FormType>({
     resolver: zodResolver(schema),
     defaultValues: { search: '' },
@@ -68,52 +65,47 @@ const HeaderWithSearch = ({
   };
 
   return (
-    <BottomBorder
-      className={`border-custom-7-light rounded-b-3xl ${Platform.OS === 'ios' ? 'min-h-[174px]' : 'min-h-[130px]'}`}
+    <View
+      className={twMerge(
+        `${Platform.OS === 'ios' ? 'min-h-[150px]' : 'min-h-[120px]'} w-full flex-col border-b px-4 pb-3`,
+        className
+      )}
     >
-      <View
-        className={twMerge(
-          `${Platform.OS === 'ios' ? 'min-h-[174px]' : 'min-h-[130px]'} w-full flex-col justify-end rounded-b-3xl bg-primary`,
-          className
-        )}
-      >
-        <Screen edges={['top']} className="flex-1 rounded-3xl bg-primary">
-          <View className={`flex-1 px-4`}>
-            <View className={`w-full items-center justify-center`}>
-              <TextGradient
-                className={`from-white via-white to-white pt-1 text-center font-baloo text-xl uppercase`}
-                content={title!}
-                colors={['white', 'white', 'white']}
-                locations={[0, 0.47, 1]}
-              />
-            </View>
-            <View className="flex-1 flex-row items-end">
-              <View className="flex-1">
-                <ControlledInput
-                  name="search"
-                  dark
-                  placeholder={`Tìm kiếm chủ đề...`}
-                  control={control}
-                  onPress={onPress}
-                  onFocus={() => setIsFocused(true)}
-                  //onBlur={() => setIsFocused(false)}
-                  autoFocus={autoFocus}
-                  testID="body-input"
-                />
-              </View>
+      <Text className="mt-7 text-center font-baloo text-2xl dark:text-navbar-active">
+        {title || 'Discover'}
+      </Text>
 
-              {isFocused && (
-                <View className="items-center justify-center pb-3 pl-3">
-                  <TouchableOpacity onPress={handleCancel}>
-                    <Text className="dark:text-white">Cancel</Text>
-                  </TouchableOpacity>
-                </View>
-              )}
-            </View>
-          </View>
-        </Screen>
+      <View className="mt-1 w-full flex-row items-center rounded-xl border p-2">
+        <View className="flex-1 flex-row items-center">
+          <Feather name="search" size={20} color="#888" className="mr-2" />
+
+          <Controller
+            control={control}
+            name="search"
+            render={({ field: { onChange, onBlur, value } }) => (
+              <TextInput
+                className="flex-1 pb-1 text-base"
+                placeholder="tìm kiếm chủ đề"
+                placeholderTextColor="#999"
+                onFocus={() => setIsFocused(true)}
+                onBlur={onBlur}
+                onPress={onPress}
+                onChangeText={onChange}
+                value={value}
+                autoFocus={autoFocus}
+                returnKeyType="search"
+              />
+            )}
+          />
+        </View>
+
+        {isFocused && (
+          <TouchableOpacity onPress={handleCancel} className="ml-3">
+            <Text className="text-base font-medium dark:text-[#9CA3AF]">Cancel</Text>
+          </TouchableOpacity>
+        )}
       </View>
-    </BottomBorder>
+    </View>
   );
 };
 

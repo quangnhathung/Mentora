@@ -47,6 +47,7 @@ import Pause from '@assets/images/svgs/pause.svg';
 import Performance from '@assets/images/svgs/performance.svg';
 import Play from '@assets/images/svgs/play.svg';
 import PlaySound from '@assets/images/svgs/play-sound.svg';
+import Plus from '@assets/images/svgs/plus.svg';
 import Profile from '@assets/images/svgs/profile.svg';
 import Rating from '@assets/images/svgs/rating.svg';
 import Replay from '@assets/images/svgs/replay.svg';
@@ -146,6 +147,7 @@ const ICONS = {
   intermediate: Feed,
   advanced: Feed,
   UnlockAchieve: UnlockAchieve,
+  plus: Plus,
   increase: Increase,
   CatWithCup: CatWithCup,
 } satisfies Record<string, React.FC<SvgProps>>;
