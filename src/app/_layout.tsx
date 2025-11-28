@@ -148,7 +148,7 @@ export default function RootLayout() {
     return (
       <View className="flex-1 items-center justify-center bg-white" onLayout={onLayoutRootView}>
         <View className="size-full">
-          <RiveAnimation source={require('@assets/animations/mentora-splash.riv')} />
+          <RiveAnimation source={require('@assets/animations/mentora.riv')} />
         </View>
       </View>
     );

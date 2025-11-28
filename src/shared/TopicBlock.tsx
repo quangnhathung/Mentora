@@ -1,21 +1,21 @@
 import React from 'react';
 
+import { type TopicDifficulty } from '@/entities/topic/type';
 import { Image, ProgressBar, Text, TouchableOpacity, View } from '@/shared/ui';
 import { GradientView } from '@/shared/ui/GradientView/GradientView';
 
 import { Badge } from './ui/badge/Badge';
 
-export type Topic = {
-  id?: string;
+export type TopicBlockData = {
   title: string;
-  difficulty: 'Easy' | 'Medium' | 'Hard' | string;
+  difficulty: TopicDifficulty;
   progress: number;
   reward: number;
   image?: string;
 };
 
 export type TopicBlockProps = {
-  topic?: Topic;
+  topic?: TopicBlockData;
   onPress?: () => void;
 };
 

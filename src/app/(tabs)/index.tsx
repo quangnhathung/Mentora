@@ -1,16 +1,18 @@
 //import { Redirect } from 'expo-router';
-import { Redirect } from 'expo-router';
+//import { Redirect } from 'expo-router';
 import { vars } from 'nativewind';
 import React, { useMemo } from 'react';
 
+import { mockTopics } from '@/entities/topic/mock';
 //import { InteractionManager } from 'react-native';
 //import { useLeaderboardData } from '@/entities/leaderboard/model';
 //import { useLeaderboardStore } from '@/entities/leaderboard/useLeaderboardStore';
 //import { useMissionData } from '@/entities/mission/model';
 import { moderateScale } from '@/shared/lib/helpers/scale';
-import { View } from '@/shared/ui';
+import { Text, View } from '@/shared/ui';
 import { TwoSectionHeader } from '@/shared/ui/layouts/sections/TwoSectionHeader';
 import HomeHeader from '@/widgets/common/HomeHeader';
+import { TopicLessonList } from '@/widgets/topic/component/LessonList';
 
 export default function Home() {
   //const home = usePathData.getCurrentPath();
@@ -21,7 +23,7 @@ export default function Home() {
       }),
     []
   );
-
+  const randomTopic = mockTopics[Math.floor(Math.random() * mockTopics.length)];
   //const qc = useQueryClient();
 
   // useMissionData.getMissionList();
@@ -54,7 +56,7 @@ export default function Home() {
 
   // Chỉ redirect khi đang dev
   if (__DEV__) {
-    return <Redirect href="/(tabs)/(discover)" />;
+    //return <Redirect href="/(tabs)/(discover)" />;
     //return <Redirect href="/(tabs)/(mission)/congra" />;
   }
 
@@ -62,10 +64,27 @@ export default function Home() {
     <TwoSectionHeader
       edges={[]}
       className={``}
-      scrollable
+      scrollable={true}
       style={moderateSize}
-      Header={<HomeHeader />}
-      Body={<View className={`flex-1 items-center justify-center py-2`}></View>}
+      Header={
+        <>
+          <HomeHeader />
+          <View className="flex-col items-center pt-2">
+            <Text className="mb-[-3px] text-center font-baloo text-2xl">Topic:</Text>
+            <Text className="my-[-5px] text-center font-baloo text-3xl">{randomTopic.title}</Text>
+            <Text className="text-center text-lg">
+              Learn essential English for {randomTopic.title.toLowerCase()} with ease.
+            </Text>
+          </View>
+        </>
+      }
+      Body={
+        <View className={`px-1 pt-3`}>
+          <View>
+            <TopicLessonList data={randomTopic} />
+          </View>
+        </View>
+      }
     />
   );
 }
