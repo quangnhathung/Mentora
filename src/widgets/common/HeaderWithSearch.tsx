@@ -85,7 +85,7 @@ const HeaderWithSearch = ({
             render={({ field: { onChange, onBlur, value } }) => (
               <TextInput
                 className="flex-1 pb-1 text-base"
-                placeholder="tìm kiếm chủ đề"
+                placeholder="Tìm kiếm chủ đề"
                 placeholderTextColor="#999"
                 onFocus={() => setIsFocused(true)}
                 onBlur={onBlur}

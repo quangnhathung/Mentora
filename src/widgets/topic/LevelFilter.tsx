@@ -7,13 +7,6 @@ export type Filter = {
   label: string;
 };
 
-export const SearchLabel: Filter[] = [
-  { key: 'all', label: 'All' },
-  { key: 'beginner', label: 'Beginner' },
-  { key: 'intermediate', label: 'Intermediate' },
-  { key: 'advanced', label: 'Advanced' },
-];
-
 type props = {
   value: string; //choice
   onChange: (v: any) => void;

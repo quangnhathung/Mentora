@@ -16,10 +16,12 @@ export type TopicBlockData = {
 
 export type TopicBlockProps = {
   topic?: TopicBlockData;
+  isScale?: boolean;
   onPress?: () => void;
 };
 
 export const TopicBlock = ({
+  isScale,
   topic = {
     title: 'Transport',
     difficulty: 'Hard',
@@ -33,7 +35,11 @@ export const TopicBlock = ({
   const { title, difficulty, progress, reward, image } = topic;
 
   return (
-    <TouchableOpacity activeOpacity={0.9} onPress={onPress} className="w-[343px] shadow-sm">
+    <TouchableOpacity
+      activeOpacity={0.9}
+      onPress={onPress}
+      className={`${isScale ? 'w-full' : 'w-[343px]'} shadow-sm`}
+    >
       <GradientView
         colors={['#8789EF', '#25B9D2']}
         start={{ x: 0, y: 0.5 }}

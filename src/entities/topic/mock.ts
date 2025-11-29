@@ -15,7 +15,10 @@ const generateMockLessons = (
       description: `Basic concepts about ${topicTitle}.`,
       status: 'completed',
       content: {
-        passage: `<p>Welcome to the introduction of <strong>${topicTitle}</strong>. This is a reading passage example.</p>`,
+        passage: `Traveling is an enriching experience that allows us to explore new places, cultures, and ways of life. It broadens our horizons and helps us gain a deeper understanding of the world we live in. Whether it's visiting historical landmarks, relaxing on beautiful beaches, or immersing ourselves in vibrant cities, travel offers a multitude of opportunities for personal growth and discovery.\n
+One of the benefits of traveling is the chance to encounter different languages. Being exposed to new languages enhances our linguistic skills and cultural awareness. It allows us to communicate with locals and better understand their way of life. Even learning a few basic phrases in the local language can go a long way in making connections and showing respect to the people of the country we are visiting. \n
+Furthermore, traveling fosters tolerance and empathy by exposing us to diverse perspectives and lifestyles. It helps break down stereotypes and promotes acceptance and understanding. Through interaction with people from different backgrounds, we learn to appreciate and embrace differences, ultimately becoming more open-minded individuals. \n
+Traveling also offers opportunities to taste new cuisines, which is an exciting aspect of exploring different cultures. Trying local dishes and delicacies can be a gastronomic adventure, and it allows us to appreciate the diversity of flavors and culinary traditions worldwide. From spicy street food to elegant gourmet experiences, food becomes a gateway to understanding the cultural heritage of a place.  `,
       },
       exercise: isTheory
         ? undefined
@@ -25,10 +28,34 @@ const generateMockLessons = (
             questions: [
               {
                 id: 'q1',
-                text: `What is this lesson about?`,
+                text: `According to the passage, what is the main benefit of traveling?`,
                 options: [
-                  { id: 'opt1', text: topicTitle },
-                  { id: 'opt2', text: 'Nothing' },
+                  { id: 'opt1', text: 'Earning a lot of money' },
+                  { id: 'opt2', text: 'Learning a new language fluently' },
+                  { id: 'opt3', text: 'Staying within your comfort zone' },
+                  { id: 'opt4', text: 'Enriching experiences and personal growth' },
+                ],
+                correctOptionId: 'opt1',
+              },
+              {
+                id: 'q2',
+                text: `According to the passage, what is the main benefit of traveling?`,
+                options: [
+                  { id: 'opt1', text: 'Earning a lot of money' },
+                  { id: 'opt2', text: 'Learning a new language fluently' },
+                  { id: 'opt3', text: 'Staying within your comfort zone' },
+                  { id: 'opt4', text: 'Enriching experiences and personal growth' },
+                ],
+                correctOptionId: 'opt1',
+              },
+              {
+                id: 'q3',
+                text: `According to the passage, what is the main benefit of traveling?`,
+                options: [
+                  { id: 'opt1', text: 'Earning a lot of money' },
+                  { id: 'opt2', text: 'Learning a new language fluently' },
+                  { id: 'opt3', text: 'Staying within your comfort zone' },
+                  { id: 'opt4', text: 'Enriching experiences and personal growth' },
                 ],
                 correctOptionId: 'opt1',
               },

@@ -43,7 +43,7 @@ const DiscoverScreen = () => {
       style={moderateSize}
       Header={<HeaderWithSearch title={translate('nav.discover.label')} onPress={handlePress} />}
       Body={
-        <View className="w-full py-4 pb-5">
+        <View className="w-full pt-4">
           <Text className="mb-3 ml-4 text-xl font-bold">Daily mission</Text>
           <View className="h-[110px]">
             <ScrollView
@@ -90,7 +90,7 @@ const DiscoverScreen = () => {
           <AdBanner />
 
           <Pressable
-            className="mt-3 w-full px-3 pb-5"
+            className="mt-3 w-full px-3"
             onPress={() => {
               router.push('/(tabs)/(games)/games');
             }}

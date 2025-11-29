@@ -31,19 +31,19 @@ const ExerciseScreen = () => {
     <TwoSectionHeader
       edges={[]}
       className={``}
-      scrollable
+      scrollable={false}
       style={moderateSize}
       Header={
-        <View className="w-full flex-row justify-between pt-7">
+        <View className="w-full flex-row justify-between px-3 pt-7">
           <Pressable
-            className="pl-4 pt-3"
+            className="pt-3"
             onPress={() => {
               router.back();
             }}
           >
             <SvgIcon name="arrowleft" size={24} color="black" />
           </Pressable>
-          <Text className="pl-[-16px] text-center font-baloo text-3xl dark:text-navbar-active">
+          <Text className="ml-[-20px] text-center font-baloo text-3xl dark:text-navbar-active">
             Lesson
           </Text>
           <View />

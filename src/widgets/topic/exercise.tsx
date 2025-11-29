@@ -69,12 +69,9 @@ export default function LessonDetailScreen({ lesson, onComplete }: Props) {
             <Text className="mb-8 text-justify text-base leading-6 text-gray-600">
               {lesson.content.passage}
             </Text>
-            {/* Khoảng trống dưới cùng để không bị che bởi dot */}
-            <View className="h-20" />
           </ScrollView>
         </View>
 
-        {/* PAGE 2: EXERCISE / QUESTIONS */}
         <View style={{ width: SCREEN_WIDTH }} className="flex-1 bg-gray-50 px-5 pt-4">
           <ScrollView showsVerticalScrollIndicator={false}>
             {lesson.exercise?.questions.map((q, index) => (
@@ -83,7 +80,7 @@ export default function LessonDetailScreen({ lesson, onComplete }: Props) {
                   {index + 1}. {q.text}
                 </Text>
 
-                <View className="space-y-3">
+                <View className="gap-1">
                   {q.options.map((opt) => {
                     const isSelected = answers[q.id] === opt.id;
                     return (
@@ -106,12 +103,10 @@ export default function LessonDetailScreen({ lesson, onComplete }: Props) {
                 </View>
               </View>
             ))}
-            <View className="h-20" />
           </ScrollView>
         </View>
       </ScrollView>
 
-      {/* Footer Area: Pagination + Button */}
       <View className="px-4 pb-8">
         {renderPagination()}
         {currentPage === 1 && (
