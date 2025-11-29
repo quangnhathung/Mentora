@@ -24,7 +24,6 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
   name: Env.NAME,
   description: `${Env.NAME} Mobile App`,
-  owner: Env.EXPO_ACCOUNT_OWNER,
   scheme: Env.SCHEME,
   slug: 'mahtutor-project',
   version: Env.VERSION.toString(),
@@ -85,8 +84,5 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   ],
   extra: {
     ...ClientEnv,
-    eas: {
-      projectId: Env.EAS_PROJECT_ID,
-    },
   },
 });

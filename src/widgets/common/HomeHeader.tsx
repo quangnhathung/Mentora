@@ -3,7 +3,6 @@ import React, { useMemo } from 'react';
 import { Platform } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import profile from '@/app/(tabs)/(profile)/profile';
 import { ProgressBanner } from '@/features/home/ProgessBanner';
 import { moderateScale } from '@/shared/lib/helpers/scale';
 import { Image, Text, View } from '@/shared/ui';
@@ -33,7 +32,6 @@ const HomeHeader = ({ bottomContent }: HomeHeaderProps) => {
       >
         {/* Top content */}
         <View className="flex-row items-center">
-          {/* Left */}
           <View className="flex-1 flex-row items-center justify-start">
             <Image
               source={{
@@ -43,9 +41,7 @@ const HomeHeader = ({ bottomContent }: HomeHeaderProps) => {
             />
 
             <View>
-              <Text className="font-bevietnampro-bold text-base text-white">
-                {profile?.name || 'Guest'}
-              </Text>
+              <Text className="font-bevietnampro-bold text-base text-white">{'Guest'}</Text>
               <View className="flex-row items-center justify-center gap-1.5">
                 <Text className="font-bevietnampro-bold text-base text-white">{0}</Text>
                 <SvgIcon name="flame" />
