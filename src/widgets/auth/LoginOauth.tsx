@@ -7,7 +7,6 @@ import { vars } from 'nativewind';
 import React, { useEffect, useMemo, useState } from 'react';
 import { Platform } from 'react-native';
 
-import { useUserData } from '@/entities/user/model';
 import useAuthData from '@/features/auth/model/useAuthData';
 import { LoginOauthFlow } from '@/features/auth/ui/LoginOauthFlow';
 import { queryClient } from '@/shared/api';
@@ -107,9 +106,7 @@ const LoginOauth: React.FC<LoginOauthProps> = () => {
         {
           onSuccess: (data) => {
             doSignIn({ access: data.accessToken, refresh: data.refreshToken });
-            queryClient.invalidateQueries({
-              queryKey: useUserData.getUserProfile.getKey(),
-            });
+            queryClient.invalidateQueries({});
             router.push('/');
           },
           onError: (error) => {

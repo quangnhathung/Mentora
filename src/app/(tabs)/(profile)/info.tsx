@@ -1,6 +1,6 @@
 import { useIsMutating } from '@tanstack/react-query';
 import { vars } from 'nativewind';
-import { useMemo, useRef } from 'react';
+import { useMemo } from 'react';
 import { Platform } from 'react-native';
 import { KeyboardStickyView } from 'react-native-keyboard-controller';
 
@@ -10,10 +10,7 @@ import { View } from '@/shared/ui';
 import { ThreeSection } from '@/shared/ui/layouts/sections/ThreeSection';
 import { PrimaryButton } from '@/shared/ui/PrimaryButton';
 import { HeaderWithBack } from '@/widgets/common/HeaderWithBack';
-import { ProfileInfoForm, type ProfileInfoFormRef } from '@/widgets/profile/ProfileInfoForm';
-
 export default function ProfileUserInfo() {
-  const formRef = useRef<ProfileInfoFormRef>(null);
   const isLoading = useIsMutating() > 0;
   const moderateSize = useMemo(
     () =>
@@ -32,7 +29,7 @@ export default function ProfileUserInfo() {
       Header={<HeaderWithBack title={translate('profile.menu.profile')} />}
       Body={
         <View className="flex-1 items-center justify-start">
-          <ProfileInfoForm ref={formRef} />
+          <></>
         </View>
       }
       Bottom={
@@ -51,7 +48,7 @@ export default function ProfileUserInfo() {
               title={translate('button.save')}
               className={`my-2`}
               textStyle={`uppercase`}
-              onPress={() => formRef.current?.submit()}
+              onPress={() => {}}
             />
             {/* <Text
               className="rounded-xl bg-primary py-4 text-center font-bevietnampro-bold uppercase text-white"

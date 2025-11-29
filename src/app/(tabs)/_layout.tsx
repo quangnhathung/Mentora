@@ -4,7 +4,6 @@ import React, { useCallback, useEffect, useMemo } from 'react';
 import { Platform, type ViewStyle } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { useUserData } from '@/entities/user/model';
 import { useIsFirstTime } from '@/shared/lib';
 import { useAuthStore } from '@/shared/lib/storage/auth/useAuthStore';
 import { colors, View } from '@/shared/ui';
@@ -39,8 +38,6 @@ export default function TabLayout() {
   const hideSplash = useCallback(async () => {
     await SplashScreen.hideAsync();
   }, []);
-
-  useUserData.getUserProfile();
 
   useEffect(() => {
     if (status !== 'idle') {

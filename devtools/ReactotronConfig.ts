@@ -3,7 +3,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import reactotronZustand from 'reactotron-plugin-zustand';
 import Reactotron from 'reactotron-react-native';
 
-import { useUserStore } from '@/entities/user/useUserStore';
 import { Env } from '@/shared/lib/env';
 import { useAuthStore } from '@/shared/lib/storage/auth/useAuthStore';
 import { useConfigStore } from '@/shared/lib/storage/config/useConfigStore';
@@ -21,7 +20,6 @@ Reactotron.setAsyncStorageHandler?.(AsyncStorage) // để Reactotron lưu prefe
       stores: [
         { name: 'configs', store: useConfigStore },
         { name: 'auth', store: useAuthStore },
-        { name: 'user', store: useUserStore },
       ],
       omitFunctionKeys: true,
     })

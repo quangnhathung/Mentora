@@ -3,7 +3,7 @@ import React, { useMemo } from 'react';
 import { Platform } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { useUserStore } from '@/entities/user/useUserStore';
+import profile from '@/app/(tabs)/(profile)/profile';
 import { ProgressBanner } from '@/features/home/ProgessBanner';
 import { moderateScale } from '@/shared/lib/helpers/scale';
 import { Image, Text, View } from '@/shared/ui';
@@ -16,7 +16,6 @@ interface HomeHeaderProps {
 
 const HomeHeader = ({ bottomContent }: HomeHeaderProps) => {
   const insets = useSafeAreaInsets();
-  const { profile } = useUserStore();
 
   const moderateSize = useMemo(
     () =>
@@ -38,9 +37,7 @@ const HomeHeader = ({ bottomContent }: HomeHeaderProps) => {
           <View className="flex-1 flex-row items-center justify-start">
             <Image
               source={{
-                uri:
-                  profile?.avatar! ??
-                  'https://quangnhathung.github.io/public/mentora/png/olw-ava.png',
+                uri: 'https://quangnhathung.github.io/public/mentora/png/olw-ava.png',
               }}
               className="mr-2 size-12 rounded-full border border-border"
             />
@@ -50,9 +47,7 @@ const HomeHeader = ({ bottomContent }: HomeHeaderProps) => {
                 {profile?.name || 'Guest'}
               </Text>
               <View className="flex-row items-center justify-center gap-1.5">
-                <Text className="font-bevietnampro-bold text-base text-white">
-                  {profile?.stats?.streak || 0}
-                </Text>
+                <Text className="font-bevietnampro-bold text-base text-white">{0}</Text>
                 <SvgIcon name="flame" />
               </View>
             </View>
@@ -62,9 +57,7 @@ const HomeHeader = ({ bottomContent }: HomeHeaderProps) => {
           <View className="flex-row gap-5">
             <View className={`flex-row items-center gap-1.5`}>
               <SvgIcon name="coin" />
-              <Text className={`font-bevietnampro-bold text-base text-white`}>
-                {profile?.progress?.currentHealth || 0}
-              </Text>
+              <Text className={`font-bevietnampro-bold text-base text-white`}>{0}</Text>
             </View>
           </View>
         </View>

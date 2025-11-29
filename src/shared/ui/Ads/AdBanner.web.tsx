@@ -1,7 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 
-import { useUserStore } from '@/entities/user/useUserStore';
-
 export type AdBannerProps = {
   /** Ví dụ: "ca-pub-1234567890123456" */
   adClient?: string;
@@ -31,8 +29,6 @@ const AdBanner: React.FC<AdBannerProps> = ({
   className,
 }) => {
   const insRef = useRef<HTMLModElement | null>(null);
-  const profile = useUserStore().profile;
-  const isPremium = profile?.premium?.isActive && (profile?.premium?.expiresAt ?? 0) > Date.now();
   useEffect(() => {
     // 1) Inject script nếu chưa có
     const existing = document.querySelector<HTMLScriptElement>(
@@ -62,8 +58,6 @@ const AdBanner: React.FC<AdBannerProps> = ({
       console.warn('AdSense push error:', e);
     }
   }, [adClient, adSlot, adFormat, adTest]);
-
-  if (isPremium) return null;
 
   return (
     <ins

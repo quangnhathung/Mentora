@@ -3,7 +3,6 @@ import { vars } from 'nativewind';
 import React, { useMemo, useState } from 'react';
 import { View } from 'react-native';
 
-import { useUserStore } from '@/entities/user/useUserStore';
 import { translate, type TxKeyPath } from '@/shared/lib';
 import { moderateScale } from '@/shared/lib/helpers/scale';
 import { withDeviceLayout } from '@/shared/lib/hocs/withDeviceLayout';
@@ -70,8 +69,6 @@ const profileMenuMock: ProfileMenuProp[] = [
 
 const ProfileScreen = () => {
   const [profileMenu, _] = useState(profileMenuMock);
-  const { profile } = useUserStore();
-  const resetPremium = useUserStore((s) => s.resetPremium);
 
   const moderateSize = useMemo(
     () =>
@@ -80,8 +77,6 @@ const ProfileScreen = () => {
       }),
     []
   );
-
-  if (!profile) return null; // hoặc Skeleton
 
   return (
     <ThreeSection
@@ -117,7 +112,7 @@ const ProfileScreen = () => {
             className={`border-border-dark my-1 w-full border-2`}
             textStyle={`uppercase`}
             onPress={() => {
-              resetPremium();
+              //resetPremium();
               // DevSettings.reload();
             }}
           />
