@@ -15,7 +15,7 @@ import { ThreeSection } from '@/shared/ui/layouts/sections/ThreeSection';
 import { SecondaryButton } from '@/shared/ui/SecondaryButton';
 import { SvgIcon } from '@/shared/ui/SvgIcon';
 const pool = [...vocabDailyList];
-const data = getDailyVocab(pool, 10); // 10 vocab cố định trong ngày theo timezone Asia/Ho_Chi_Minh
+const data = getDailyVocab(pool, 10);
 
 export type VocabDaily = {
   id?: string;

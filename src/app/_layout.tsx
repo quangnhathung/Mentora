@@ -19,7 +19,6 @@ import { KeyboardProvider } from 'react-native-keyboard-controller';
 import { MD3DarkTheme, MD3LightTheme, Provider as PaperProvider } from 'react-native-paper';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import { APIProvider } from '@/shared/api';
 import { VariableThemeProvider } from '@/shared/context/VariableThemeProvider';
 //import { loadSelectedTheme } from '@/shared/lib';
 //import { hydrateAuth } from '@/shared/lib/storage/auth/useAuthStore';
@@ -206,14 +205,12 @@ function Providers({ children }: { children: React.ReactNode }) {
             }}
           > */}
           <VariableThemeProvider>
-            <APIProvider>
-              <PaperProvider theme={theme.dark ? MD3DarkTheme : MD3LightTheme}>
-                <BottomSheetModalProvider>
-                  {children}
-                  <FlashMessage position="top" />
-                </BottomSheetModalProvider>
-              </PaperProvider>
-            </APIProvider>
+            <PaperProvider theme={theme.dark ? MD3DarkTheme : MD3LightTheme}>
+              <BottomSheetModalProvider>
+                {children}
+                <FlashMessage position="top" />
+              </BottomSheetModalProvider>
+            </PaperProvider>
           </VariableThemeProvider>
           {/* </ThemeProvider> */}
         </KeyboardProvider>

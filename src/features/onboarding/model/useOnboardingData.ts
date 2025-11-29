@@ -2,8 +2,6 @@ import axios, { type AxiosError } from 'axios';
 import { createQuery } from 'react-query-kit';
 
 import { type Onboarding } from '@/features/onboarding/types';
-import { type ApiResponse } from '@/shared/api';
-import client from '@/shared/api/common/client';
 import { translate } from '@/shared/lib';
 import { camelizeKeys } from '@/shared/lib/camelize';
 type Variables = void; //
@@ -100,18 +98,13 @@ const useOnboardingData = {
     // fetcher: ({ id }) => userApi.getById(id),  // replaces queryFn
     fetcher: async () => {
       try {
-        const res = await client.get<ApiResponse<Onboarding[]>>(
-          '/api-profile/v1/public/onboarding'
-        );
-
-        const data = res.data;
-        data.data = stepsData;
+        const data = stepsData as Onboarding[];
 
         // Nếu API custom trả về error field
         // if (data.code !== ErrorCode.SUCCESS) {
         //   throw new Error(data.message);
         // }
-        return camelizeKeys<Onboarding[]>(data.data);
+        return camelizeKeys<Onboarding[]>(data);
       } catch (err: unknown) {
         if (axios.isAxiosError(err)) {
           // 1. Network Error: không có response
