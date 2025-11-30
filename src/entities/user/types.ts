@@ -4,18 +4,10 @@ export type User = {
   email?: string;
   avatar?: string;
   dob?: string;
-  premium?: Premium;
-};
-
-export type Premium = {
-  isActive: boolean;
-  expiresAt: number;
+  streak: UserStats;
 };
 
 export type UserStats = {
   streak: number;
   coins: number;
 };
-
-export type UserUpdateProfileRequest = User;
-export type UserUpdateProfileResponse = {};

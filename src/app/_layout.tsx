@@ -5,6 +5,7 @@ import '../../global.css';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import NetInfo from '@react-native-community/netinfo';
+import { QueryClientProvider } from '@tanstack/react-query';
 import { focusManager, onlineManager } from '@tanstack/react-query';
 import * as Font from 'expo-font';
 import { Stack, usePathname } from 'expo-router';
@@ -19,6 +20,7 @@ import { KeyboardProvider } from 'react-native-keyboard-controller';
 import { MD3DarkTheme, MD3LightTheme, Provider as PaperProvider } from 'react-native-paper';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+import { queryClient } from '@/shared/api';
 import { VariableThemeProvider } from '@/shared/context/VariableThemeProvider';
 //import { loadSelectedTheme } from '@/shared/lib';
 //import { hydrateAuth } from '@/shared/lib/storage/auth/useAuthStore';
@@ -168,8 +170,7 @@ function RootLayoutNav() {
     <Providers>
       <Stack screenOptions={{}} initialRouteName="(tabs)">
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        {/* <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-        <Stack.Screen name="welcome" options={{ headerShown: false }} /> */}
+        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
         <Stack.Screen name="welcome" options={{ headerShown: false }} />
         <Stack.Screen
           name="onboarding"
@@ -206,10 +207,12 @@ function Providers({ children }: { children: React.ReactNode }) {
           > */}
           <VariableThemeProvider>
             <PaperProvider theme={theme.dark ? MD3DarkTheme : MD3LightTheme}>
-              <BottomSheetModalProvider>
-                {children}
-                <FlashMessage position="top" />
-              </BottomSheetModalProvider>
+              <QueryClientProvider client={queryClient}>
+                <BottomSheetModalProvider>
+                  {children}
+                  <FlashMessage position="top" />
+                </BottomSheetModalProvider>
+              </QueryClientProvider>
             </PaperProvider>
           </VariableThemeProvider>
           {/* </ThemeProvider> */}

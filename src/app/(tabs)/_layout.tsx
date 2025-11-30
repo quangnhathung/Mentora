@@ -1,7 +1,7 @@
 import type { BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
 import { Redirect, SplashScreen, Tabs, useSegments } from 'expo-router';
 import React, { useCallback, useEffect, useMemo } from 'react';
-import { Platform, type ViewStyle } from 'react-native';
+import { Platform } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { useIsFirstTime } from '@/shared/lib';
@@ -31,23 +31,23 @@ const TabIcon = React.memo(function TabIcon({
 });
 
 export default function TabLayout() {
-  const { status } = useAuthStore();
+  const { isLoggedIn } = useAuthStore();
   const [isFirstTime] = useIsFirstTime();
   const insets = useSafeAreaInsets();
   const segments = useSegments();
+
   const hideSplash = useCallback(async () => {
     await SplashScreen.hideAsync();
   }, []);
 
   useEffect(() => {
-    if (status !== 'idle') {
-      setTimeout(() => {
-        hideSplash();
-      }, 1000);
-    }
-  }, [hideSplash, status]);
+    // Splash sẽ ẩn sau khi check xong login
+    setTimeout(() => {
+      hideSplash();
+    }, 800);
+  }, [hideSplash]);
 
-  // Stable icon renderer factory (no Date.now keys, avoids remounts)
+  // icon factory
   const makeIcon = useCallback(
     (name: IconName, size?: number) =>
       ({ color, focused }: { color: string; focused: boolean }) => (
@@ -56,19 +56,18 @@ export default function TabLayout() {
     []
   );
 
-  // Precompute icon functions once so references stay stable between renders
   const iconHome = useMemo(() => makeIcon('home', 28), [makeIcon]);
   const iconDiscover = useMemo(() => makeIcon('search', 28), [makeIcon]);
   const iconGames = useMemo(() => makeIcon('games', 33), [makeIcon]);
   const iconProfile = useMemo(() => makeIcon('profile'), [makeIcon]);
-  const iconMisson = useMemo(() => makeIcon('routine'), [makeIcon]);
+  const iconMission = useMemo(() => makeIcon('routine'), [makeIcon]);
 
+  // style tab bar
   const TAB_BAR_HEIGHT = Platform.OS === 'web' ? 35 : 48;
-  const V_MARGIN = 12; // khoảng cách nổi lên khỏi đáy
+  const V_MARGIN = 12;
   const bottomSpace = Math.max(insets.bottom, V_MARGIN);
 
-  // ["(drawer)", "(tabs)", "(learning)", "[storylineId]", "story", "[storyId]"]
-  const hide = (segments as string[]).indexOf('(lesson)') > -1;
+  const hide = (segments as string[]).includes('(lesson)');
 
   const screenOptions = useMemo<BottomTabNavigationOptions>(
     () => ({
@@ -86,82 +85,35 @@ export default function TabLayout() {
         borderTopLeftRadius: 16,
         borderTopRightRadius: 16,
         overflow: 'hidden',
-      } as ViewStyle,
+      },
       tabBarInactiveTintColor: colors.navbar.element,
       tabBarActiveTintColor: colors.navbar.active,
       sceneContainerStyle: {
         paddingBottom: hide ? bottomSpace : bottomSpace + TAB_BAR_HEIGHT,
         backgroundColor: colors.background.dark.DEFAULT,
-      } as ViewStyle,
-      tabBarBackground: () => (
-        <View className={`flex-1 rounded-t-2xl bg-navbar ${hide ? 'none' : 'flex'}`} />
-      ),
+      },
+      tabBarBackground: () => <View className="flex-1 rounded-t-2xl bg-navbar" />,
     }),
     [hide, bottomSpace, TAB_BAR_HEIGHT]
   );
 
-  if (isFirstTime) {
-    return <Redirect href="/welcome" />;
-  }
+  // Lần đầu mở app → Welcome
+  if (isFirstTime) return <Redirect href="/welcome" />;
 
-  if (status === 'signOut') {
-    //return <Redirect href="/(auth)/login" />;
-  }
+  // Chưa login → auth/login
+  if (!isLoggedIn) return <Redirect href="/(auth)/login" />;
 
   return (
-    <View className={`max-w-screen-md flex-1 bg-navbar`}>
+    <View className="max-w-screen-md flex-1 bg-navbar">
       <Tabs initialRouteName="index" backBehavior="history" screenOptions={screenOptions}>
-        <Tabs.Screen
-          name="index"
-          options={{
-            title: 'Home',
-            lazy: false,
-            tabBarIcon: iconHome,
-          }}
-        />
+        <Tabs.Screen name="index" options={{ title: 'Home', tabBarIcon: iconHome }} />
+        <Tabs.Screen name="(discover)" options={{ title: 'Discover', tabBarIcon: iconDiscover }} />
+        <Tabs.Screen name="(mission)" options={{ title: 'Mission', tabBarIcon: iconMission }} />
+        <Tabs.Screen name="(games)" options={{ title: 'Games', tabBarIcon: iconGames }} />
+        <Tabs.Screen name="(profile)" options={{ title: 'Profile', tabBarIcon: iconProfile }} />
 
-        <Tabs.Screen
-          name="(discover)"
-          options={{
-            title: 'Discover',
-            lazy: false,
-            tabBarIcon: iconDiscover,
-          }}
-        />
-
-        <Tabs.Screen
-          name="(mission)"
-          options={{
-            title: 'Mission',
-            lazy: false,
-            tabBarIcon: iconMisson,
-          }}
-        />
-
-        <Tabs.Screen
-          name="(games)"
-          options={{
-            title: 'Games',
-            lazy: false,
-            tabBarIcon: iconGames,
-          }}
-        />
-
-        <Tabs.Screen
-          name="(profile)"
-          options={{
-            title: 'Profile',
-            lazy: false,
-            tabBarIcon: iconProfile,
-          }}
-        />
-
-        <Tabs.Screen
-          name="style"
-          options={{
-            href: null,
-          }}
-        />
+        {/* screen ẩn */}
+        <Tabs.Screen name="style" options={{ href: null }} />
       </Tabs>
     </View>
   );

@@ -59,6 +59,7 @@
     "app-icon-badge": "^0.1.2",
     "axios": "^1.7.5",
     "clsx": "^2.1.1",
+    "date-fns": "2.30.0",
     "expo": "~52.0.47",
     "expo-audio": "~0.3.5",
     "expo-auth-session": "~6.0.3",

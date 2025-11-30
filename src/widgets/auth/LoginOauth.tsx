@@ -1,18 +1,13 @@
-import MahtutorLogoSvg from '@assets/images/svgs/mahtutor-logo.svg';
-import PawWithFlagSvg from '@assets/images/svgs/pawwithflag.svg';
+import { router } from 'expo-router';
 import { vars } from 'nativewind';
 import React, { useMemo, useState } from 'react';
+import { Pressable } from 'react-native-gesture-handler';
 
 import { LoginOauthFlow } from '@/features/auth/ui/LoginOauthFlow';
-import { translate } from '@/shared/lib';
 import { moderateScale } from '@/shared/lib/helpers/scale';
-import { useAuthStore } from '@/shared/lib/storage/auth/useAuthStore';
-import { Text, View } from '@/shared/ui';
+import { Image, Text, View } from '@/shared/ui';
 import { ThreeSection } from '@/shared/ui/layouts/sections/ThreeSection';
-import { TextGradient } from '@/shared/ui/TextGradient/TextGradient';
 
-// ❗ Không còn Google/Apple OAuth
-// Chỉ mock 2 lựa chọn
 const oauthDataMock = {
   id: 1,
   screenName: 'Choose your native language',
@@ -30,18 +25,19 @@ const oauthDataMock = {
       id: 2,
       value: 'apple',
       description:
-        '<p><span class="text-white text-sm text-center">Apple Login (disabled)</span></p>',
-      iconUrl: 'https://static.saoladigital.com/public/mtt-mobile-app/images/svgs/apple.svg',
+        '<p><span class="text-black text-sm text-center">Đăng nhập với Local Account</span></p>',
+      iconUrl: '',
     },
   ],
 };
 
 const LoginOauth: React.FC = () => {
   const [oauthData] = useState(oauthDataMock);
-  const { lastLogin } = useAuthStore();
 
   const onSelect = (provider: string) => {
-    // ❗ Không còn xử lý OAuth
+    if (provider === 'apple') {
+      router.push('/(auth)/local');
+    }
     console.log(`Login with ${provider} is disabled.`);
   };
 
@@ -62,34 +58,35 @@ const LoginOauth: React.FC = () => {
       style={moderateSize}
       Header={
         <View className={`w-full items-center justify-center py-2`}>
-          {!lastLogin.email ? (
-            <TextGradient
-              className={`from-primary via-white to-primary py-2 text-center font-baloo text-xl uppercase tracking-widest`}
-              content={translate('auth.login.title')}
-              colors={['primary', 'white', 'primary']}
-              locations={[0, 0.47, 1]}
-            />
-          ) : (
-            <MahtutorLogoSvg height={moderateScale(70)} />
-          )}
+          <Text className="font-baloo text-2xl">Đăng nhập tài khoản</Text>
         </View>
       }
       Body={
         <View className="flex-1 items-center justify-center">
-          <PawWithFlagSvg width={moderateScale(150)} />
+          <Image
+            source={require('@assets/images/pngs/mentora_removebg.png')}
+            style={{ height: moderateScale(170), width: moderateScale(145) }}
+          />
           <Text
             tx="auth.login.hook"
             className={`py-3 text-center font-bevietnampro-semibold text-base`}
           />
-          <LoginOauthFlow
-            request={null} // ❗ Không còn OAuth request
-            isLoading={false}
-            data={oauthData}
-            onSelect={onSelect}
-          />
+          <LoginOauthFlow request={null} isLoading={false} data={oauthData} onSelect={onSelect} />
         </View>
       }
-      Bottom={<></>}
+      Bottom={
+        <View className="w-full">
+          <Pressable
+            onPress={() => {
+              router.push('/(auth)/register');
+            }}
+          >
+            <Text className="text-center">
+              Don't have account? <Text className="font-bold">Register now!</Text>
+            </Text>
+          </Pressable>
+        </View>
+      }
     />
   );
 };

@@ -29,10 +29,8 @@ export type Lesson = {
   status: LessonStatus;
   reward?: number;
 
-  content: {
-    passage: string;
-    audioUrl?: string;
-  };
+  passage: string;
+  audioUrl?: string;
   exercise?: Exercise;
   thumbnail?: string;
 };

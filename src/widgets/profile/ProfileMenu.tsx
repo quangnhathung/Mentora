@@ -22,7 +22,6 @@ type DefaultProfileMenu = typeof resources.en.translation.profile.menu;
 export type MenuKeyPath = RecursiveKeyOf<DefaultProfileMenu>;
 
 export const ProfileMenu = ({ data, isLoading }: ProfileMenuProps) => {
-  const { doSignOut } = useAuthStore();
   const router = useRouter();
   const languageModalRef = useRef<LanguageModalRef>(null);
   const themeModalRef = useRef<ThemeModalRef>(null);
@@ -49,7 +48,7 @@ export const ProfileMenu = ({ data, isLoading }: ProfileMenuProps) => {
         storage.clearAll();
         break;
       case 'logout':
-        doSignOut();
+        useAuthStore.getState().logout();
         break;
     }
   };

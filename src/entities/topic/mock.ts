@@ -14,12 +14,11 @@ const generateMockLessons = (
       title: `Introduction to ${topicTitle}`,
       description: `Basic concepts about ${topicTitle}.`,
       status: 'completed',
-      content: {
-        passage: `Traveling is an enriching experience that allows us to explore new places, cultures, and ways of life. It broadens our horizons and helps us gain a deeper understanding of the world we live in. Whether it's visiting historical landmarks, relaxing on beautiful beaches, or immersing ourselves in vibrant cities, travel offers a multitude of opportunities for personal growth and discovery.\n
+      passage: `Traveling is an enriching experience that allows us to explore new places, cultures, and ways of life. It broadens our horizons and helps us gain a deeper understanding of the world we live in. Whether it's visiting historical landmarks, relaxing on beautiful beaches, or immersing ourselves in vibrant cities, travel offers a multitude of opportunities for personal growth and discovery.\n
 One of the benefits of traveling is the chance to encounter different languages. Being exposed to new languages enhances our linguistic skills and cultural awareness. It allows us to communicate with locals and better understand their way of life. Even learning a few basic phrases in the local language can go a long way in making connections and showing respect to the people of the country we are visiting. \n
 Furthermore, traveling fosters tolerance and empathy by exposing us to diverse perspectives and lifestyles. It helps break down stereotypes and promotes acceptance and understanding. Through interaction with people from different backgrounds, we learn to appreciate and embrace differences, ultimately becoming more open-minded individuals. \n
 Traveling also offers opportunities to taste new cuisines, which is an exciting aspect of exploring different cultures. Trying local dishes and delicacies can be a gastronomic adventure, and it allows us to appreciate the diversity of flavors and culinary traditions worldwide. From spicy street food to elegant gourmet experiences, food becomes a gateway to understanding the cultural heritage of a place.  `,
-      },
+
       exercise: isTheory
         ? undefined
         : {
@@ -69,9 +68,9 @@ Traveling also offers opportunities to taste new cuisines, which is an exciting 
       description: `Essential words used in ${topicTitle}.`,
       status: 'in_progress',
       reward: 5,
-      content: {
-        passage: `<p>Here are some common words...</p>`,
-      },
+
+      passage: `<p>Here are some common words...</p>`,
+
       exercise: isTheory
         ? undefined
         : {
@@ -88,7 +87,7 @@ Traveling also offers opportunities to taste new cuisines, which is an exciting 
       title: `Advanced Topics`,
       description: `Deep dive into ${topicTitle}.`,
       status: 'locked',
-      content: { passage: '...' },
+      passage: '...',
     },
   ];
 };
@@ -124,9 +123,9 @@ export const mockTopics: Topic[] = [
         title: 'At the Airport',
         description: 'Learn check-in, boarding, and customs English.',
         status: 'claimed', // Đã xong và nhận quà (Vàng)
-        content: {
-          passage: `<h3>At the Airport</h3><p>Traveling is an enriching experience...</p>`,
-        },
+
+        passage: `<h3>At the Airport</h3><p>Traveling is an enriching experience...</p>`,
+
         exercise: {
           id: 'ex_airport',
           title: 'Airport Check',
@@ -149,9 +148,9 @@ export const mockTopics: Topic[] = [
         title: 'Asking for Directions',
         description: 'Practice asking & understanding directions.',
         status: 'in_progress',
-        content: {
-          passage: `<h3>Excuse me, where is...?</h3><p>Getting lost is part of the fun...</p>`,
-        },
+
+        passage: `<h3>Excuse me, where is...?</h3><p>Getting lost is part of the fun...</p>`,
+
         exercise: {
           id: 'ex_directions',
           title: 'Directions Practice',
@@ -164,15 +163,16 @@ export const mockTopics: Topic[] = [
         title: 'Ordering Food',
         description: 'Useful phrases in restaurants and cafes.',
         status: 'locked',
-        content: { passage: '' },
+        passage: '',
       },
+
       {
         id: 'l_hotel',
         topicId: 't2',
         title: 'Hotel Booking',
         description: 'How to book rooms and check-in politely.',
         status: 'locked',
-        content: { passage: '' },
+        passage: '',
       },
     ],
   },

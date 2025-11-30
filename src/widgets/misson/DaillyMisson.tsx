@@ -1,5 +1,6 @@
+import { type Misson } from '@/entities/mission/types';
 import { Image, Text, View } from '@/shared/ui';
-import { MissionBlock, type Misson } from '@/shared/ui/mission/MissonBlock';
+import { MissionBlock } from '@/shared/ui/mission/MissonBlock';
 
 export const MockMisson: Misson[] = [
   { id: '1', title: 'Điểm danh hằng ngày', current: 1, target: 1, reward: 5 },

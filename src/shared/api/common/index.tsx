@@ -13,3 +13,12 @@ export * from './utils';
 //     },
 //   });
 // };
+
+// export const useCreateTopic = () => {
+//   return useMutation({
+//     mutationFn: async (payload) => {
+//       const res = await client.post('/topics', payload);
+//       return res.data;
+//     },
+//   });
+// };

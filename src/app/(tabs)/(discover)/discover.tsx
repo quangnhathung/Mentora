@@ -4,6 +4,7 @@ import React, { useMemo } from 'react';
 import { Image, Pressable, ScrollView, Text, View } from 'react-native';
 
 import { mockTopics } from '@/entities/topic/mock';
+import { useTopics } from '@/entities/topic/useTopic';
 import { translate } from '@/shared/lib';
 import { moderateScale } from '@/shared/lib/helpers/scale';
 import { withErrorBoundary } from '@/shared/lib/hocs/withErrorBoundary';
@@ -15,6 +16,13 @@ import HeaderWithSearch from '@/widgets/common/HeaderWithSearch';
 import { MockMisson } from '@/widgets/misson/DaillyMisson';
 
 const DiscoverScreen = () => {
+  const { data: topics, isLoading, isError, error, isFetching } = useTopics();
+
+  console.log('topics:', topics);
+  console.log('isLoading:', isLoading, 'isFetching:', isFetching);
+  console.log('isError:', isError, 'error:', error);
+
+  const TopicData = topics ?? mockTopics;
   const moderateSize = useMemo(
     () =>
       vars({
@@ -29,11 +37,11 @@ const DiscoverScreen = () => {
 
   const topicChunks = useMemo(() => {
     const chunks = [];
-    for (let i = 0; i < mockTopics.length; i += 2) {
-      chunks.push(mockTopics.slice(i, i + 2));
+    for (let i = 0; i < TopicData.length; i += 2) {
+      chunks.push(TopicData.slice(i, i + 2));
     }
     return chunks;
-  }, []);
+  }, [TopicData]);
 
   return (
     <TwoSectionHeader

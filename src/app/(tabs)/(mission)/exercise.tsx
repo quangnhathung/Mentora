@@ -41,7 +41,7 @@ const MissionExerciseScreen = () => {
     setCurrent((prev) => {
       if (prev < total - 1) return prev + 1;
       else {
-        router.replace('/(tabs)/(mission)/congratulate');
+        router.replace('/(tabs)/(mission)/congra');
       }
       return prev;
     });

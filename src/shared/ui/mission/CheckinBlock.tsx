@@ -1,15 +1,17 @@
+// shared/ui/mission/CheckinBlock.tsx
 import { Text, View } from '@/shared/ui';
 
-export type DailyCheckinType = {
+export const CheckinBlock = ({
+  id,
+  isChecked = false,
+  isMiss = false,
+}: {
   id: string;
-  isMiss?: boolean;
   isChecked?: boolean;
-};
-
-export const CheckinBlock = ({ id, isMiss, isChecked }: DailyCheckinType) => {
-  const BgCommon = isChecked ? 'bg-[#A855F7]' : isMiss ? 'bg-[#E9D5FF]' : ' bg-background-dark';
-
-  const Bgcheck = isChecked ? 'bg-[#FBBC05]' : isMiss ? 'bg-[#CBD5E1]' : ' bg-white';
+  isMiss?: boolean;
+}) => {
+  const BgCommon = isChecked ? 'bg-[#A855F7]' : isMiss ? 'bg-[#E9D5FF]' : 'bg-background-dark';
+  const BgCheck = isChecked ? 'bg-[#FBBC05]' : isMiss ? 'bg-[#CBD5E1]' : 'bg-white';
 
   return (
     <View
@@ -20,7 +22,7 @@ export const CheckinBlock = ({ id, isMiss, isChecked }: DailyCheckinType) => {
       >
         {id}
       </Text>
-      <View className={`size-3 rounded-full ${Bgcheck}`}></View>
+      <View className={`size-3 rounded-full ${BgCheck}`}></View>
     </View>
   );
 };

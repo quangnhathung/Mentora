@@ -67,7 +67,7 @@ export default function LessonDetailScreen({ lesson, onComplete }: Props) {
               I. Read the passage and answer the questions below:
             </Text>
             <Text className="mb-8 text-justify text-base leading-6 text-gray-600">
-              {lesson.content.passage}
+              {lesson.passage}
             </Text>
           </ScrollView>
         </View>

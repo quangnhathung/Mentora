@@ -127,7 +127,7 @@
     "login": {
       "title": "Create Your Profile",
       "hook": "Log in to personalize your learning and save your progress",
-      "terms": "By logging in, you agree to our <CustomLink href=\"https://example.com/terms\">Terms</CustomLink> and <CustomLink href=\"https://example.com/privacy\">Privacy Policy</CustomLink>"
+      "terms": "By logging in, you agree to our Terms and Privacy Policy"
     }
   },
   "settings": {

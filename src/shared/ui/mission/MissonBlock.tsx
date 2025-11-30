@@ -1,19 +1,8 @@
+import { type Misson } from '@/entities/mission/types';
 import { Image, ProgressBar, Text, View } from '@/shared/ui';
 
 import { GradientView } from '../GradientView/GradientView';
 import { SvgIcon } from '../SvgIcon';
-
-export type Misson = {
-  id?: string;
-
-  title: string;
-
-  current: number;
-
-  target: number;
-
-  reward: number;
-};
 
 type props = {
   misson: Misson;

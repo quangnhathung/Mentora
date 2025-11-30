@@ -3,6 +3,7 @@ import { vars } from 'nativewind';
 import React, { useMemo } from 'react';
 
 import { mockTopics } from '@/entities/topic/mock';
+import { useTopics } from '@/entities/topic/useTopic';
 import { useHideTabBar } from '@/shared/hook/useHideTabBar';
 import { moderateScale } from '@/shared/lib/helpers/scale';
 import { withDeviceLayout } from '@/shared/lib/hocs/withDeviceLayout';
@@ -21,8 +22,16 @@ const ExerciseScreen = () => {
       }),
     []
   );
+
+  const { data: topics, isLoading, isError, error, isFetching } = useTopics();
+
+  console.log('topics:', topics);
+  console.log('isLoading:', isLoading, 'isFetching:', isFetching);
+  console.log('isError:', isError, 'error:', error);
+
+  const TopicData = topics ?? mockTopics;
   const { eid, tid } = useLocalSearchParams();
-  const topic = mockTopics.find((t) => t.id === tid);
+  const topic = TopicData.find((t) => t.id === tid);
   const lesson = topic?.lessons.find((l) => l.id === eid);
   if (!lesson) {
     return <Text>Lesson không tồn tại</Text>;
