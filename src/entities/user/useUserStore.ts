@@ -46,3 +46,7 @@ export const useUserStore = create<AuthState>()(
 );
 
 //dùng: const user = useUserStore((state) => state.user);
+//const logout = useUserStore((state) => state.logout);
+// <TouchableOpacity onPress={logout}>
+//   <Text>Logout</Text>
+// </TouchableOpacity>

@@ -5,6 +5,7 @@ import { vars } from 'nativewind';
 import React, { useMemo, useState } from 'react';
 import { Image, Pressable, View } from 'react-native';
 
+import { useUserStore } from '@/entities/user/useUserStore';
 import { translate, type TxKeyPath } from '@/shared/lib';
 import { Env } from '@/shared/lib/env';
 import { moderateScale } from '@/shared/lib/helpers/scale';
@@ -65,6 +66,7 @@ const profileMenuMock: ProfileMenuProp[] = [
 const ProfileScreen = () => {
   const [profileMenu, _] = useState(profileMenuMock);
   const router = useRouter();
+  const profile = useUserStore((state) => state.user);
 
   const moderateSize = useMemo(
     () =>
@@ -103,8 +105,17 @@ const ProfileScreen = () => {
       Body={
         <View className="flex-1 items-center justify-start pt-4">
           {/* <CircleProgressSvg width={moderateScale(150)} /> */}
-          <ProfileHeader name={'Guest'} levelName={'Beginner'} />
-          <ProfileStatsRow stats={{ streak: 0, coins: 0 }} />
+          <ProfileHeader
+            name={profile?.name ?? 'Guest'}
+            levelName={'Beginner'}
+            avatar={profile?.avatar}
+          />
+          <ProfileStatsRow
+            stats={{
+              streak: Number(profile?.streak ?? 0),
+              coins: Number(profile?.coins ?? 0),
+            }}
+          />
           {profileMenu.map((item) => {
             return (
               <ProfileMenu key={`profile-menu-list-${item.id}`} isLoading={false} data={item} />

@@ -29,7 +29,7 @@ const Stat = ({ icon, value, label }: StatProps) => (
 
 export const ProfileStatsRow = ({ stats }: { stats: UserStats }) => (
   <View className="mt-5 w-full flex-row flex-wrap justify-between gap-2">
-    <Stat icon="flame" value={`${stats?.streak || '----'}`} label={translate('common.streak')} />
-    <Stat icon="coin" value={`${stats?.coins || '----'}`} label="Coins" />
+    <Stat icon="flame" value={`${stats?.streak ?? '----'}`} label={translate('common.streak')} />
+    <Stat icon="coin" value={`${stats?.coins ?? '----'}`} label="Coins" />
   </View>
 );

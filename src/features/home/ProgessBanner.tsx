@@ -1,10 +1,12 @@
 import { View } from 'react-native';
 
+import { useUserStore } from '@/entities/user/useUserStore';
 import { ProgressBar, Text } from '@/shared/ui';
 import BottomBorder from '@/shared/ui/BottomBorder';
 import { GradientView } from '@/shared/ui/GradientView/GradientView';
 
 export const ProgressBanner = () => {
+  const profile = useUserStore((state) => state.user);
   return (
     <BottomBorder className={`border-custom-5 rounded-b-2xl`}>
       <GradientView
@@ -16,7 +18,7 @@ export const ProgressBanner = () => {
       >
         <View className={`rounded-lg p-3`}>
           <Text className="font-baloo text-xl dark:text-white">
-            Hi {'Guest'}, ready to practice today?
+            Hi {profile?.name ?? 'Guest'}, ready to practice today?
           </Text>
           <Text className="dark:text-white">Today learning journey</Text>
           <View className={`flex-row justify-between`}>

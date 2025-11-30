@@ -2,6 +2,7 @@ import { useRouter } from 'expo-router';
 import React, { useRef } from 'react';
 import { View } from 'react-native';
 
+import { useUserStore } from '@/entities/user/useUserStore';
 import { LanguageModal, type LanguageModalRef } from '@/features/profile-setting/ui/LanguageModal';
 import { ThemeModal, type ThemeModalRef } from '@/features/profile-setting/ui/ThemeModal';
 import { translate, type TxKeyPath } from '@/shared/lib';
@@ -46,9 +47,12 @@ export const ProfileMenu = ({ data, isLoading }: ProfileMenuProps) => {
         break;
       case 'reset':
         storage.clearAll();
+        useAuthStore.getState().logout();
+        useUserStore.getState().logout();
         break;
       case 'logout':
         useAuthStore.getState().logout();
+        useUserStore.getState().logout();
         break;
     }
   };
