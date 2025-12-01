@@ -5,6 +5,7 @@ import { Alert, TextInput, View } from 'react-native';
 
 import { useCheckin } from '@/entities/checkin/hook/useCheckin';
 import { getDailyVocab, vocabDailyList } from '@/entities/mission/mock/vocab';
+import { useProgressStore } from '@/entities/user/hook/useProgressStore';
 import { useUpdateProfile } from '@/entities/user/hook/useUpdateProfile';
 import { useUserStore } from '@/entities/user/useUserStore';
 import { useHideTabBar } from '@/shared/hook/useHideTabBar';
@@ -28,6 +29,7 @@ export type VocabDaily = {
 const MissionExerciseScreen = () => {
   const [answer, setAnswer] = useState('');
   const [_, setIsCorrect] = useState(false);
+  const { setProgress } = useProgressStore();
   const mutation = useCheckin();
   const profile = useUserStore((state) => state.user);
   const updateUserStore = useUserStore((state) => state.updateUser);
@@ -71,6 +73,7 @@ const MissionExerciseScreen = () => {
                         streak: updatedUser.streak,
                         coins: updatedUser.coins,
                       });
+                      setProgress(String(profile.id), { checkin: 1 });
                       router.replace('/(tabs)/(mission)/congra');
                     },
                     onError: (err: any) => {

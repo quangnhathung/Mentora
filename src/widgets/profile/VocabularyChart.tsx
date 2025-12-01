@@ -49,7 +49,7 @@ export default function VocabularyChart() {
       <GradientView
         colors={['primary-dark', 'primary']}
         containerClassName={`w-full overflow-hidden rounded-2xl`}
-        className={`bg-gradient-to-r from-primary-dark via-primary to-primary-light`}
+        className={`bg-gradient-to-r from-background-gray via-primary to-background-gray`}
       >
         <View className={`p-4`}>
           <View className="w-full flex-row justify-between">

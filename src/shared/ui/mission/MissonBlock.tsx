@@ -1,4 +1,6 @@
 import { type Misson } from '@/entities/mission/types';
+import { useProgressStore } from '@/entities/user/hook/useProgressStore';
+import { useUserStore } from '@/entities/user/useUserStore';
 import { Image, ProgressBar, Text, View } from '@/shared/ui';
 
 import { GradientView } from '../GradientView/GradientView';
@@ -11,13 +13,37 @@ type props = {
 };
 
 export const MissionBlock = ({ misson, isChanglle }: props) => {
-  const progress = Math.round((misson.current / misson.target) * 100);
+  const profile = useUserStore((state) => state.user);
+  const userId = profile?.id;
 
-  const isCompelted = progress === 100 ? true : false;
+  // Lấy progress hoặc fallback nếu chưa có
+  const userProgress =
+    useProgressStore((s) => (userId ? s.progress[userId] : undefined)) ?? undefined;
 
   const color1 = isChanglle ? '#818CF8' : '#F8AAD3';
 
   const color2 = isChanglle ? '#EC4899' : '#CAB9FC';
+
+  let current = 0;
+
+  switch (misson.title) {
+    case 'Daily attendance':
+      current = userProgress?.checkin ?? 0;
+      break;
+    case 'Play 1 game':
+      current = userProgress?.game ?? 0;
+      break;
+    case 'Completed 3 lessons':
+      current = userProgress?.lesson ?? 0;
+      break;
+    case 'Use the app for 30 minutes':
+      current = userProgress?.app ?? 0;
+      break;
+    default:
+      current = misson.current;
+  }
+  const progress = Math.round((current / misson.target) * 100);
+  const isCompelted = progress === 100 ? true : false;
 
   return (
     <GradientView
@@ -54,7 +80,7 @@ export const MissionBlock = ({ misson, isChanglle }: props) => {
           <View className="w-full">
             <View className="flex-row justify-between">
               <Text className="text-[14px] font-bold dark:text-white">
-                {misson.current}/{misson.target}
+                {current}/{misson.target}
               </Text>
 
               <Text className="text-[14px] font-bold dark:text-white">{progress}%</Text>

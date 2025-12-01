@@ -1,10 +1,13 @@
 import { useLocalSearchParams } from 'expo-router';
-import { useMemo, useRef } from 'react';
-import { View } from 'react-native';
+import { useEffect, useMemo, useRef } from 'react';
+import { Alert, View } from 'react-native';
 
 import { Games } from '@/entities/games/types/mock';
 import { type instructions } from '@/entities/games/types/types';
 import { GameTemplate } from '@/entities/games/ui/GameTemplate';
+import { useProgressStore } from '@/entities/user/hook/useProgressStore';
+import { useUpdateProfile } from '@/entities/user/hook/useUpdateProfile';
+import { useUserStore } from '@/entities/user/useUserStore';
 import { type GameInstructionsModalRef } from '@/features/unit/ui/UnitGameModal';
 import { withDeviceLayout } from '@/shared/lib/hocs/withDeviceLayout';
 import { withErrorBoundary } from '@/shared/lib/hocs/withErrorBoundary';
@@ -14,6 +17,28 @@ import { GameHeader } from '@/widgets/games/GameHeader';
 const GamesScreen = () => {
   const { gid, level, name, desc } = useLocalSearchParams();
   const unitGameModalRef = useRef<GameInstructionsModalRef>(null);
+  const profile = useUserStore((state) => state.user);
+  const { mutate: update } = useUpdateProfile();
+  const { setProgress } = useProgressStore();
+
+  useEffect(() => {
+    if (!profile?.id) return;
+
+    update(
+      {
+        userId: profile.id,
+        data: { coins: profile.coins + 5 },
+      },
+      {
+        onSuccess: () => {
+          setProgress(String(profile.id), { game: 1 });
+        },
+        onError: (err: any) => {
+          Alert.alert('Update failed', err.response?.data?.error ?? 'UNKNOWN ERROR');
+        },
+      }
+    );
+  }, [profile?.id]); // Chỉ chạy khi profile?.id thay đổi
 
   const ModalData: instructions = useMemo(
     () => ({

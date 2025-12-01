@@ -12,7 +12,7 @@ import { SvgIcon } from '@/shared/ui/SvgIcon';
 // Mỗi màu thể hiện mức độ nhiệt (hoặc trạng thái)
 const levels: { [key: number]: string } = {
   0: 'bg-[#B1B1B1]',
-  1: 'bg-primary',
+  1: 'bg-navbar-active',
   2: 'bg-[#7F6FFE]',
   3: 'bg-[#594DB7]',
 };
@@ -85,7 +85,7 @@ export default function HeatmapLayout({
 
   return (
     <BottomBorder className={`border-custom-5 mt-4 w-full rounded-b-2xl`}>
-      <View style={moderateSize} className="w-full rounded-2xl bg-background-dark-light">
+      <View style={moderateSize} className="w-full rounded-xl bg-background-dark">
         <View className="flex-row justify-between p-4">
           <SvgIcon name="calendar" />
           <Text className="font-baloo text-lg text-white">
@@ -101,7 +101,7 @@ export default function HeatmapLayout({
               className={`mr-1 h-[--c-70] flex-col justify-end border-r-2 border-white pr-1`}
             >
               <Text
-                className={`font-bevietnampro text-base ${selected === '1' ? 'dark:text-secondary' : ''}`}
+                className={`font-bevietnampro text-base ${selected === '1' ? 'dark:text-primary-dark' : ''}`}
               >
                 {monthRange1}
               </Text>
@@ -112,7 +112,7 @@ export default function HeatmapLayout({
               className={`mr-1 h-[--c-70] flex-col justify-start border-r-2 border-t-2 border-white pr-1`}
             >
               <Text
-                className={`font-bevietnampro text-base ${selected === '0' ? 'dark:text-secondary' : ''}`}
+                className={`font-bevietnampro text-base ${selected === '0' ? 'dark:text-primary-dark' : ''}`}
               >
                 {monthRange2}
               </Text>

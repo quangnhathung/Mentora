@@ -1,5 +1,6 @@
+import { useMissionsStore } from '@/entities/mission/hook/useMissionStore';
 import { type Misson } from '@/entities/mission/types';
-import { Image, Text, View } from '@/shared/ui';
+import { ActivityIndicator, Image, Text, View } from '@/shared/ui';
 import { MissionBlock } from '@/shared/ui/mission/MissonBlock';
 
 export const MockMisson: Misson[] = [
@@ -18,13 +19,21 @@ const Changlenge: Misson = {
 };
 
 export const Daily = () => {
+  const { data, isLoading, isError } = useMissionsStore();
+
+  if (isLoading) return <ActivityIndicator />;
+
+  // fallback nếu API lỗi / không có dữ liệu
+  const missions = !data || data.length === 0 || isError ? MockMisson : data;
+
   return (
     <View className="w-ful py-2">
       <View className="w-full items-center">
         <Text className="font-baloo text-2xl">Daily Mission</Text>
       </View>
+
       <View className="w-full gap-3">
-        {MockMisson.map((item) => (
+        {missions.map((item) => (
           <MissionBlock key={item.id} misson={item} />
         ))}
       </View>
@@ -32,10 +41,12 @@ export const Daily = () => {
       <View className="mt-3 w-full items-center">
         <Text className="font-baloo text-2xl">Daily Mission</Text>
       </View>
+
       <View className="relative mb-3 w-full">
         <View className="z-10 w-full">
           <MissionBlock key={Changlenge.id} misson={Changlenge} isChanglle />
         </View>
+
         <View className="absolute top-[85%] z-[-1] w-full flex-row rounded-lg bg-[#DDD6FE] pt-8">
           <Image
             source={require('@assets/images/pngs/MeraWithCup.png')}
