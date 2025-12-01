@@ -6,6 +6,7 @@ export default function AuthLayout() {
       <Stack.Screen name="login" />
       <Stack.Screen name="local" />
       <Stack.Screen name="register" />
+      <Stack.Screen name="congra" />
     </Stack>
   );
 }

@@ -28,9 +28,7 @@ export default function RegisterScreen() {
   const mutation = useMutation({
     mutationFn: (body: RegisterReq) => apiRegister(body),
     onSuccess: (_data) => {
-      Alert.alert('Thành công', 'Đăng ký thành công — bạn có thể đăng nhập bây giờ.', [
-        { text: 'OK', onPress: () => router.push('/login') },
-      ]);
+      router.push('/congra');
     },
     onError: (err: any) => {
       const message = err?.response?.data?.error || err?.message || 'Đã có lỗi xảy ra';

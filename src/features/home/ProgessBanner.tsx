@@ -22,7 +22,7 @@ export const ProgressBanner = () => {
           </Text>
           <Text className="dark:text-white">Today learning journey</Text>
           <View className={`flex-row justify-between`}>
-            <Text className="my-1 text-xs dark:text-white">Guest</Text>
+            <Text className="my-1 text-xs dark:text-white">{profile?.name ?? 'Guest'}</Text>
             <Text className="my-1 text-xs dark:text-cyan">{'0'}%</Text>
           </View>
           <ProgressBar initialProgress={0} />
