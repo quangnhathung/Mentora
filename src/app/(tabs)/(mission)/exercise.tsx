@@ -1,9 +1,11 @@
 import { router } from 'expo-router';
 import { vars } from 'nativewind';
 import React, { useMemo, useState } from 'react';
-import { TextInput, View } from 'react-native';
+import { Alert, TextInput, View } from 'react-native';
 
+import { useCheckin } from '@/entities/checkin/hook/useCheckin';
 import { getDailyVocab, vocabDailyList } from '@/entities/mission/mock/vocab';
+import { useUserStore } from '@/entities/user/useUserStore';
 import { useHideTabBar } from '@/shared/hook/useHideTabBar';
 import { moderateScale } from '@/shared/lib/helpers/scale';
 import { withDeviceLayout } from '@/shared/lib/hocs/withDeviceLayout';
@@ -13,7 +15,7 @@ import { ThreeSection } from '@/shared/ui/layouts/sections/ThreeSection';
 import { SecondaryButton } from '@/shared/ui/SecondaryButton';
 
 const pool = [...vocabDailyList];
-const data = getDailyVocab(pool, 10); // 10 vocab cố định trong ngày theo timezone Asia/Ho_Chi_Minh
+const data = getDailyVocab(pool, 10);
 
 export type VocabDaily = {
   id?: string;
@@ -26,6 +28,8 @@ export type VocabDaily = {
 const MissionExerciseScreen = () => {
   const [answer, setAnswer] = useState('');
   const [_, setIsCorrect] = useState(false);
+  const mutation = useCheckin();
+  const profile = useUserStore((state) => state.user);
   const moderateSize = useMemo(
     () =>
       vars({
@@ -41,7 +45,23 @@ const MissionExerciseScreen = () => {
     setCurrent((prev) => {
       if (prev < total - 1) return prev + 1;
       else {
-        router.replace('/(tabs)/(mission)/congra');
+        if (!profile?.id) {
+          Alert.alert('Error', 'User not logged in');
+          router.replace('/(tabs)/(mission)');
+        } else {
+          mutation.mutate(
+            { userId: profile.id },
+            {
+              onSuccess: (_data) => {
+                router.replace('/(tabs)/(mission)/congra');
+              },
+              onError: (err: any) => {
+                Alert.alert('Error', err.response?.data?.error ?? 'UNKNOWN ERROR');
+                router.replace('/(tabs)/(mission)');
+              },
+            }
+          );
+        }
       }
       return prev;
     });

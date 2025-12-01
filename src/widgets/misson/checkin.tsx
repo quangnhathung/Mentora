@@ -3,29 +3,23 @@ import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
 
 import { generateWeeklyData } from '@/entities/checkin/helper';
-import { type DailyCheckinResponse, type DailyCheckinType } from '@/entities/checkin/type';
+import { useCheckins } from '@/entities/checkin/hook/useCheckin';
+import { type DailyCheckinType } from '@/entities/checkin/type';
+import { useUserStore } from '@/entities/user/useUserStore';
 import { Text, TouchableOpacity, View } from '@/shared/ui';
 import { CheckinBlock } from '@/shared/ui/mission/CheckinBlock';
 import { SvgIcon } from '@/shared/ui/SvgIcon';
 
 export const Checkin = () => {
   const [weeklyData, setWeeklyData] = useState<DailyCheckinType[]>([]);
+  const profile = useUserStore((state) => state.user);
+  const { data } = useCheckins(Number(profile?.id));
 
   useEffect(() => {
-    const fetchCheckinData = async () => {
-      // Mock API
-      const mockApiResponse: DailyCheckinResponse[] = [
-        { id: 'uuid-1', userId: 1, date: '2025-11-25T00:00:00Z', isChecked: true, isMiss: false },
-        { id: 'uuid-2', userId: 1, date: '2025-11-27T00:00:00Z', isChecked: false, isMiss: true },
-        { id: 'uuid-3', userId: 1, date: '2025-11-26T00:00:00Z', isChecked: false, isMiss: true },
-      ];
-
-      const viewData = generateWeeklyData(mockApiResponse);
-      setWeeklyData(viewData);
-    };
-
-    fetchCheckinData();
-  }, []);
+    if (data) {
+      setWeeklyData(generateWeeklyData(data));
+    }
+  }, [data]);
 
   return (
     <View className="m-0 w-full border-b p-0">

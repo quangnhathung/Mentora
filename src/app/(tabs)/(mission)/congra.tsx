@@ -39,7 +39,7 @@ const MissionExerciseScreen = () => {
               className={`my-2`}
               textStyle={`uppercase`}
               onPress={() => {
-                router.replace('/(tabs)/index');
+                router.replace('/(tabs)/(mission)/mission');
               }}
             />
           </View>
