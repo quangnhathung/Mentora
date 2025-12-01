@@ -5,6 +5,7 @@ import { Alert, TextInput, View } from 'react-native';
 
 import { useCheckin } from '@/entities/checkin/hook/useCheckin';
 import { getDailyVocab, vocabDailyList } from '@/entities/mission/mock/vocab';
+import { useUpdateProfile } from '@/entities/user/hook/useUpdateProfile';
 import { useUserStore } from '@/entities/user/useUserStore';
 import { useHideTabBar } from '@/shared/hook/useHideTabBar';
 import { moderateScale } from '@/shared/lib/helpers/scale';
@@ -13,7 +14,6 @@ import { withErrorBoundary } from '@/shared/lib/hocs/withErrorBoundary';
 import { Text } from '@/shared/ui';
 import { ThreeSection } from '@/shared/ui/layouts/sections/ThreeSection';
 import { SecondaryButton } from '@/shared/ui/SecondaryButton';
-
 const pool = [...vocabDailyList];
 const data = getDailyVocab(pool, 10);
 
@@ -30,6 +30,8 @@ const MissionExerciseScreen = () => {
   const [_, setIsCorrect] = useState(false);
   const mutation = useCheckin();
   const profile = useUserStore((state) => state.user);
+  const updateUserStore = useUserStore((state) => state.updateUser);
+  const { mutate: update } = useUpdateProfile();
   const moderateSize = useMemo(
     () =>
       vars({
@@ -53,7 +55,30 @@ const MissionExerciseScreen = () => {
             { userId: profile.id },
             {
               onSuccess: (_data) => {
-                router.replace('/(tabs)/(mission)/congra');
+                update(
+                  {
+                    userId: profile.id!,
+                    data: { streak: profile.streak + 1, coins: profile.coins + 5 },
+                  },
+                  {
+                    onSuccess: (updatedUser) => {
+                      console.log('on fetch update user: ', updatedUser);
+                      updateUserStore({
+                        name: updatedUser.name,
+                        avatar: updatedUser.avatar,
+                        dob: updatedUser.dob,
+                        email: updatedUser.email,
+                        streak: updatedUser.streak,
+                        coins: updatedUser.coins,
+                      });
+                      router.replace('/(tabs)/(mission)/congra');
+                    },
+                    onError: (err: any) => {
+                      Alert.alert('Update failed', err.response?.data?.error ?? 'UNKNOWN ERROR');
+                      router.replace('/(tabs)/(mission)');
+                    },
+                  }
+                );
               },
               onError: (err: any) => {
                 Alert.alert('Error', err.response?.data?.error ?? 'UNKNOWN ERROR');

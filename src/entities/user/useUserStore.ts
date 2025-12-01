@@ -10,6 +10,7 @@ export type User = {
   dob?: string;
   streak: number;
   coins: number;
+  [key: string]: any;
 };
 
 interface AuthState {
@@ -18,6 +19,7 @@ interface AuthState {
 
   login: (user: User) => void;
   logout: () => void;
+  updateUser: (partial: Partial<User>) => void;
 }
 
 export const useUserStore = create<AuthState>()(
@@ -37,6 +39,11 @@ export const useUserStore = create<AuthState>()(
           user: null,
           isLoggedIn: false,
         }),
+
+      updateUser: (partial: Partial<User>) =>
+        set((state) => ({
+          user: state.user ? { ...state.user, ...partial } : ({ ...partial } as User),
+        })),
     }),
     {
       name: 'user-storage',
@@ -44,9 +51,3 @@ export const useUserStore = create<AuthState>()(
     }
   )
 );
-
-//dùng: const user = useUserStore((state) => state.user);
-//const logout = useUserStore((state) => state.logout);
-// <TouchableOpacity onPress={logout}>
-//   <Text>Logout</Text>
-// </TouchableOpacity>

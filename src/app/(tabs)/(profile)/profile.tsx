@@ -110,12 +110,7 @@ const ProfileScreen = () => {
             levelName={'Beginner'}
             avatar={profile?.avatar}
           />
-          <ProfileStatsRow
-            stats={{
-              streak: Number(profile?.streak ?? 0),
-              coins: Number(profile?.coins ?? 0),
-            }}
-          />
+          <ProfileStatsRow streak={profile?.streak} coin={profile?.coins} />
           {profileMenu.map((item) => {
             return (
               <ProfileMenu key={`profile-menu-list-${item.id}`} isLoading={false} data={item} />

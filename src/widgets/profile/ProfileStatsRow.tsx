@@ -1,6 +1,5 @@
 import { View } from 'react-native';
 
-import { type UserStats } from '@/entities/user/types';
 import { translate } from '@/shared/lib';
 import { Text } from '@/shared/ui';
 import BottomBorder from '@/shared/ui/BottomBorder';
@@ -26,10 +25,14 @@ const Stat = ({ icon, value, label }: StatProps) => (
     </BottomBorder>
   </View>
 );
+type props = {
+  streak?: number;
+  coin?: number;
+};
 
-export const ProfileStatsRow = ({ stats }: { stats: UserStats }) => (
+export const ProfileStatsRow = ({ streak, coin }: props) => (
   <View className="mt-5 w-full flex-row flex-wrap justify-between gap-2">
-    <Stat icon="flame" value={`${stats?.streak ?? '----'}`} label={translate('common.streak')} />
-    <Stat icon="coin" value={`${stats?.coins ?? '----'}`} label="Coins" />
+    <Stat icon="flame" value={`${streak ?? '----'}`} label={translate('common.streak')} />
+    <Stat icon="coin" value={`${coin ?? '----'}`} label="Coins" />
   </View>
 );

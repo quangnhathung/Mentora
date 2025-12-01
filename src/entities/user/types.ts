@@ -4,10 +4,6 @@ export type User = {
   email?: string;
   avatar?: string;
   dob?: string;
-  streak: UserStats;
-};
-
-export type UserStats = {
   streak: number;
   coins: number;
 };

@@ -29,6 +29,8 @@ export default function LoginScreen() {
     onSuccess: (data) => {
       useAuthStore.getState().login({ email: email, provider: 'local' });
       useUserStore.getState().login(data);
+      console.log('User: ', data);
+      router.push('/(tabs)');
     },
     onError: (err: any) => {
       const message = err?.response?.data?.error || err?.message || 'Đã có lỗi xảy ra';
@@ -53,7 +55,6 @@ export default function LoginScreen() {
     };
 
     mutation.mutate(payload);
-    router.push('/(tabs)');
   };
 
   return (
