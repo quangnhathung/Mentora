@@ -4,6 +4,7 @@ import { vars } from 'nativewind';
 import React, { useMemo } from 'react';
 
 import { mockTopics } from '@/entities/topic/mock';
+import { useTopics } from '@/entities/topic/useTopic';
 import { useAutoAppProgress } from '@/entities/user/hook/useAutoAppProgress';
 //import { InteractionManager } from 'react-native';
 //import { useLeaderboardData } from '@/entities/leaderboard/model';
@@ -17,6 +18,8 @@ import { TopicLessonList } from '@/widgets/topic/component/LessonList';
 
 export default function Home() {
   //const home = usePathData.getCurrentPath();
+  const { data: topics } = useTopics();
+
   const moderateSize = useMemo(
     () =>
       vars({
@@ -24,37 +27,9 @@ export default function Home() {
       }),
     []
   );
-  const randomTopic = mockTopics[Math.floor(Math.random() * mockTopics.length)];
+  const TopicData = topics ?? mockTopics;
+  const randomTopic = TopicData[Math.floor(Math.random() * TopicData.length)];
   useAutoAppProgress();
-  //const qc = useQueryClient();
-
-  // useMissionData.getMissionList();
-  // useMissionData.getChallengeList();
-  // useMissionData.getAchievementList();
-
-  // useEffect(() => {
-  //   if (!home.isSuccess) return;
-  //   const t = InteractionManager.runAfterInteractions(() => {
-  //     qc.prefetchQuery({
-  //       ...useMissionData.getMissionList.getFetchOptions(),
-  //     });
-  //     qc.prefetchQuery({
-  //       ...useMissionData.getChallengeList.getFetchOptions(),
-  //     });
-
-  //     qc.prefetchQuery({
-  //       ...useMissionData.getAchievementList.getFetchOptions(),
-  //     });
-  //     qc.prefetchQuery({
-  //       ...useLeaderboardData.getLeaderboardByPeriod.getFetchOptions({
-  //         period: useLeaderboardStore.getState().period,
-  //       }),
-  //     });
-  //   });
-  //   return () => t.cancel();
-  // }, [home.isSuccess, qc]);
-
-  // return <Redirect href="/(tabs)/(exercise)/1" />;
 
   // Chỉ redirect khi đang dev
   if (__DEV__) {

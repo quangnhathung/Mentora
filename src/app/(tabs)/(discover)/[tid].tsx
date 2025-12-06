@@ -4,6 +4,7 @@ import React, { useMemo } from 'react';
 
 import { mockTopics } from '@/entities/topic/mock';
 import { useTopics } from '@/entities/topic/useTopic';
+import { useHideTabBar } from '@/shared/hook/useHideTabBar';
 import { moderateScale } from '@/shared/lib/helpers/scale';
 import { withDeviceLayout } from '@/shared/lib/hocs/withDeviceLayout';
 import { withErrorBoundary } from '@/shared/lib/hocs/withErrorBoundary';
@@ -12,6 +13,7 @@ import { TwoSectionHeader } from '@/shared/ui/layouts/sections/TwoSectionHeader'
 import { TopicScreen } from '@/widgets/topic/topic';
 
 const DiscoverInfoScreen = () => {
+  useHideTabBar();
   const moderateSize = useMemo(
     () =>
       vars({
@@ -38,7 +40,7 @@ const DiscoverInfoScreen = () => {
       style={moderateSize}
       Header={<></>}
       Body={
-        <View className={`items-center py-8`}>
+        <View className={`items-center pt-11`}>
           <TopicScreen data={topic} />
         </View>
       }

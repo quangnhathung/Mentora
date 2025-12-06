@@ -4,6 +4,7 @@ import React, { useMemo, useRef } from 'react';
 
 import { type GameInfo, type instructions } from '@/entities/games/types/types';
 import { type GameInstructionsModalRef } from '@/features/unit/ui/UnitGameModal';
+import { useHideTabBar } from '@/shared/hook/useHideTabBar';
 import { moderateScale } from '@/shared/lib/helpers/scale';
 import { withDeviceLayout } from '@/shared/lib/hocs/withDeviceLayout';
 import { withErrorBoundary } from '@/shared/lib/hocs/withErrorBoundary';
@@ -18,6 +19,7 @@ const DifficultyScreen = () => {
     image: string;
     instructions: string;
   }>();
+  useHideTabBar();
   const unitGameModalRef = useRef<GameInstructionsModalRef>(null);
   const ModalData: instructions = useMemo(
     () => ({

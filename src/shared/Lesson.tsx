@@ -14,7 +14,7 @@ const getStatusConfig = (status: LessonStatus) => {
         textColor: 'dark:text-[#FFB800]',
         statusLabel: 'Completed',
         showBadge: status === 'claimed',
-        showCoin: true,
+        showCoin: false,
         isLocked: false,
       };
     case 'in_progress':
@@ -40,9 +40,10 @@ const getStatusConfig = (status: LessonStatus) => {
         containerBg: 'bg-[#E6E9EF]',
         statusLabel: 'Coming soon!',
         isComingSoon: true,
+        textColor: '',
       };
     default:
-      return { containerBg: 'bg-white', textColor: 'text-gray-500' };
+      return { containerBg: 'bg-white', textColor: '', statusLabel: '' };
   }
 };
 
@@ -119,7 +120,7 @@ export const LessonItem: React.FC<LessonItemProps> = ({ lesson, onPress }) => {
         <View className="flex-row items-end justify-between">
           <Text className={`text-xs ${config.textColor} mr-2 flex-1`}>{config.statusLabel}</Text>
 
-          {config.showCoin && reward && (
+          {config.showCoin && !!reward && (
             <View className="flex-row items-center">
               <Text className="mr-1 text-sm font-extrabold text-yellow-500">{reward}</Text>
               <SvgIcon name="coin" size={18} />

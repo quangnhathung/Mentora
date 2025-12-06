@@ -3,6 +3,7 @@ import { vars } from 'nativewind';
 import React, { useMemo } from 'react';
 import { Alert } from 'react-native';
 
+import { useUpdateLessonStatus } from '@/entities/topic/hook/useUpdateLessonStatus';
 import { mockTopics } from '@/entities/topic/mock';
 import { useTopics } from '@/entities/topic/useTopic';
 import { useProgressStore } from '@/entities/user/hook/useProgressStore';
@@ -24,6 +25,8 @@ const ExerciseScreen = () => {
   const { mutate: update } = useUpdateProfile();
   const progress = useProgressStore((s) => s.progress[profile?.id!]);
   const { setProgress } = useProgressStore();
+  const { mutate: updateStatus } = useUpdateLessonStatus();
+
   const moderateSize = useMemo(
     () =>
       vars({
@@ -47,64 +50,81 @@ const ExerciseScreen = () => {
   }
 
   const onComplete = () => {
-    update(
-      {
-        userId: profile?.id!,
-        data: { coins: profile?.coins! + lesson.reward! },
-      },
-      {
-        onSuccess: (updatedUser) => {
-          console.log('on fetch update user: ', updatedUser);
-          updateUserStore({
-            name: updatedUser.name,
-            avatar: updatedUser.avatar,
-            dob: updatedUser.dob,
-            email: updatedUser.email,
-            streak: updatedUser.streak,
-            coins: updatedUser.coins,
-          });
+    if (lesson.status === 'completed') {
+      router.push({
+        pathname: '/(tabs)/(discover)/congra',
+        params: { topicId: String(topic?.id) },
+      });
+    } else {
+      update(
+        {
+          userId: profile?.id!,
+          data: { coins: profile?.coins! + lesson.reward! },
+        },
+        {
+          onSuccess: (updatedUser) => {
+            console.log('on fetch update user: ', updatedUser);
+            updateUserStore({
+              name: updatedUser.name,
+              avatar: updatedUser.avatar,
+              dob: updatedUser.dob,
+              email: updatedUser.email,
+              streak: updatedUser.streak,
+              coins: updatedUser.coins,
+            });
 
-          let Crprogress = progress.lesson + 1;
+            let Crprogress = progress.lesson + 1;
 
-          if (Crprogress === 3) {
-            update(
-              {
-                userId: profile?.id!,
-                data: { coins: profile?.coins! + 5 },
-              },
-              {
-                onSuccess: (updatedUser1) => {
-                  console.log('update coin for lesson misson +5 ');
-                  updateUserStore({
-                    name: updatedUser1.name,
-                    avatar: updatedUser1.avatar,
-                    dob: updatedUser1.dob,
-                    email: updatedUser1.email,
-                    streak: updatedUser1.streak,
-                    coins: updatedUser1.coins,
-                  });
+            if (Crprogress === 3) {
+              update(
+                {
+                  userId: profile?.id!,
+                  data: { coins: profile?.coins! + 5 },
                 },
-                onError: (err: any) => {
-                  Alert.alert('Update failed', err.response?.data?.error ?? 'UNKNOWN ERROR');
+                {
+                  onSuccess: (updatedUser1) => {
+                    console.log('update coin for lesson misson +5 ');
+                    updateUserStore({
+                      name: updatedUser1.name,
+                      avatar: updatedUser1.avatar,
+                      dob: updatedUser1.dob,
+                      email: updatedUser1.email,
+                      streak: updatedUser1.streak,
+                      coins: updatedUser1.coins,
+                    });
+                  },
+                  onError: (err: any) => {
+                    Alert.alert('Update failed', err.response?.data?.error ?? 'UNKNOWN ERROR');
+                  },
+                }
+              );
+            }
+            //cap nhat trang thai cho lesson hien tai
+            updateStatus(
+              { lessonId: lesson.id, data: { status: 'completed' } },
+              {
+                onSuccess: (lesson) => {
+                  console.log('Lesson updated:', lesson.status);
                 },
               }
             );
-          }
-
-          var value = Crprogress > 3 ? 3 : Crprogress;
-          setProgress(String(profile?.id), { lesson: value });
-          router.push({
-            pathname: '/(tabs)/(discover)/congra',
-            params: { topicId: String(topic?.id) },
-          });
-        },
-        onError: (err: any) => {
-          Alert.alert('Update failed', err.response?.data?.error ?? 'UNKNOWN ERROR');
-          router.replace('/(tabs)/(discover)/discover');
-        },
-      }
-    );
+            var value = Crprogress > 3 ? 3 : Crprogress;
+            setProgress(String(profile?.id), { lesson: value });
+            router.push({
+              pathname: '/(tabs)/(discover)/congra',
+              params: { topicId: String(topic?.id) },
+            });
+          },
+          onError: (err: any) => {
+            Alert.alert('Update failed', err.response?.data?.error ?? 'UNKNOWN ERROR');
+            router.replace('/(tabs)/(discover)/discover');
+          },
+        }
+      );
+    }
   };
+
+  console.log(lesson);
 
   return (
     <TwoSectionHeader
