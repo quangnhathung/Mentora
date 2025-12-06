@@ -2,17 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
-export type User = {
-  id?: number;
-  name?: string;
-  email?: string;
-  avatar?: string;
-  dob?: string;
-  streak: number;
-  coins: number;
-  premium: boolean;
-  [key: string]: any;
-};
+import type { User } from '@/entities/user/types';
 
 interface AuthState {
   user: User | null;

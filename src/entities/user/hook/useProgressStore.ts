@@ -2,14 +2,12 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
-import { type Premium } from '../types';
-
 export type UserProgress = {
   checkin: number;
   app: number;
   lesson: number;
   game: number;
-  premium?: Premium;
+  premium?: boolean;
 };
 
 type ProgressDict = Record<string, UserProgress>;
@@ -23,11 +21,12 @@ type ProgressState = {
   ensureDailyReset: () => void;
 };
 
-const emptyProgress: UserProgress = {
+export const emptyProgress: UserProgress = {
   checkin: 0,
   app: 0,
   lesson: 0,
   game: 0,
+  premium: false,
 };
 
 export const useProgressStore = create<ProgressState>()(

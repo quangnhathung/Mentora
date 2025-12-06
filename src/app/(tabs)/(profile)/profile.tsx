@@ -3,7 +3,7 @@ import SettingSvg from '@assets/images/svgs/setting.svg';
 import { useRouter } from 'expo-router';
 import { vars } from 'nativewind';
 import React, { useMemo, useState } from 'react';
-import { Image, Pressable, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 
 import { useUserStore } from '@/entities/user/useUserStore';
 import { translate, type TxKeyPath } from '@/shared/lib';
@@ -18,6 +18,7 @@ import { type ChoiceBase } from '@/shared/ui/List/SelectableList';
 import { HeaderThreeColumn } from '@/widgets/common/HeaderThreeColumn';
 import { ProfileHeader } from '@/widgets/profile/ProfileHeader';
 import { ProfileMenu } from '@/widgets/profile/ProfileMenu';
+import { PremiumBanner } from '@/widgets/profile/ProfilePremiumBanner';
 import { ProfileStatsRow } from '@/widgets/profile/ProfileStatsRow';
 
 type ProfileMenuProp = {
@@ -119,9 +120,7 @@ const ProfileScreen = () => {
           <View className="mt-2 w-full">
             <AdBanner />
           </View>
-          <Pressable className="my-2 w-full items-center justify-center" onPress={() => {}}>
-            <Image source={require('@assets/images/pngs/premium-banner.png')} />
-          </Pressable>
+          <PremiumBanner />
 
           <Text className={`my-2 w-full text-center`}>
             {translate('settings.version')}: {Env.VERSION}

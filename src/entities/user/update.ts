@@ -10,6 +10,10 @@ export type UpdateProfileReq = {
   coins?: number;
 };
 
+export type CancelPremiumReq = {
+  userId: number;
+};
+
 export async function updateProfile(userId: number, req: UpdateProfileReq): Promise<User> {
   const res = await client.patch(`/auth/profile/${userId}`, req);
   return res.data;
@@ -22,5 +26,10 @@ export type ActivatePremiumReq = {
 
 export async function activatePremium(data: ActivatePremiumReq): Promise<PremiumResponse> {
   const res = await client.post('/premium/activate', data);
+  return res.data;
+}
+
+export async function cancelPremium(data: CancelPremiumReq): Promise<{ message: string }> {
+  const res = await client.post('/premium/cancel', data);
   return res.data;
 }

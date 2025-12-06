@@ -1,8 +1,10 @@
 import { router } from 'expo-router';
 import { vars } from 'nativewind';
 import React, { useMemo, useState } from 'react';
-import { View } from 'react-native';
+import { Alert, View } from 'react-native';
 
+import { useCancelPremium } from '@/entities/user/hook/usePremium';
+import { useUserStore } from '@/entities/user/useUserStore';
 import { translate, type TxKeyPath } from '@/shared/lib';
 import { moderateScale } from '@/shared/lib/helpers/scale';
 import { withDeviceLayout } from '@/shared/lib/hocs/withDeviceLayout';
@@ -69,6 +71,8 @@ const profileMenuMock: ProfileMenuProp[] = [
 
 const ProfileScreen = () => {
   const [profileMenu, _] = useState(profileMenuMock);
+  const { mutate: cancel } = useCancelPremium();
+  const profile = useUserStore((state) => state.user);
 
   const moderateSize = useMemo(
     () =>
@@ -77,6 +81,24 @@ const ProfileScreen = () => {
       }),
     []
   );
+
+  const onsubmit = () => {
+    console.log('PROFILE ID:', profile?.id);
+    cancel(
+      { userId: profile?.id! },
+      {
+        onSuccess: () => {
+          useUserStore.getState().updateUser({ premium: null });
+          Alert.alert('Thành công', 'Đã hủy Premium!');
+        },
+        onError: (err: any) => {
+          const msg = err?.response?.data?.error || 'Lỗi hủy premium';
+          Alert.alert('Lỗi', msg);
+          console.log(msg);
+        },
+      }
+    );
+  };
 
   return (
     <ThreeSection
@@ -112,8 +134,7 @@ const ProfileScreen = () => {
             className={`border-border-dark my-1 w-full border-2`}
             textStyle={`uppercase`}
             onPress={() => {
-              //resetPremium();
-              // DevSettings.reload();
+              onsubmit();
             }}
           />
         </View>

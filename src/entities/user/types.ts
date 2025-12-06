@@ -6,6 +6,7 @@ export type User = {
   dob?: string;
   streak: number;
   coins: number;
+  premium: PremiumResponse | null;
 };
 
 export type Premium = {

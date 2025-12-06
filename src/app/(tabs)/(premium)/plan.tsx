@@ -1,8 +1,12 @@
 // Sử dụng icon từ expo (hoặc thư viện bạn đang dùng)
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
+import { router } from 'expo-router';
 import React from 'react';
+import { Alert } from 'react-native';
 
+import { useActivatePremium } from '@/entities/user/hook/usePremium';
+import { useUserStore } from '@/entities/user/useUserStore';
 import { useHideTabBar } from '@/shared/hook/useHideTabBar';
 import { Image, ScrollView, Text, TouchableOpacity, View } from '@/shared/ui';
 import { GradientView } from '@/shared/ui/GradientView/GradientView';
@@ -122,12 +126,35 @@ const PlanCard = ({ item }: PlanCardProps) => {
 };
 
 export default function PremiumPlanScreen() {
+  const { mutate: activate } = useActivatePremium();
+  const profile = useUserStore((state) => state.user);
+
   useHideTabBar();
+  const onSubmit = () => {
+    activate(
+      { userId: profile?.id!, days: 30 },
+      {
+        onSuccess: (premium) => {
+          useUserStore.getState().updateUser({ premium });
+
+          console.log('Premium result:', premium);
+          Alert.alert('Thành công', 'Kích hoạt premium thành công!');
+          router.replace('/(tabs)');
+        },
+
+        onError: (err: any) => {
+          const message = err?.response?.data?.error || 'Lỗi kích hoạt';
+          console.log(message);
+          Alert.alert('Lỗi', message);
+        },
+      }
+    );
+  };
 
   return (
     <View className="flex-1">
       <GradientView
-        colors={['#F8AAD3', '#CAB9FC']} // Thêm một màu nữa cho mượt hơn
+        colors={['#F8AAD3', '#CAB9FC']}
         containerClassName="h-full w-full"
         className="h-full pt-4"
         start={{ x: 0.5, y: 0 }}
@@ -135,7 +162,7 @@ export default function PremiumPlanScreen() {
         pointerEvents="box-none"
       >
         <TextGradient
-          content="Premium" // Đổi text một chút cho rõ nghĩa
+          content="Premium"
           colors={['#C68900', '#FFFFFF', '#FFD36B']}
           className="mt-5 text-center font-baloo text-3xl tracking-widest drop-shadow-md"
         />
@@ -146,7 +173,7 @@ export default function PremiumPlanScreen() {
         <ScrollView
           className="flex-1 px-5"
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{ paddingBottom: 100 }} // Tạo khoảng trống ở dưới để không bị nút che
+          contentContainerStyle={{ paddingBottom: 100 }}
         >
           {PLAN_DATA.map((item) => (
             <PlanCard key={item.id} item={item} />
@@ -159,7 +186,7 @@ export default function PremiumPlanScreen() {
             className={`my-1`}
             textStyle={`uppercase`}
             onPress={() => {
-              //
+              onSubmit();
             }}
           />
         </View>
