@@ -2,11 +2,14 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
+import { type Premium } from '../types';
+
 export type UserProgress = {
   checkin: number;
   app: number;
   lesson: number;
   game: number;
+  premium?: Premium;
 };
 
 type ProgressDict = Record<string, UserProgress>;
@@ -33,10 +36,9 @@ export const useProgressStore = create<ProgressState>()(
       progress: {},
       lastResetDate: null,
 
-      // Cập nhật progress theo userId
       setProgress: (userId, data) =>
         set((state) => {
-          const current = state.progress[userId] ?? emptyProgress;
+          const current = state.progress[userId] ?? { ...emptyProgress };
 
           return {
             progress: {
@@ -49,19 +51,16 @@ export const useProgressStore = create<ProgressState>()(
           };
         }),
 
-      // Reset toàn bộ user về 0
       resetAll: () =>
         set(() => ({
           progress: {},
-          lastResetDate: new Date().toISOString().substring(0, 10), // YYYY-MM-DD
+          lastResetDate: new Date().toISOString().substring(0, 10),
         })),
 
-      // Reset nếu qua ngày mới
       ensureDailyReset: () => {
         const today = new Date().toISOString().substring(0, 10);
         const last = get().lastResetDate;
 
-        // lần đầu chạy app → set ngày hiện tại, KHÔNG reset
         if (last === null) {
           set({ lastResetDate: today });
           return;
@@ -81,21 +80,8 @@ export const useProgressStore = create<ProgressState>()(
   )
 );
 
-//dung
-
-// useEffect(() => {
-//   useProgressStore.getState().ensureDailyReset();
-// }, []);
-
-// const { setProgress } = useProgressStore();
-
-// setProgress(userId, { checkin: 5 });
-
-// const progress = useProgressStore((s) => s.progress[userId]);
-
-// Nếu user chưa có, bạn sẽ nhận undefined → bạn có thể fallback:
-
-// const p = progress ?? emptyProgress;.
-
 export const useUserProgress = (userId: string | undefined) =>
-  useProgressStore((s) => (userId ? s.progress[userId] : undefined));
+  useProgressStore((s) => {
+    if (!userId) return { ...emptyProgress };
+    return s.progress[userId] ?? { ...emptyProgress };
+  });

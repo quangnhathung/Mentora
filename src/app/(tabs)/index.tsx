@@ -60,6 +60,7 @@ export default function Home() {
   if (__DEV__) {
     //return <Redirect href="/(tabs)/(discover)" />;
     //return <Redirect href="/(tabs)/(mission)/congra" />;
+    //return <Redirect href="/(tabs)/(premium)/plan" />;
   }
 
   return (

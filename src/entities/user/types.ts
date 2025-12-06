@@ -7,3 +7,14 @@ export type User = {
   streak: number;
   coins: number;
 };
+
+export type Premium = {
+  isActive?: boolean;
+  expires_at?: string;
+};
+
+export type PremiumResponse = {
+  id: number;
+  user_id: number;
+  expires_at: string;
+};

@@ -21,7 +21,6 @@ const DiscoverInfoScreen = () => {
   );
   const { data: topics, isLoading, isError, error, isFetching } = useTopics();
 
-  console.log('topics:', topics);
   console.log('isLoading:', isLoading, 'isFetching:', isFetching);
   console.log('isError:', isError, 'error:', error);
 

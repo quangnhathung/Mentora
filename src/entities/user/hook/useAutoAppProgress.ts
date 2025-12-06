@@ -7,6 +7,7 @@ import { useUserStore } from '@/entities/user/useUserStore';
 
 export const useAutoAppProgress = () => {
   const profile = useUserStore((state) => state.user);
+  const updateProfile = useUserStore((state) => state.updateUser);
   const { setProgress } = useProgressStore();
   const userId = profile?.id;
 
@@ -47,8 +48,9 @@ export const useAutoAppProgress = () => {
               data: { coins: profile.coins + 3 },
             },
             {
-              onSuccess: () => {
+              onSuccess: (data) => {
                 setProgress(String(profile.id), { game: 1 });
+                updateProfile({ coins: data.coins });
               },
               onError: (err: any) => {
                 Alert.alert('Update failed', err.response?.data?.error ?? 'UNKNOWN ERROR');

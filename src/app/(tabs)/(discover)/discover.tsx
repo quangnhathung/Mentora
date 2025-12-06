@@ -1,8 +1,9 @@
 import { router } from 'expo-router';
 import { vars } from 'nativewind';
 import React, { useMemo } from 'react';
-import { Image, Pressable, ScrollView, Text, View } from 'react-native';
+import { ActivityIndicator, Image, Pressable, ScrollView, Text, View } from 'react-native';
 
+import { useMissionsStore } from '@/entities/mission/hook/useMissionStore';
 import { mockTopics } from '@/entities/topic/mock';
 import { useTopics } from '@/entities/topic/useTopic';
 import { translate } from '@/shared/lib';
@@ -17,24 +18,8 @@ import { MockMisson } from '@/widgets/misson/DaillyMisson';
 
 const DiscoverScreen = () => {
   const { data: topics, isLoading, isError, error, isFetching } = useTopics();
-
-  console.log('topics:', topics);
-  console.log('isLoading:', isLoading, 'isFetching:', isFetching);
-  console.log('isError:', isError, 'error:', error);
-
+  const { data } = useMissionsStore();
   const TopicData = topics ?? mockTopics;
-  const moderateSize = useMemo(
-    () =>
-      vars({
-        '--s-circle-progress': `${moderateScale(125)}px`,
-      }),
-    []
-  );
-
-  const handlePress = () => {
-    router.push('/(discover)/search');
-  };
-
   const topicChunks = useMemo(() => {
     const chunks = [];
     for (let i = 0; i < TopicData.length; i += 2) {
@@ -42,6 +27,31 @@ const DiscoverScreen = () => {
     }
     return chunks;
   }, [TopicData]);
+  const moderateSize = useMemo(
+    () =>
+      vars({
+        '--s-circle-progress': `${moderateScale(125)}px`,
+      }),
+    []
+  );
+  if (isLoading) return <ActivityIndicator />;
+
+  // fallback nếu API lỗi / không có dữ liệu
+  const missions = !data || data.length === 0 || isError ? MockMisson : data;
+
+  console.log(
+    'Topic: isLoading:',
+    isLoading,
+    'isFetching:',
+    isFetching,
+    'isError:',
+    isError,
+    'error:',
+    error
+  );
+  const handlePress = () => {
+    router.push('/(discover)/search');
+  };
 
   return (
     <TwoSectionHeader
@@ -60,7 +70,7 @@ const DiscoverScreen = () => {
               contentContainerStyle={{ paddingHorizontal: 16, gap: 12 }}
               className="w-full"
             >
-              {MockMisson.map((item) => (
+              {missions.map((item) => (
                 <View key={item.id} className="w-[340px]">
                   <MissionBlock misson={item} />
                 </View>

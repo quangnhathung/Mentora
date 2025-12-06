@@ -1,6 +1,6 @@
 import { client } from '@/shared/api/common/client';
 
-import { type User } from './types';
+import { type PremiumResponse, type User } from './types';
 
 export type UpdateProfileReq = {
   name?: string;
@@ -12,5 +12,15 @@ export type UpdateProfileReq = {
 
 export async function updateProfile(userId: number, req: UpdateProfileReq): Promise<User> {
   const res = await client.patch(`/auth/profile/${userId}`, req);
+  return res.data;
+}
+
+export type ActivatePremiumReq = {
+  userId: number;
+  days: number;
+};
+
+export async function activatePremium(data: ActivatePremiumReq): Promise<PremiumResponse> {
+  const res = await client.post('/premium/activate', data);
   return res.data;
 }

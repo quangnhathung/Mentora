@@ -5,12 +5,14 @@ import React, { useState } from 'react';
 import { useMemo } from 'react';
 import { ActivityIndicator, Alert, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
+import { useProgressStore } from '@/entities/user/hook/useProgressStore';
 import { register as apiRegister, type RegisterReq } from '@/entities/user/register';
 import { moderateScale } from '@/shared/lib/helpers/scale';
 import { ThreeSection } from '@/shared/ui/layouts/sections/ThreeSection';
 
 export default function RegisterScreen() {
   const router = useRouter();
+  const { setProgress } = useProgressStore();
   const moderateSize = useMemo(
     () =>
       vars({
@@ -27,7 +29,13 @@ export default function RegisterScreen() {
 
   const mutation = useMutation({
     mutationFn: (body: RegisterReq) => apiRegister(body),
-    onSuccess: (_data) => {
+    onSuccess: (data) => {
+      setProgress(data.ID, {
+        checkin: 0,
+        app: 0,
+        lesson: 0,
+        game: 0,
+      });
       router.push('/congra');
     },
     onError: (err: any) => {

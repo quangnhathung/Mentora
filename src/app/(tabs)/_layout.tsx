@@ -114,6 +114,7 @@ export default function TabLayout() {
 
         {/* screen ẩn */}
         <Tabs.Screen name="style" options={{ href: null }} />
+        <Tabs.Screen name="(premium)" options={{ href: null }} />
       </Tabs>
     </View>
   );

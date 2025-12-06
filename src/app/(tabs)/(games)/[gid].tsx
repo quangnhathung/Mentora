@@ -20,6 +20,7 @@ const GamesScreen = () => {
   const profile = useUserStore((state) => state.user);
   const { mutate: update } = useUpdateProfile();
   const { setProgress } = useProgressStore();
+  const updateUserStore = useUserStore((state) => state.updateUser);
 
   useEffect(() => {
     if (!profile?.id) return;
@@ -30,8 +31,10 @@ const GamesScreen = () => {
         data: { coins: profile.coins + 5 },
       },
       {
-        onSuccess: () => {
+        onSuccess: (resp) => {
+          console.log('on update game mission: ', resp);
           setProgress(String(profile.id), { game: 1 });
+          updateUserStore({ coins: resp.coins });
         },
         onError: (err: any) => {
           Alert.alert('Update failed', err.response?.data?.error ?? 'UNKNOWN ERROR');

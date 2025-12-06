@@ -10,6 +10,7 @@ export type User = {
   dob?: string;
   streak: number;
   coins: number;
+  premium: boolean;
   [key: string]: any;
 };
 

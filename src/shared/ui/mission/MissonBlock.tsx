@@ -66,7 +66,7 @@ export const MissionBlock = ({ misson, isChanglle }: props) => {
 
         <View className="h-full flex-1 flex-col justify-between p-3 py-4 pt-0">
           <View className="w-full">
-            <Text className="m-0 p-0 pr-5 font-baloo text-[18px] dark:text-white">
+            <Text className="m-0 p-0 pr-5 font-baloo text-[18px] leading-tight dark:text-white">
               {misson.title}
             </Text>
 

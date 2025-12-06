@@ -6,9 +6,15 @@ import { ProgressBar, Text } from '@/shared/ui';
 import BottomBorder from '@/shared/ui/BottomBorder';
 import { GradientView } from '@/shared/ui/GradientView/GradientView';
 
+const emptyProgress = {
+  app: 0,
+  checkin: 0,
+  game: 0,
+  lesson: 0,
+};
 export const ProgressBanner = () => {
   const profile = useUserStore((state) => state.user);
-  const progress = useProgressStore((s) => s.progress[profile?.id!]);
+  const progress = useProgressStore((s) => s.progress[profile?.id!]) ?? emptyProgress;
   const targetProggress = 4;
   var currentProgress = 0;
 
