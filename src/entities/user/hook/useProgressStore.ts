@@ -95,4 +95,7 @@ export const useProgressStore = create<ProgressState>()(
 
 // Nếu user chưa có, bạn sẽ nhận undefined → bạn có thể fallback:
 
-// const p = progress ?? emptyProgress;
+// const p = progress ?? emptyProgress;.
+
+export const useUserProgress = (userId: string | undefined) =>
+  useProgressStore((s) => (userId ? s.progress[userId] : undefined));

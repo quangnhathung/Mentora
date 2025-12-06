@@ -2,6 +2,7 @@ import { useRouter } from 'expo-router';
 import React, { useRef } from 'react';
 import { View } from 'react-native';
 
+import { useProgressStore } from '@/entities/user/hook/useProgressStore';
 import { useUserStore } from '@/entities/user/useUserStore';
 import { LanguageModal, type LanguageModalRef } from '@/features/profile-setting/ui/LanguageModal';
 import { ThemeModal, type ThemeModalRef } from '@/features/profile-setting/ui/ThemeModal';
@@ -49,6 +50,7 @@ export const ProfileMenu = ({ data, isLoading }: ProfileMenuProps) => {
         storage.clearAll();
         useAuthStore.getState().logout();
         useUserStore.getState().logout();
+        useProgressStore.getState().resetAll();
         break;
       case 'logout':
         useAuthStore.getState().logout();

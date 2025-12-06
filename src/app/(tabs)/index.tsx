@@ -4,6 +4,7 @@ import { vars } from 'nativewind';
 import React, { useMemo } from 'react';
 
 import { mockTopics } from '@/entities/topic/mock';
+import { useAutoAppProgress } from '@/entities/user/hook/useAutoAppProgress';
 //import { InteractionManager } from 'react-native';
 //import { useLeaderboardData } from '@/entities/leaderboard/model';
 //import { useLeaderboardStore } from '@/entities/leaderboard/useLeaderboardStore';
@@ -24,6 +25,7 @@ export default function Home() {
     []
   );
   const randomTopic = mockTopics[Math.floor(Math.random() * mockTopics.length)];
+  useAutoAppProgress();
   //const qc = useQueryClient();
 
   // useMissionData.getMissionList();

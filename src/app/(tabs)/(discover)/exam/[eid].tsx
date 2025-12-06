@@ -1,9 +1,13 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { vars } from 'nativewind';
 import React, { useMemo } from 'react';
+import { Alert } from 'react-native';
 
 import { mockTopics } from '@/entities/topic/mock';
 import { useTopics } from '@/entities/topic/useTopic';
+import { useProgressStore } from '@/entities/user/hook/useProgressStore';
+import { useUpdateProfile } from '@/entities/user/hook/useUpdateProfile';
+import { useUserStore } from '@/entities/user/useUserStore';
 import { useHideTabBar } from '@/shared/hook/useHideTabBar';
 import { moderateScale } from '@/shared/lib/helpers/scale';
 import { withDeviceLayout } from '@/shared/lib/hocs/withDeviceLayout';
@@ -15,6 +19,11 @@ import LessonDetailScreen from '@/widgets/topic/exercise';
 
 const ExerciseScreen = () => {
   useHideTabBar();
+  const profile = useUserStore((state) => state.user);
+  const updateUserStore = useUserStore((state) => state.updateUser);
+  const { mutate: update } = useUpdateProfile();
+  const progress = useProgressStore((s) => s.progress[profile?.id!]);
+  const { setProgress } = useProgressStore();
   const moderateSize = useMemo(
     () =>
       vars({
@@ -25,7 +34,7 @@ const ExerciseScreen = () => {
 
   const { data: topics, isLoading, isError, error, isFetching } = useTopics();
 
-  console.log('topics:', topics);
+  //console.log('topics:', topics);
   console.log('isLoading:', isLoading, 'isFetching:', isFetching);
   console.log('isError:', isError, 'error:', error);
 
@@ -36,6 +45,67 @@ const ExerciseScreen = () => {
   if (!lesson) {
     return <Text>Lesson không tồn tại</Text>;
   }
+
+  const onComplete = () => {
+    update(
+      {
+        userId: profile?.id!,
+        data: { coins: profile?.coins! + lesson.reward! },
+      },
+      {
+        onSuccess: (updatedUser) => {
+          console.log('on fetch update user: ', updatedUser);
+          updateUserStore({
+            name: updatedUser.name,
+            avatar: updatedUser.avatar,
+            dob: updatedUser.dob,
+            email: updatedUser.email,
+            streak: updatedUser.streak,
+            coins: updatedUser.coins,
+          });
+
+          let Crprogress = progress.lesson + 1;
+
+          if (Crprogress === 3) {
+            update(
+              {
+                userId: profile?.id!,
+                data: { coins: profile?.coins! + 5 },
+              },
+              {
+                onSuccess: (updatedUser1) => {
+                  console.log('update coin for lesson misson +5 ');
+                  updateUserStore({
+                    name: updatedUser1.name,
+                    avatar: updatedUser1.avatar,
+                    dob: updatedUser1.dob,
+                    email: updatedUser1.email,
+                    streak: updatedUser1.streak,
+                    coins: updatedUser1.coins,
+                  });
+                },
+                onError: (err: any) => {
+                  Alert.alert('Update failed', err.response?.data?.error ?? 'UNKNOWN ERROR');
+                },
+              }
+            );
+          }
+
+          var value = Crprogress > 3 ? 3 : Crprogress;
+          setProgress(String(profile?.id), { lesson: value });
+          router.push({
+            pathname: '/(tabs)/(discover)/congra',
+            params: { topicId: String(topic?.id) },
+          });
+        },
+        onError: (err: any) => {
+          Alert.alert('Update failed', err.response?.data?.error ?? 'UNKNOWN ERROR');
+          router.replace('/(tabs)/(discover)/discover');
+        },
+      }
+    );
+  };
+
   return (
     <TwoSectionHeader
       edges={[]}
@@ -58,7 +128,7 @@ const ExerciseScreen = () => {
           <View />
         </View>
       }
-      Body={<LessonDetailScreen lesson={lesson} onComplete={() => {}} />}
+      Body={<LessonDetailScreen lesson={lesson} onComplete={onComplete} />}
     />
   );
 };

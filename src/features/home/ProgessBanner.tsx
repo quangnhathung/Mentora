@@ -1,5 +1,6 @@
 import { View } from 'react-native';
 
+import { useProgressStore } from '@/entities/user/hook/useProgressStore';
 import { useUserStore } from '@/entities/user/useUserStore';
 import { ProgressBar, Text } from '@/shared/ui';
 import BottomBorder from '@/shared/ui/BottomBorder';
@@ -7,6 +8,15 @@ import { GradientView } from '@/shared/ui/GradientView/GradientView';
 
 export const ProgressBanner = () => {
   const profile = useUserStore((state) => state.user);
+  const progress = useProgressStore((s) => s.progress[profile?.id!]);
+  const targetProggress = 4;
+  var currentProgress = 0;
+
+  if (progress.app === 30) currentProgress += 1;
+  if (progress.checkin === 1) currentProgress += 1;
+  if (progress.game === 1) currentProgress += 1;
+  if (progress.lesson === 3) currentProgress += 1;
+
   return (
     <BottomBorder className={`border-custom-5 rounded-b-2xl`}>
       <GradientView
@@ -23,9 +33,11 @@ export const ProgressBanner = () => {
           <Text className="dark:text-white">Today learning journey</Text>
           <View className={`flex-row justify-between`}>
             <Text className="my-1 text-xs dark:text-white">{profile?.name ?? 'Guest'}</Text>
-            <Text className="my-1 text-xs dark:text-cyan">{'0'}%</Text>
+            <Text className="my-1 text-xs dark:text-cyan">
+              {(currentProgress / targetProggress) * 100}%
+            </Text>
           </View>
-          <ProgressBar initialProgress={0} />
+          <ProgressBar initialProgress={(currentProgress / targetProggress) * 100} />
         </View>
         {/* <ProgressBar pct={data.progressPct} className="mt-2" /> */}
       </GradientView>

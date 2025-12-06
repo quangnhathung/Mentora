@@ -38,16 +38,16 @@ export const TopicBlock = ({
     <TouchableOpacity
       activeOpacity={0.9}
       onPress={onPress}
-      className={`${isScale ? 'w-full' : 'w-[343px]'} h-[140px] shadow-sm`}
+      className={`${isScale ? 'w-full' : 'w-[343px]'} shadow-sm`}
     >
       <GradientView
         colors={['#8789EF', '#25B9D2']}
         start={{ x: 0, y: 0.5 }}
         end={{ x: 1, y: 0.5 }}
-        containerClassName="relative h-full w-full items-center overflow-hidden rounded-2xl border"
-        className="size-full flex-row p-3"
+        containerClassName="relative w-full items-center overflow-hidden rounded-2xl border"
+        className="w-full flex-row p-3"
       >
-        <View className="mr-4 h-full w-24 items-center justify-center rounded-full bg-white/20 p-1">
+        <View className="mr-4 size-24 items-center justify-center rounded-full bg-white/20 p-1">
           <View className="size-full overflow-hidden rounded-full bg-white">
             <Image
               source={{
