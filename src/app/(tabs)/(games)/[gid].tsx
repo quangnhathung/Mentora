@@ -2,7 +2,6 @@ import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useMemo, useRef } from 'react';
 import { Alert, View } from 'react-native';
 
-import { Games } from '@/entities/games/types/mock';
 import { type instructions } from '@/entities/games/types/types';
 import { GameTemplate } from '@/entities/games/ui/GameTemplate';
 import { useProgressStore } from '@/entities/user/hook/useProgressStore';
@@ -50,8 +49,7 @@ const GamesScreen = () => {
     }),
     [name, desc]
   );
-  const GameInfo = Games[Number(gid) - 1];
-  console.log(GameInfo);
+  //const GameInfo = Games[Number(gid) - 1];
 
   return (
     <ThreeSection

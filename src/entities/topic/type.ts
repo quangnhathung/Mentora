@@ -48,3 +48,26 @@ export type Topic = {
 
   lessons: Lesson[];
 };
+
+export type UserLessonStatus = 'in_progress' | 'completed';
+
+export interface UserLesson {
+  userId: number;
+  lessonId: string;
+  status: UserLessonStatus;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface LessonStatusResponse {
+  lesson: Lesson;
+  userLesson: UserLesson;
+  message: string;
+}
+
+export interface UserLessonsListItem {
+  lesson: Lesson;
+  UserLesson: UserLesson;
+}
+
+export type UserLessonsListResponse = UserLessonsListItem[];

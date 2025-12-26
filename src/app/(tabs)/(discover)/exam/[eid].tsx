@@ -1,3 +1,4 @@
+import { useQueryClient } from '@tanstack/react-query';
 import { router, useLocalSearchParams } from 'expo-router';
 import { vars } from 'nativewind';
 import React, { useMemo } from 'react';
@@ -26,6 +27,7 @@ const ExerciseScreen = () => {
   const progress = useProgressStore((s) => s.progress[profile?.id!]);
   const { setProgress } = useProgressStore();
   const { mutate: updateStatus } = useUpdateLessonStatus();
+  const queryClient = useQueryClient();
 
   const moderateSize = useMemo(
     () =>
@@ -38,8 +40,9 @@ const ExerciseScreen = () => {
   const { data: topics, isLoading, isError, error, isFetching } = useTopics();
 
   //console.log('topics:', topics);
-  console.log('isLoading:', isLoading, 'isFetching:', isFetching);
-  console.log('isError:', isError, 'error:', error);
+  console.log('\n');
+  console.log('Topic isLoading:', isLoading, 'isFetching:', isFetching);
+  console.log('isError:', isError, 'error:', error, '\n');
 
   const TopicData = topics ?? mockTopics;
   const { eid, tid } = useLocalSearchParams();
@@ -101,13 +104,20 @@ const ExerciseScreen = () => {
             }
             //cap nhat trang thai cho lesson hien tai
             updateStatus(
-              { lessonId: lesson.id, data: { status: 'completed' } },
+              { lessonId: lesson.id, data: { status: 'completed', userId: profile?.id! } },
               {
                 onSuccess: (lesson) => {
-                  console.log('Lesson updated:', lesson.status);
+                  console.log('Lesson updated:', lesson.message);
+                  queryClient.invalidateQueries({
+                    queryKey: ['user-lessons', profile?.id],
+                  });
+                },
+                onError: (err) => {
+                  console.log('Err: ', err);
                 },
               }
             );
+
             var value = Crprogress > 3 ? 3 : Crprogress;
             setProgress(String(profile?.id), { lesson: value });
             router.push({
@@ -123,8 +133,6 @@ const ExerciseScreen = () => {
       );
     }
   };
-
-  console.log(lesson);
 
   return (
     <TwoSectionHeader

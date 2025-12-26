@@ -6,7 +6,6 @@ import { LessonItem } from '@/shared/Lesson';
 import { ScrollView, View } from '@/shared/ui';
 import AdBanner from '@/shared/ui/Ads/AdBanner';
 import { PremiumBanner } from '@/widgets/profile/ProfilePremiumBanner';
-
 type Props = {
   data: Topic;
   className?: string;

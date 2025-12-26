@@ -3,14 +3,12 @@
 </p>
 
 <h1 align="center">
-  Mahtutor Mobile App
+  Mentora Mobile App
 </h1>
 
 ![expo](https://img.shields.io/github/package-json/dependency-version/obytes/react-native-template-obytes/expo?label=expo) ![react-native](https://img.shields.io/github/package-json/dependency-version/obytes/react-native-template-obytes/react-native?label=react-native)
 
 📱 A template for your next React Native project 🚀, Made with developer experience and performance first: Expo, TypeScript, TailwindCSS, Husky, Lint-Staged, expo-router, react-query, react-hook-form, I18n.
-
-> Welcome to the Mahtutor Mobile App's Expo
 
 ## 📚 Documentation
 

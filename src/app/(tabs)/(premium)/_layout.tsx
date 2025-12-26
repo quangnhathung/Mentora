@@ -31,6 +31,7 @@ export default function PremiumLayout() {
           // headerRight: () => headerRight(),
         }}
       />
+      <Stack.Screen name="success" options={{ headerShown: false }} />
     </Stack>
   );
 }

@@ -3,9 +3,11 @@
 import { vars } from 'nativewind';
 import React, { useMemo } from 'react';
 
+import { useLessonProgressData } from '@/entities/topic/hook/useLessonProgressData';
 import { mockTopics } from '@/entities/topic/mock';
 import { useTopics } from '@/entities/topic/useTopic';
 import { useAutoAppProgress } from '@/entities/user/hook/useAutoAppProgress';
+import { useUserStore } from '@/entities/user/useUserStore';
 //import { InteractionManager } from 'react-native';
 //import { useLeaderboardData } from '@/entities/leaderboard/model';
 //import { useLeaderboardStore } from '@/entities/leaderboard/useLeaderboardStore';
@@ -18,7 +20,12 @@ import { TopicLessonList } from '@/widgets/topic/component/LessonList';
 
 export default function Home() {
   //const home = usePathData.getCurrentPath();
+  const profile = useUserStore((state) => state.user);
   const { data: topics } = useTopics();
+
+  const { isLoading, error } = useLessonProgressData(Number(profile?.id));
+
+  console.log('Isloadsing: ', isLoading, 'Error: ', error);
 
   const moderateSize = useMemo(
     () =>
@@ -27,6 +34,7 @@ export default function Home() {
       }),
     []
   );
+
   const TopicData = topics ?? mockTopics;
   const randomTopic = TopicData[Math.floor(Math.random() * TopicData.length)];
   useAutoAppProgress();
@@ -35,7 +43,7 @@ export default function Home() {
   if (__DEV__) {
     //return <Redirect href="/(tabs)/(discover)" />;
     //return <Redirect href="/(tabs)/(mission)/congra" />;
-    //return <Redirect href="/(tabs)/(premium)/plan" />;
+    //return <Redirect href="/(tabs)/(premium)/success" />;
   }
 
   return (

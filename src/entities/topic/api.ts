@@ -1,7 +1,6 @@
 import { client } from '@/shared/api/common/client';
 
-import { type Topic } from './type';
-import { type Lesson } from './type';
+import { type LessonStatusResponse, type Topic, type UserLessonsListResponse } from './type';
 
 // robust fetch: chấp nhận nhiều shape trả về khác nhau
 async function normalizeResponseToTopics(data: unknown): Promise<Topic[]> {
@@ -31,18 +30,18 @@ export async function fetchTopics(): Promise<Topic[]> {
 
 export type UpdateLessonStatusReq = {
   status: string;
+  userId: number;
 };
 
-/**
- * Cập nhật status của lesson
- * @param lessonId ID của lesson
- * @param data { status: string }
- * @returns Lesson đã cập nhật
- */
 export async function updateLessonStatus(
   lessonId: string,
-  data: UpdateLessonStatusReq
-): Promise<Lesson> {
-  const res = await client.put(`/lessons/${lessonId}/status`, data);
+  req: UpdateLessonStatusReq
+): Promise<LessonStatusResponse> {
+  const res = await client.put(`/lessons/${lessonId}/status`, req);
+  return res.data;
+}
+
+export async function getUserLessons(userId: number): Promise<UserLessonsListResponse> {
+  const res = await client.get(`/users/lessons/${userId}`);
   return res.data;
 }

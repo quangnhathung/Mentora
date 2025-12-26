@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { type Lesson, type LessonStatus } from '@/entities/topic/type';
+import { useLessonProgressStore } from '@/entities/topic/useUserLessonStore';
 import { Image, Text, TouchableOpacity, View } from '@/shared/ui';
 
 import { SvgIcon } from './ui/SvgIcon';
@@ -54,7 +55,11 @@ interface LessonItemProps {
 
 export const LessonItem: React.FC<LessonItemProps> = ({ lesson, onPress }) => {
   const { status, title, description, reward, thumbnail } = lesson;
-  const config = getStatusConfig(status);
+  const mapping = useLessonProgressStore((s) => s.mapByLessonId);
+
+  const userLessonStatus = mapping[lesson.id]?.UserLesson?.status ?? status;
+
+  const config = getStatusConfig(userLessonStatus);
 
   if (config.isComingSoon) {
     return (

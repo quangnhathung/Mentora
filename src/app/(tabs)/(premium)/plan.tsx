@@ -138,12 +138,12 @@ export default function PremiumPlanScreen() {
           useUserStore.getState().updateUser({ premium });
 
           console.log('Premium result:', premium);
-          Alert.alert('Thành công', 'Kích hoạt premium thành công!');
-          router.replace('/(tabs)');
+          //Alert.alert('Thành công', 'Kích hoạt premium thành công!');
+          router.replace('/(tabs)/(premium)/success');
         },
 
         onError: (err: any) => {
-          const message = err?.response?.data?.error || 'Lỗi kích hoạt';
+          const message = err?.response?.data?.error || 'Lỗi kích hoạt, vui lòng thử lại sau';
           console.log(message);
           Alert.alert('Lỗi', message);
         },

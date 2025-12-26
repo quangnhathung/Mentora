@@ -18,8 +18,7 @@ export function TopicScreen({ data, className }: props) {
       <View className="w-full flex-row justify-between">
         <Pressable
           onPress={() => {
-            console.log('push');
-            router.push('/(tabs)/(discover)/discover');
+            router.replace('/(tabs)/(discover)/discover');
           }}
           className="left-3 top-0"
         >

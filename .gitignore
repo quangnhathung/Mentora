@@ -26,3 +26,5 @@ expo-env.d.ts
 *.aab
 design
 assets/figma
+
+.env.development

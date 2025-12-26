@@ -55,6 +55,7 @@ export const ProfileMenu = ({ data, isLoading }: ProfileMenuProps) => {
       case 'logout':
         useAuthStore.getState().logout();
         useUserStore.getState().logout();
+
         break;
     }
   };

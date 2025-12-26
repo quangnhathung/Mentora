@@ -87,7 +87,7 @@ export default function LoginScreen() {
               onChangeText={setPassword}
               placeholder="Mật khẩu"
               secureTextEntry={!showPassword}
-              className="flex-1 py-2"
+              className="flex-1 py-2 dark:text-black"
               autoCapitalize="none"
             />
             <TouchableOpacity onPress={() => setShowPassword((s) => !s)} className="px-2">
