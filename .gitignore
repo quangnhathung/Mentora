@@ -28,3 +28,6 @@ design
 assets/figma
 
 .env.development
+
+.env
+.env.*
